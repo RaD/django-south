@@ -1,0 +1,412 @@
+# Russian translations for South package.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-04 23:35\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+# 4864bf0c19464cb9a6551cbb481de479
+#: ../../customfields.rst:5
+msgid "Custom Fields"
+msgstr ""
+
+# f786bdc9aea142f7bbc5bd9a23780ac4
+#: ../../customfields.rst:8
+msgid "The Problem"
+msgstr ""
+
+# 0f66a8437e8049fd9d12bb1099ad4f1a
+#: ../../customfields.rst:10
+msgid ""
+"South stores field definitions by storing both their class and the arguments "
+"that need to be passed to the field's constructor, so it can recreate the "
+"field instance simply by calling the class with the stored arguments."
+msgstr ""
+
+# 925ad07e8d1e48a3aa0e1bd2b1a62876
+#: ../../customfields.rst:14
+msgid ""
+"However, since Python offers no way to get the arguments used in a class' "
+"constructor directly, South uses something called the *model introspector* "
+"to work out what arguments fields were passed. This knows what variables the "
+"arguments are stored into on the field, and using this knowledge, can "
+"reconstruct the arguments directly."
+msgstr ""
+
+# ecde2d71caa14c1a9d2db5a5371a6140
+#: ../../customfields.rst:20
+msgid ""
+"This isn't the case for custom fields [#]_, however; South has never seen "
+"them before, and it can't guess at which variables mean what arguments, or "
+"what arguments are even needed; it only knows the rules for Django's "
+"internal fields and those of common third-party apps (those which are either "
+"South-aware, or which South ships with a rules module for, such as django-"
+"tagging)."
+msgstr ""
+
+# ddc64e50cb834b8da91ae925d5f9d07c
+#: ../../customfields.rst:26
+msgid ""
+"'Custom Fields' in this context refers to any field that is not part of "
+"Django's core. GeoDjango fields are part of the core, but ones in third-"
+"party apps are 'custom'. Note also that a field is considered custom even if "
+"it inherits directly from a core field and doesn't override anything; "
+"there's no way for South to reliably tell that it does so."
+msgstr ""
+
+# 0447c37076b3441eb312820e58ab8799
+#: ../../customfields.rst:34
+msgid "The Solution"
+msgstr ""
+
+# f6c3483e53af41fda5d5f864b162ed7a
+#: ../../customfields.rst:36
+msgid ""
+"There are two ways to tell South how to work with a custom field; if it's "
+"similar in form to other fields (in that it has a set type and a few "
+"options) you'll probably want to :ref:`extend South's introspection rules "
+"<extending-introspection>`."
+msgstr ""
+
+# 1d2ca0c124cc4eee89495674a467e5ec
+#: ../../customfields.rst:41
+msgid ""
+"However, if it's particularly odd - such as a field which takes fields as "
+"arguments, or dynamically changes based on other factors - you'll probably "
+"find it easier to :ref:`add a south_field_triple method <south-field-"
+"triple>`."
+msgstr ""
+
+# fcf3067a3abb4b07949f811c9a980872
+#: ../../customfields.rst:49
+msgid "Extending Introspection"
+msgstr ""
+
+# a944758d3afb4732a86e4ad966e32cfb
+#: ../../customfields.rst:51
+msgid "(Note: This is also featured in the tutorial in :ref:`tutorial-part-4`)"
+msgstr ""
+
+# be9579ffe5d94b3bbf03cc767234b099
+#: ../../customfields.rst:53
+msgid ""
+"South does the majority of its field introspection using a set of simple "
+"rules; South works out what class a field is, and then runs all rules which "
+"have been defined for either that class or a parent class of it."
+msgstr ""
+
+# 8fd98995e6b14864a6369ca7a0f2b950
+#: ../../customfields.rst:57
+msgid ""
+"This way, all of the common options (such as ``null=``) are defined against "
+"the main ``Field`` class (which all fields inherit from), while specific "
+"options (such as ``max_length``) are defined on the specific fields they "
+"apply to (in this case, ``CharField``)."
+msgstr ""
+
+# 706eabf9ffce41c7b6adaa35252a552f
+#: ../../customfields.rst:62
+msgid ""
+"If your custom field inherits from a core Django field, or another field for "
+"which there are already introspection rules, and it doesn't add any new "
+"attributes, then you probably won't have to add any rules for it, as it will "
+"inherit all those from its parents. In this case, a call like this should "
+"work::"
+msgstr ""
+
+# f73eccb607524026906fb8cb0145664b
+#: ../../customfields.rst:70
+msgid ""
+"Note that you must always specify a field as allowed, even if specifies no "
+"new rules of its own - the alternative is that South must presume all fields "
+"without any new rules specified only have the options of their parents, "
+"which is wrong some of the time."
+msgstr ""
+
+# c2b933c29fac40a5ae3b9a8583455b2e
+#: ../../customfields.rst:75
+msgid ""
+"Thus, there are two stages to adding support for your custom field to South; "
+"firstly, adding some rules for the new arguments it introduces (or possibly "
+"not adding any), and secondly, adding its field name to the list of patterns "
+"South knows are safe to introspect."
+msgstr ""
+
+# d83ba4c53ae94aa2885349b4c4a683d4
+#: ../../customfields.rst:81
+msgid "Rules"
+msgstr ""
+
+# a59aff00d0a346c2b754b6fc1efbc050
+#: ../../customfields.rst:83
+msgid ""
+"Rules are what make up the core logic of the introspector; you'll need to "
+"pass South a (possibly empty) list of them. They consist of a tuple, "
+"containing:"
+msgstr ""
+
+# 3c906ba9b3f749d789471a886c57cc1b
+#: ../../customfields.rst:86
+msgid ""
+"A tuple or list of one or more classes to which the rules apply (remember, "
+"the rules apply to the specified classes and all subclasses of them)."
+msgstr ""
+
+# 7a498d2effc345d7aae534e3142f6a3f
+#: ../../customfields.rst:89
+msgid ""
+"Rules for recovering positional arguments, in order of the arguments (you "
+"are strongly advised not to use this feature, and use keyword argument "
+"instead)."
+msgstr ""
+
+# 5c7e4d8e8e224e4ba2cae27d6a36113d
+#: ../../customfields.rst:92
+msgid ""
+"A dictionary of keyword argument rules, with the key being the name of the "
+"keyword argument, and the value being the rule."
+msgstr ""
+
+# 10d810a6efa84ee385d6aea8bffe5fb4
+#: ../../customfields.rst:95
+msgid "Each rule is itself a list or tuple with two elements:"
+msgstr ""
+
+# be28d51a30df4a9f8433efd267685025
+#: ../../customfields.rst:97
+msgid ""
+"The first element is the name of the attribute the value is taken from - if "
+"a field stored its max_length argument as ``self.max_length``, say, this "
+"would be ``\"max_length\"``."
+msgstr ""
+
+# 87ad14d392de479389c1ac0a8f16d1a4
+#: ../../customfields.rst:101
+msgid ""
+"The second element is a (possibly empty) dictionary of options describing "
+"the various different variations on handling of the value."
+msgstr ""
+
+# 88b940387e944471acfb67232c37286a
+#: ../../customfields.rst:104
+msgid ""
+"An example (this is the South rule for the many-to-one relationships in core "
+"Django)::"
+msgstr ""
+
+# 95abc670b4774635b786b3eead11441c
+#: ../../customfields.rst:120
+msgid ""
+"You'll notice that you're allowed to have dots in the attribute name; "
+"ForeignKeys, for example, store their destination model as ``self.rel.to``, "
+"so the attribute name is ``\"rel.to\"``."
+msgstr ""
+
+# 04f025ae796441a0ab18eb73010908f2
+#: ../../customfields.rst:124
+msgid ""
+"The various options are detailed below; most of them allow you to specify "
+"the default value for a parameter, so arguments can be omitted for clarity "
+"where they're not necessary."
+msgstr ""
+
+# 00594c653f9446779cebbd16161cb02c
+#: ../../customfields.rst:130
+msgid ""
+"The one special case is the ``is_value`` keyword; if this is present and "
+"True, then the first item in the list will be interpreted as the actual "
+"value, rather than the attribute path to it on the field. For example::"
+msgstr ""
+
+# 7722489772b44cd7b06ff3a5ccbf90d2
+#: ../../customfields.rst:137
+msgid "Parameters"
+msgstr ""
+
+# 86ec3ae8439f4a6e9ccaa598a08801bf
+#: ../../customfields.rst:139
+msgid ""
+"default: The default value of this field (directly as a Python object). If "
+"the value retrieved ends up being this, the keyword will be omitted from the "
+"frozen result. For example, the base Field class' \"null\" attribute has "
+"{'default':False}, so it's usually omitted, much like in the models."
+msgstr ""
+
+# 746ccbe5b6f84565918f64ceb73b0bc1
+#: ../../customfields.rst:144
+msgid ""
+"default_attr: Similar to default, but the value given is another attribute "
+"to compare to for the default. This is used in to_field above, as this "
+"attribute's default value is the other model's pk name."
+msgstr ""
+
+# d167f7a1485f46b58724dcf348e1be72
+#: ../../customfields.rst:148
+msgid ""
+"default_attr_concat: For when your default value is even more complex, "
+"default_attr_concat is a list where the first element is a format string, "
+"and the rest is a list of attribute names whose values should be formatted "
+"into the string."
+msgstr ""
+
+# a13f29bd969a4df593d0a5996aee4631
+#: ../../customfields.rst:153
+msgid ""
+"ignore_if: Specifies an attribute that, if it coerces to true, causes this "
+"keyword to be omitted. Useful for ``db_index``, which has ``{'ignore_if': "
+"'primary_key'}``, since it's always True in that case."
+msgstr ""
+
+# 3fd396c407d24606b6b76ada62df4b05
+#: ../../customfields.rst:157
+msgid ""
+"ignore_dynamics: If this is True, any value that is \"dynamic\" - such as "
+"model instances - will cause the field to be omitted instead. Used "
+"internally for the ``default`` keyword."
+msgstr ""
+
+# 4ec1d0e7acdd472c8c09ee1ba84c8407
+#: ../../customfields.rst:161
+msgid ""
+"is_value: If present, the 'attribute name' is instead used directly as the "
+"value. See :ref:`above <is-value-keyword>` for more info."
+msgstr ""
+
+# 60b69f6156be4071805a0b2bdb59a02a
+#: ../../customfields.rst:166
+msgid "Field name patterns"
+msgstr ""
+
+# ab128f189d714fe39c0d9c78b7a84ba7
+#: ../../customfields.rst:168
+msgid ""
+"The second of the two steps is to tell South that your field is now safe to "
+"introspect (as you've made sure you've added all the rules it needs)."
+msgstr ""
+
+# 77d55b8af841470dbd1ec4f7b5beb761
+#: ../../customfields.rst:171
+msgid ""
+"Internally, South just has a long list of regular expressions it checks "
+"fields' classes against; all you need to do is provide extra arguments to "
+"this list."
+msgstr ""
+
+# 9387bdd1413f4e5a9aaf6b24dcc230fe
+#: ../../customfields.rst:174
+msgid ""
+"Example (this is in the GeoDjango module South ships with, and presumes "
+"``rules`` is the rules triple you defined previously)::"
+msgstr ""
+
+# 7d6d833b6a234da7ad725301af005dfb
+#: ../../customfields.rst:180
+msgid ""
+"Additionally, you can ignore some fields completely if you know they're not "
+"needed. For example, django-taggit has a manager that actually shows up as a "
+"fake field (this makes the API for using it much nicer, but confuses South "
+"to no end). The django-taggit module we ship with contains this rule to "
+"ignore it::"
+msgstr ""
+
+# db11b4124314460e8fcc4372633f4c12
+#: ../../customfields.rst:189
+msgid "Where to put the code"
+msgstr ""
+
+# d98abf9ff51c4e5bbd4ebec07f5999c5
+#: ../../customfields.rst:191
+msgid ""
+"You need to put the call to ``add_introspection_rules`` somewhere where it "
+"will get called before South runs; it's probably a good choice to have it "
+"either in your ``models.py`` file or the module the custom fields are "
+"defined in."
+msgstr ""
+
+# fe855e9c9a844123814bb0b6f3d3e7ec
+#: ../../customfields.rst:196
+msgid "General Caveats"
+msgstr ""
+
+# 40276c93ba69490d90c7be3bac11317d
+#: ../../customfields.rst:198
+msgid ""
+"If you have a custom field which adds other fields to the model dynamically "
+"(i.e. it overrides contribute_to_class and adds more fields onto the model), "
+"you'll need to write your introspection rules appropriately, to make South "
+"ignore the extra fields at migration-freezing time, or to add a flag to your "
+"field which tells it not to make the new fields again. An example can be "
+"found `here <http://bitbucket.org/carljm/django-markitup/src/tip/markitup/"
+"fields.py#cl-68>`_."
+msgstr ""
+
+# 035e687a132b42ee8b97e15ec6806e69
+#: ../../customfields.rst:208
+msgid "south_field_triple"
+msgstr ""
+
+# 825cb7d2500e42ae9a96968b0c8e64d2
+#: ../../customfields.rst:210
+msgid ""
+"There are some cases where introspection of fields just isn't enough; for "
+"example, field classes which dynamically change their database column type "
+"based on options, or other odd things."
+msgstr ""
+
+# 67262fb5ff8649bfa2d353a3f4362827
+#: ../../customfields.rst:214
+msgid ""
+"Note: :ref:`Extending the introspector <extending-introspection>` is often "
+"far cleaner and easier than this method."
+msgstr ""
+
+# 9ba3e8e7309e4ab6ac7fb6044e4d9a1d
+#: ../../customfields.rst:217
+msgid "The method to implement for these fields is ``south_field_triple()``."
+msgstr ""
+
+# 594335ae585c48d284bc15726a3d11a3
+#: ../../customfields.rst:219
+msgid "It should return the standard triple of::"
+msgstr ""
+
+# edd89bced8f24beab83d616b170fca33
+#: ../../customfields.rst:223
+msgid ""
+"(this is the same format used by the :ref:`ORM Freezer <orm-freezing>`; "
+"South will just use your output verbatim)."
+msgstr ""
+
+# 2b139b5b5a1441a2965ecb4b42b2c6c4
+#: ../../customfields.rst:226
+msgid ""
+"Note that the strings are ones that will be passed into eval, so for this "
+"reason, a variable reference would be ``'foo'`` while a string would be "
+"``'\"foo\"'``."
+msgstr ""
+
+# 53b3f39fcc504d4584f2d5cc114cb505
+#: ../../customfields.rst:231
+msgid "Example"
+msgstr ""
+
+# de70935562ba460091527b8f3e50993c
+#: ../../customfields.rst:233
+msgid ""
+"Here's an example of this method for django-modeltranslation's "
+"TranslationField. This custom field stores the type it's wrapping in an "
+"attribute of itself, so we'll just use that::"
+msgstr ""

@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../about.rst:4
+# 9adb25d820164911a842f482817370bd
+msgid "About South"
+msgstr ""
+
+#: ../../about.rst:6
+# 8c767759dc264f7f9944837967595329
+msgid "South brings migrations to Django applications. Its main objectives are to provide a simple, stable and database-independent migration layer to prevent all the hassle schema changes over time bring to your Django applications."
+msgstr ""
+
+#: ../../about.rst:10
+# 4e55a3c7a0134448a1094b87b3647ef8
+msgid "We try to make South both as easy-to-use and intuitive as possible, by making it automate most of your schema-changing tasks, while at the same time providing a powerful set of tools for large or complex projects; you can easily write your own migrations by hand, or even use the database altering API directly."
+msgstr ""
+
+#: ../../about.rst:15
+# 62e334dcf4f04fa9adee787960537ed1
+msgid "While South started as a relative unknown in the Django database-schema-altering world, it has slowly risen in popularity and is now widely regarded as the most popular schema migration tool for Django."
+msgstr ""
+
+#: ../../about.rst:20
+# a34c689694ff494dbe4f5833b3ce530b
+msgid "Key features"
+msgstr ""
+
+#: ../../about.rst:22
+# 731ddd12ef9c4b3eb4351fdd685f201d
+msgid "South has a few key features:"
+msgstr ""
+
+#: ../../about.rst:24
+# 49edad62dea24cb480497d3a88ac5102
+msgid "Automatic migration creation: South can see what's changed in your models.py file and automatically write migrations that match your changes."
+msgstr ""
+
+#: ../../about.rst:26
+# 1982bbf230f14312a65f5a1301409d35
+msgid "Database independence: As far as possible, South is completely database-agnostic, supporting five different database backends."
+msgstr ""
+
+#: ../../about.rst:28
+# 1923e2532c8b446b8daed1404ee80d93
+msgid "App-savvy: South knows and works with the concept of Django apps, allowing you to use migrations for some of your apps and leave the rest to carry on using syncdb."
+msgstr ""
+
+#: ../../about.rst:31
+# 0f15b83d433143eeacc173fa811cdad2
+msgid "VCS-proof: South will notice if someone else commits migrations to the same app as you and they conflict."
+msgstr ""
+
+#: ../../about.rst:35
+# 461d28267f5d4f1b91648cf66325279d
+msgid "A brief history"
+msgstr ""
+
+#: ../../about.rst:37
+# c6a68f2c875646c48fed1597e1e38fbd
+msgid "South was originally developed at `Torchbox <http://www.torchbox.com>`_ in 2008, when no existing solution provided the workflow and features that were needed. It was open-sourced shortly thereafter, and quickly gained steam after the Schema Evolution panel at DjangoCon 2008."
+msgstr ""
+
+#: ../../about.rst:42
+# 31ad92c873b943aa83cf5ff03f5f0af4
+msgid "Sometime in 2009, it became the most popular of the various migration alternatives, and seems to have been going strong ever since. While there have been growing calls to integrate South, or something like it, into Django itself, such an integration has not yet been made, mostly due to the relative immaturity of database migration solutions."
+msgstr ""
+

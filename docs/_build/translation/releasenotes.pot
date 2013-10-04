@@ -1,0 +1,800 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../releasenotes/0.7.rst:6
+# aa2bf75c43f9434397a248f8fd0a6a61
+msgid "South 0.7"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:8
+# 03b3b59903fd44bcb54b8753f4c7a5c0
+msgid "This is a major new release of South. A lot of work has been done to the internals, and a few annoying remnants from South's history have finally been eradicated."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:14
+#: ../../releasenotes/0.7.1.rst:13
+#: ../../releasenotes/0.7.2.rst:13
+#: ../../releasenotes/0.7.3.rst:13
+#: ../../releasenotes/0.7.4.rst:17
+#: ../../releasenotes/0.7.5.rst:19
+#: ../../releasenotes/0.7.6.rst:16
+#: ../../releasenotes/0.8.rst:20
+#: ../../releasenotes/0.8.1.rst:16
+# 3bba10ae14a54944b5916a628ce3bd89
+# afcc135ac4cc48958083361dd2a963af
+# dff40f064b2942fb888cccbabb46a343
+# 765e6d2297d64898b4d320c88e7ab872
+# 9cf9d1ed1eda4a5db4d8bf0278b32edc
+# 76d3c627a0084919b35a65709532de4f
+# 45fd8aef318945a4972f4d30248c0ebe
+# 8c11ece89b1048938cccdcd3b6aa6f1d
+# 1856fdac7c764dbf9c644eba2f4afa70
+msgid "Backwards incompatible changes"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:16
+# 815f8c8d90504729828fdb64b410ad74
+msgid "Tests now run with migrations by default, not using syncdb for everything as in 0.6. This is the behaviour most people expect; to turn it off again, set ``SOUTH_TESTS_MIGRATE`` to False (migrating everything can be slow)."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:20
+# 8eb6782c49a345eb9ca5798e55466ab6
+msgid "In addition, you may note that some or all of your custom fields don't work when you upgrade; read more about this at :ref:`custom-fields`. You may also wish to change your old migration files and insert the full path to custom field classes in the ``models`` dictionary entries, to prevent future issues."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:25
+# 603702ca34b64a7287a1a396ac84ce1d
+msgid "Finally, migration names must now not contain any dashes (or other characters invalid in Python module names) - if they do, you'll need to rename them and also fix the appropriate entries in your south_migrationhistory table."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:31
+# a083181ab68c42a49bf9e6ffec061103
+msgid "Major changes"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:34
+# d9d033d0d6f24da295d1f837909c0626
+msgid "Core Refactoring"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:36
+# 370324d9be224ac58a190f23eaab5514
+msgid "The entire migration and dependency engine has been refactored to be class-based, rather than the mess of functions and variables it was before, and will now be a lot easier to maintain, as well as being nice and quick."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:40
+# a0b50746be4e4885a6435903071bde51
+msgid "Much thanks to Simon Law for doing a lot of the legwork on this one."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:43
+# afa070e6d63d45ea833ed813e83eda48
+msgid "Command Changes"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:45
+# 5cc61a2fb2284420823f3de7d5edb754
+msgid "The ``startmigration`` command (which used to be one massive file) has been removed, and refactored into new commands:"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:48
+# d4023ac4de86418fa34367f75b1a7a24
+msgid "``schemamigration``, which is very similar to the old ``startmigration``"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:49
+# e0e5eb1914ca41d8acddf897c2f0d833
+msgid "``datamigration``, which should be used to create new data migrations"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:51
+# 7b0d7fcd0c844e91ac3d0d36df9ee13b
+msgid "In addition, the ``--model`` argument to ``startmigration`` is now ``--add-model`` on ``schemamigration``, for consistency with the other arguments, and ``schemamigration`` no longer requires a migration name; if you don't provide one, it will autogenerate a reasonably sensible one."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:56
+# 07ca687ea8654325a2e2d1881f8180b4
+msgid "Finally, South now detects when you're adding a column that needs a default value, and prompts you for it, rather than crashing when you tried to apply the migration, like before."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:61
+# b96dfc3af07c4144acb78b273dedf8a3
+msgid "Django Support"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:63
+# 90eb470161944b45a77aedac3da374d0
+msgid "This version of South fully supports Django 1.2 (as well as 1.1 and 1.0), and has some limited multi-db functionality (migrate has gained a --database option) [#]_."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:67
+# 01c73d00a72547698c0f3f498a049e56
+msgid "Note that multi-db functionality is unavailable if using South 0.7 with earlier versions of Django."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:71
+# 33697d3c82d641bcb766e40a28c7cbec
+msgid "Custom Fields"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:73
+# 4dcb81966ed8426295ae0ce3b651424d
+msgid "Custom fields are no longer parsed if they don't introspect; instead, an error is raised every time. This is because parsing was causing scenarios where migrations sometimes worked, and then failed mysteriously later; the new solution means they'll always work or fail."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:78
+# 14100c065a9b4ff0816060c3edf4665a
+msgid "This does have the unfortunate side-effect of making South not \"magically\" make your simpler custom fields work any more; we're trying to help by shipping introspection modules for the more common third-party apps with South, but you may also want to read the new :ref:`reference for your own introspection rules <extending-introspection>`, or :ref:`our new tutorial chapter on it <tutorial-part-4>`."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:86
+# 5c38061060ca4c63bc512bbccdf1be0a
+msgid "Migration Directories"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:88
+# b0504a2d46564cf9abb80fc738e154f6
+msgid "You can now set custom migration directories (actually done as Python modules) if you need per-project migrations for an app, or if you are using third-party apps and don't want to store the migrations with the app."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:92
+# 47cd4bfdbb114cecb1d2883ff34a4a1a
+msgid "You simply need to set the new :ref:`setting-south-migration-modules` setting."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:95
+# 525d1b40b581453cbf7306f5614ceec0
+msgid "Supported Databases"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:97
+# 13d62e9cded041dfb0de206e2cab0e6e
+msgid "SQLite now has full, near-bulletproof support for altering columns, deleting columns, and other basic operations SQLite doesn't support natively."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:100
+# ac1a2ba013fa41d29c2b64ad3a1a20da
+msgid "Oracle now has alpha support."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:103
+# ce3ca94b1eb446c09885e9f3641b0322
+msgid "Migrations Files"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:105
+# 446f95b87dd147ccab9e55fc7a9c3721
+msgid "Migrations files no longer import from appname.models; model classes are now referred to by their full path, and retrieved using ``Migration.gf`` - this means a field now looks like::"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:111
+# 838794fe26f74eb1a91ed6051224ad44
+msgid "Also, migration classes should now inherit from ``south.v2.SchemaMigration`` or ``south.v2.DataMigration``. This doesn't do much at the moment, but is designed so we can easily change the migration API in future and keep backwards compatability."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:117
+# 8ca58832a0144a5c8001222b01fbfa01
+msgid "Bugfixes and minor changes"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:119
+# e6575b269c5648c5a792fec07eb819d6
+msgid "There's also an assorted array of bugfixes; see the `milestone status page <http://south.aeracode.org/query?status=accepted&status=assigned&status=closed&status=new&status=reopened&group=status&order=priority&milestone=0.7>`_ for details."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:123
+# 89d2c69a5e0043bea47c93bcb25619c3
+msgid "Thanks"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:125
+# e8e89f0c02f744019fa9b155e4421027
+msgid "This release wouldn't have been possible without:"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:127
+# edc0ee93adfc41b6b68a184db066f7e6
+msgid "Simon Law, who wrote most of the migration refactor and now knows too much about how our dependencies work"
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:128
+# 79f47ff63a504bb8ad43be7a4983e17e
+msgid "`Torchbox <http://www.torchbox.com>`_, who sponsored Andrew's work on the startmigration refactor, the rest of the migration refactor, and a lot of other small things."
+msgstr ""
+
+#: ../../releasenotes/0.7.rst:129
+# 2c8b1bec3b4245c78954e223108f4422
+msgid "Ilya Roitburg, who contributed the Oracle database module."
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:6
+# 521108b02de84297a35b51eb67e6e37a
+msgid "South 0.7.1"
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:8
+# c7cfaa4961114981a749208e97c782ee
+msgid "This is a minor new release of South, and the first bugfix release for the :ref:`0.7 series <0-7-release-notes>`."
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:15
+#: ../../releasenotes/0.7.2.rst:15
+#: ../../releasenotes/0.7.3.rst:15
+#: ../../releasenotes/0.7.4.rst:19
+#: ../../releasenotes/0.7.5.rst:21
+#: ../../releasenotes/0.7.6.rst:18
+# 8079cbc2c15e4aa79b5117fef0edfe50
+# 4442a16e5b64442abc321b33cc923bf9
+# 78e0d2fef54a4f3bbef866b607027943
+# 88eb3c89887a4e718ecc18cb57e2b826
+# 36c64d8cf17e47f0aff2dcb9da385316
+# 8a483201f3bf4a93838a9f70511c0694
+msgid "None."
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:19
+#: ../../releasenotes/0.7.2.rst:19
+# f19e327e6dce4f419ae012f359080baa
+# 4fb384084b3143ed95fa0e774fc627f5
+msgid "Changes"
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:22
+# 73c2b2856ce442cc9316cbba99d95442
+msgid "South tests"
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:24
+# 337b181664324a3a9903ca6b01b49cca
+msgid "South's internal test suite now doesn't run by default (the ``SKIP_SOUTH_TESTS`` setting now defaults to True). This is mainly because the test suite is meant to be run in isolation (the test framework continually changes ``INSTALLED_APPS`` and fiddles with the ORM as it runs, among other things), and was causing compatability problems with other applications."
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:30
+# fcf844d86c2a4b4aa9a1a4e8df872969
+msgid "If you wish to run the tests still, simply set ``SKIP_SOUTH_TESTS = False``."
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:33
+# 98311222eff2469ba62dc59623fb0322
+msgid "Data Migrations"
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:35
+# f47e5f52349f4f2aba558638812e47e8
+msgid "There was an annoying issue that caused failing data migrations under MySQL to suddenly run their backwards() method and produce an error completely unrelated to the original problem. This has been fixed."
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:40
+# 05aa3fc78fd64630848ad4e4831639dd
+msgid "Commands"
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:42
+# 3aba644d23454cf19397708d6bc6dcd5
+msgid "``./manage.py migrate`` has gained a new ``--ignore-ghost-migrations``, which will temporarily silence South's complaining about missing migrations on disk if you really know what you're doing (i.e. temporary branch switching)."
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:46
+# 3b3bb44b15ea46d7bc6a2aa1bbf3a890
+msgid "In addition, --noinput is now correctly respected for the \"./manage.py migrate\" command."
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:50
+# 31c7549c5e9b4b9195368f5b3cfaaba3
+msgid "Dependencies"
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:52
+# 9000c0173fa74235aa40596732b7c9bc
+msgid "A bug and some nondeterminism in the new dependency engine has been fixed (previously, dependencies were sometimes calculated wrongly, and the non-determinism meant that this only happened on certain architectures)."
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:57
+#: ../../releasenotes/0.7.2.rst:47
+# 293bee67f76841eb908184319c2ff22f
+# 231d6c8b3f754ce993562806940a9eee
+msgid "Other changes"
+msgstr ""
+
+#: ../../releasenotes/0.7.1.rst:59
+# 67fd02dfcac442b1b8846305c80b1259
+msgid "A whole assortment of minor bugs has been fixed; for the complete list, see the `milestone in our Trac <http://south.aeracode.org/query?group=status&milestone=0.7.1>`_."
+msgstr ""
+
+#: ../../releasenotes/0.7.2.rst:6
+# d0084a0b334443719d8db34a31380356
+msgid "South 0.7.2"
+msgstr ""
+
+#: ../../releasenotes/0.7.2.rst:8
+# 71db5729c77448a0a45d3d6f4eed5c89
+msgid "This is a minor new release of South, and the second bugfix release for the :ref:`0.7 series <0-7-release-notes>`."
+msgstr ""
+
+#: ../../releasenotes/0.7.2.rst:22
+# cc2444dbafb1420eb8aac93490fece06
+msgid "Ordering of actions"
+msgstr ""
+
+#: ../../releasenotes/0.7.2.rst:24
+# 7a8b1e1097a9419d87dd513bc8edcf10
+msgid "A few issues with ordering of index deletion versus field/table deletion have now been fixed, so hopefully things will delete or migrate backwards first time."
+msgstr ""
+
+#: ../../releasenotes/0.7.2.rst:28
+# b55e2ce5bc184026b55bddf1081143a4
+msgid "blank"
+msgstr ""
+
+#: ../../releasenotes/0.7.2.rst:30
+# eb315c7c24cc4a51869be74e4fd5b904
+msgid "If you have a CharField or TextField with blank=True, you now no longer need to specify a default value. In addition, changes to blank no longer trigger an alteration migration for that field, since it doesn't affect the database."
+msgstr ""
+
+#: ../../releasenotes/0.7.2.rst:35
+# c9c91c77837e4b118805ff1ab4e71759
+msgid "Schemas"
+msgstr ""
+
+#: ../../releasenotes/0.7.2.rst:37
+# cd774a97ce7442eba6c336babe806741
+msgid "South should now work if you aren't using the 'public' schema; you'll need to set the SCHEMA database setting first, though."
+msgstr ""
+
+#: ../../releasenotes/0.7.2.rst:41
+# a4805704db874c4e8e071247e2044076
+msgid "Arguments"
+msgstr ""
+
+#: ../../releasenotes/0.7.2.rst:43
+# 46253f7ca258450db3a31f0d111f18bf
+msgid "A bit of tidying up has been done for arguments; `migrate` now accepts `--noinput` and `convert_to_south` accepts the ghost migration options."
+msgstr ""
+
+#: ../../releasenotes/0.7.2.rst:49
+# 75e2d383f2c14b18aad6aa2bf4c20b08
+msgid "A whole assortment of minor bugs has been fixed; for the complete list, see the `milestone in our Trac <http://south.aeracode.org/query?group=status&milestone=0.7.2>`_."
+msgstr ""
+
+#: ../../releasenotes/0.7.3.rst:6
+# a0e7ed23b6db470191b1942008614683
+msgid "South 0.7.3"
+msgstr ""
+
+#: ../../releasenotes/0.7.3.rst:8
+# 425474ca0c3747d9b33e1f0497e2d608
+msgid "This is a minor new release of South, and the third bugfix release for the :ref:`0.7 series <0-7-release-notes>`."
+msgstr ""
+
+#: ../../releasenotes/0.7.3.rst:19
+# 3e847fe021024bac803fd98009e7027d
+msgid "More NULL safety checks"
+msgstr ""
+
+#: ../../releasenotes/0.7.3.rst:21
+# 7b64a93b45b743649143488d5d250df3
+msgid "South now also checks if you're converting a field to/from NULL and makes you add defaults as appropriate."
+msgstr ""
+
+#: ../../releasenotes/0.7.3.rst:24
+# b49ce5db6223406fbfa92c7242985031
+msgid "Circular Dependency Fixes"
+msgstr ""
+
+#: ../../releasenotes/0.7.3.rst:26
+# 9c1464275c8a45c8b0179fb102351857
+msgid "South's circular-dependency-checking engine has had some fixes to stop false positives."
+msgstr ""
+
+#: ../../releasenotes/0.7.3.rst:29
+# 7db77387ec094ebbbc0b48fdce7342c4
+msgid "PyODBC backend improvements"
+msgstr ""
+
+#: ../../releasenotes/0.7.3.rst:31
+# fa12bc474a6e4b0eafc5fbb304217937
+msgid "Thanks to Shai Berger, the MSSQL backend has had some much-needed improvements."
+msgstr ""
+
+#: ../../releasenotes/0.7.3.rst:34
+# 3945c82def9d4524843fefd31e850293
+msgid "Various other improvements"
+msgstr ""
+
+#: ../../releasenotes/0.7.3.rst:36
+# 30daf010f13049de872f064e6cdb93e9
+msgid "Fixes to generated migration names, table name escaping, WSGI compatability, MySQL foreign key checks, and 2.4 compatability."
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:6
+# 4bdad45015e543c99d1e79ecc6dbc5c3
+msgid "South 0.7.4"
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:8
+# 31558995065a4bf5b43e9e27b64a655e
+msgid "This is a minor new release of South, and the fourth bugfix release for the :ref:`0.7 series <0-7-release-notes>`. The main feature is compatability with Django 1.4."
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:11
+# 320ea23b2d16427fa1a29479856f59fd
+msgid "It has unfortunately been over a year since the last South release - I intend to make them more frequent from now on, especially where large bugs are concerned. South 1.0 will eventually happen, but we may end up dropping support for some of the older Django versions when it's released."
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:23
+# 2e0e5539699e46469d30f903911219c3
+msgid "Timezone support"
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:25
+# 949ecd67eb8c41bfb4d726e7b777544b
+msgid "Thanks to work by various contributors, most notably Jannis Leidel, South now supports timezone-aware datetime fields (as is the default in Django 1.4)."
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:29
+# c26554c9af30418888b824b69842fa3e
+msgid "unique handling"
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:31
+# dc31efb33568426da5aa21a0fed8fb89
+msgid "South now correctly handles the use of the unique= keyword on columns."
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:34
+# ee5a7adc960e4937af532af92c03e41f
+msgid "on_delete handling"
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:36
+# ecc5943378514ff19d277874ae242ce0
+msgid "South now correctly handles and persists the on_delete argument to ForeignKeys."
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:39
+# e1a688d246e344af8c0b7a51b64a9198
+msgid "Constraint caching"
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:41
+# f442027b333c4c09842b5a9cbe0ddd95
+msgid "Runtime has been improved thanks to caching of constraints at runtime. Thanks to Jack Diederich for a large portion of this work."
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:44
+# 8a68092916eb4306a279f593e30de777
+msgid "Oracle and MSSQL fixes"
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:46
+# 34640d8b19ea422681c91a2fa07d7f8e
+msgid "Thanks mostly to the work of Shai Berger, the Oracle and MSSQl backends have been signficantly upgraded and improved."
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:49
+#: ../../releasenotes/0.7.5.rst:61
+# 8cc0bb1428614c57bd1986c88196deb5
+# ca0d6298386b46b4856705174861405e
+msgid "Other fixes"
+msgstr ""
+
+#: ../../releasenotes/0.7.4.rst:51
+#: ../../releasenotes/0.7.5.rst:63
+# e942a3c677c54b14ad6f1ca95d9fca22
+# 72544c7c55b747fc825ae1541ab32870
+msgid "As usual, there are tens of other minor fixes throughout the codebase. Full details of those are available on Trac."
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:6
+# 882b067df71b48d89fd263627abaa476
+msgid "South 0.7.5"
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:8
+# f549dd6812a84ac6bd07f8b2ceb5e407
+msgid "This is a minor new release of South, and the fifth bugfix release for the :ref:`0.7 series <0-7-release-notes>`."
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:13
+# 19936089db12459a99174bb92795f11c
+msgid "Compatability Notes"
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:15
+# 03c5dcf3b1f844b591bc88e008d9fa9e
+msgid "From now on, South will only officially be compatable with Django 1.2 and up, and thus only with Python 2.4 and up. Future versions of South are likely to require newer and newer versions of Django in order to simplify the codebase somewhat."
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:25
+# f15b8f6d2adf4e41aa837f99e3e0333f
+msgid "Index naming"
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:27
+# c63b4be640ac4063867af1804ff7f631
+msgid "Single-column indexes should now be named the same as if they were created using ``syncdb``"
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:31
+# 05c850dc323c477baf42bf1405aea8c7
+msgid "UUIDs"
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:33
+# 4c068228352948d893e4c41ce4ea3a38
+msgid "UUID default values now work correctly on the PostgreSQL backend."
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:37
+# 7484c2f73ea043838e43fa92156dabd2
+msgid "Transactions"
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:39
+# 1a2135549426430fb11f1d768add54f1
+msgid "Transactions now use the correct database in a multi-db setup - previously, they were sometimes using the default database instead of another configured one."
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:43
+# f50e2092133f4f4c967ef5598785f3d7
+msgid "Recursive Foreign Keys"
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:45
+# 32522bd75e084319a47d4331ad31add8
+msgid "Deletion of self-referencing ForeignKeys is now possible again."
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:49
+# a3b9bb7e9ed549afadb62479010aa9ac
+msgid "Unmanaged models"
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:51
+# 75163a3f5bb44f268b779600a5f66b57
+msgid "A bug with ignoring changes to unmanaged models has been fixed, so they are now ignored properly."
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:55
+# 7f257a54a2384365a3238e7d4e8bdb07
+msgid "Oracle/SQL Server"
+msgstr ""
+
+#: ../../releasenotes/0.7.5.rst:57
+# bcb46a2ace1c4aeebf64aabfad8fc6b3
+msgid "A few minor fixes, including the ability to change TextFields to CharFields and vice-versa on the Oracle backend."
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:6
+# cec287eb1b1047db9805697f16202aa3
+msgid "South 0.7.6"
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:8
+# b5552513429947f6b0df751387132d6b
+msgid "This is a minor new release of South, and the sixth bugfix release for the :ref:`0.7 series <0-7-release-notes>`."
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:11
+# 78f776888f474c058541eed748a2e75a
+msgid "Major changes are outlined below. A full list of bugs fixed can be found on the South Trac."
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:22
+# f8bf5aa37a294ebda0f333419f51f425
+msgid "--update"
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:24
+# 03dbb435746e4800b4f9e3c4364d01eb
+msgid "There is now a new ``--update`` switch, which you can use with ``schemamigration`` to merge updates you've just done into your most recent migration and then reverse and re-apply that migration to the database."
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:28
+# 3d22052ef21f42a3935d0fe7b19696bc
+msgid "Note that this will only work with migrations that aren't yet committed into a VCS - once that occurs, you should create a new migration rather than running ``--update`` on the current one."
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:34
+# 80b3adbc6b5348679d73cc709f5136eb
+msgid "Table defaults"
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:36
+# 8fd31e4d34d5425ea5cde72bf5ecb286
+msgid "South now keeps all defaults out of the database during table creation, to mirror Django's approach when creating tables. This was already the case when adding columns."
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:42
+#: ../../releasenotes/0.8.2.rst:15
+# b9b91abe201b48bdb0c1ccc9a255c05d
+# 41d4dac57b484352b07cde8065a0e5f5
+msgid "SQLite fixes"
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:44
+# db21836d7c72415eb9deaf3a46353068
+msgid "The SQLite backend now correctly handles boolean default values."
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:48
+# de98da73fd4949a5ba6bb5e12078c4ae
+msgid "MSSQL fixes"
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:50
+# 3379f5759de540f0a4bdfd8689c08686
+msgid "Altering ForeignKey columns now works correctly."
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:54
+# 4d3f4e374e944d8696b83cfeefb97f1b
+msgid "Firebird fixes"
+msgstr ""
+
+#: ../../releasenotes/0.7.6.rst:56
+# daa146bec7864dd9b7f9df3ed4bb3924
+msgid "Boolean defaults and autoincrement now works correctly."
+msgstr ""
+
+#: ../../releasenotes/0.8.rst:6
+# f052c746c30c4d7c9926285fb8503e45
+msgid "South 0.8"
+msgstr ""
+
+#: ../../releasenotes/0.8.rst:8
+# ffb35122bf794f9f8cd5954f0702d368
+msgid "This is a new major release of South, and probably the last major release before work begins on South 2 as part of the ongoing work with schema alterations in Django. Don't worry - an upgrade path will be provided."
+msgstr ""
+
+#: ../../releasenotes/0.8.rst:12
+# 29e434be4a0f4cb8b6e0783911a56029
+msgid "We recommend that you pin your South requirement in your requirements file to `south < 2.0`, however, so you will not be auto-upgraded when the time comes."
+msgstr ""
+
+#: ../../releasenotes/0.8.rst:15
+#: ../../releasenotes/0.8.1.rst:11
+#: ../../releasenotes/0.8.2.rst:10
+# dcc3c981304b4c4da59da632bb134952
+# 494a831d907c461aadb36f6a1b6312c0
+# 8bc44df19b1b4820a58fe40e23225611
+msgid "Major changes are outlined below. A full list of changes can be found on `the repository <https://bitbucket.org/andrewgodwin/south/commits/all/>`_."
+msgstr ""
+
+#: ../../releasenotes/0.8.rst:22
+#: ../../releasenotes/0.8.1.rst:18
+# 0976fc6392f349fcb0ab3b48a9791781
+# b5c82f267e414cfeada16192e82f14db
+msgid "None"
+msgstr ""
+
+#: ../../releasenotes/0.8.rst:26
+# 1db8726011dc4c5ab145b254440fe50e
+msgid "Python 2.x support"
+msgstr ""
+
+#: ../../releasenotes/0.8.rst:28
+# d0b313b5f54240109809e71d31a6fdca
+msgid "South is now only compatable with Python 2.6 and higher. If you are still on 2.5 on below, you will have to use the 0.7.x releases of South - do not expect those to be maintained any further, however."
+msgstr ""
+
+#: ../../releasenotes/0.8.rst:34
+# f7a63607f66e46e5a7294efdfe109648
+msgid "Python 3"
+msgstr ""
+
+#: ../../releasenotes/0.8.rst:36
+# 410a206e13404fa3ac01904353f57bf1
+msgid "South now has alpha support for Python 3, thanks to the `six` library and the work of Aymeric Augustin. This is intended to complement the support in Django 1.5 and up; please report any issues you come across when using it."
+msgstr ""
+
+#: ../../releasenotes/0.8.rst:43
+# d6dbffba00c74882965240d5ada96426
+msgid "index_together"
+msgstr ""
+
+#: ../../releasenotes/0.8.rst:45
+# d82edc51c60646b2b9c17ccb5b0f5e7c
+msgid "South now supports the index_together option for models found in Django 1.5 and up."
+msgstr ""
+
+#: ../../releasenotes/0.8.1.rst:6
+# 595aad1f0b3747b4967b7d83fbae671f
+msgid "South 0.8.1"
+msgstr ""
+
+#: ../../releasenotes/0.8.1.rst:8
+# af640cd3c3dc4894b02c42a7c40b0832
+msgid "This is the first bugfix release in the 0.8 series, to address a critical regression on older versions of Django."
+msgstr ""
+
+#: ../../releasenotes/0.8.1.rst:22
+# dc816203fe6e42dd923149926d7ec57b
+msgid "Django 1.4 regression"
+msgstr ""
+
+#: ../../releasenotes/0.8.1.rst:24
+# 6362723afa874c1789ef6a81f9afc8d4
+msgid "There was a critical regression with South 0.8 and any version of Django below 1.5 due to a misimplementation of the index_together code - this has now been fixed."
+msgstr ""
+
+#: ../../releasenotes/0.8.1.rst:29
+# 869a40af91854bdda973e57946d37659
+msgid "keep_default fully deprecated"
+msgstr ""
+
+#: ../../releasenotes/0.8.1.rst:31
+# 280594815646406997f5db6328cfd8d4
+msgid "The keep_default argument to add_column has been working differently in different backends for a while, so it is now ignored everywhere and defaults are never kept in the database."
+msgstr ""
+
+#: ../../releasenotes/0.8.2.rst:6
+# 3fc8ac7250c148c0a3095461d70a806f
+msgid "South 0.8.2"
+msgstr ""
+
+#: ../../releasenotes/0.8.2.rst:8
+# 640b1c855a29450ea10b8245fc324919
+msgid "This is the second bugfix release in the 0.8 series."
+msgstr ""
+
+#: ../../releasenotes/0.8.2.rst:17
+# b1a0e1c5ed12447aa8b6d02f27714fce
+msgid "An issue with SQLite and default values that caused some migrations to fail has been fixed."
+msgstr ""
+
+#: ../../releasenotes/0.8.2.rst:22
+# b9255d77a56247d79310bddce8ef2e03
+msgid "Microsoft SQL Server fixes"
+msgstr ""
+
+#: ../../releasenotes/0.8.2.rst:24
+# a493e4cb764e4118ab7a8c3c5e6e8ebd
+msgid "South now recognises more Django MSSQL backends, and no longer fails to alter ForeignKeys that are in composite indexes."
+msgstr ""
+
+#: ../../releasenotes/0.8.2.rst:29
+# 4dc87e8f27124ea6b465d1723df688fd
+msgid "Django 1.6"
+msgstr ""
+
+#: ../../releasenotes/0.8.2.rst:31
+# 97ecae70369940c2a651e959d173c571
+msgid "A small issue with the app cache on Django 1.6 has been fixed."
+msgstr ""
+
+#: ../../releasenotes/0.8.2.rst:35
+# 07e8a5ffcfb34f3a99c8be3c1f7216da
+msgid "Inheritable commands"
+msgstr ""
+
+#: ../../releasenotes/0.8.2.rst:37
+# b10f2a05f53e4858bcc65a92f9c97ddb
+msgid "The ``schemamigration`` and ``datamigration`` commands can now be properly inherited and their templates easily changed."
+msgstr ""
+
+#: ../../releasenotes/index.rst:2
+# 6ff309f499ff40d78ec67408a6a412ca
+msgid "Release Notes"
+msgstr ""
+
+#: ../../releasenotes/index.rst:4
+# 406f2357b8904346a2b5baa8b97df413
+msgid "Release notes from various versions of South."
+msgstr ""
+

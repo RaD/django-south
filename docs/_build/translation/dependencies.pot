@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../dependencies.rst:5
+# def65d3a99964f3ea341b9a9552a391a
+msgid "Dependencies"
+msgstr ""
+
+#: ../../dependencies.rst:7
+# b003f9cb5930468f9e18932d4b673b37
+msgid "Migrations for apps are nice 'n all, but when you start writing a large project, with a lot of apps, you realise you have foreign key relationships between apps and working out what order migrations would need to be applied in for each app is just painful."
+msgstr ""
+
+#: ../../dependencies.rst:12
+# 07cb0436c7be444f8d47d748e0c76817
+msgid "Luckily, we also had this problem, so South has a dependency system. Inside a migration, you can declare that it depends on having another app having run a certain migration first; for example, if my app \"forum\" depends on the \"accounts\" app having created its user profile table, we can do::"
+msgstr ""
+
+#: ../../dependencies.rst:27
+# 74b56c760afb48b28e2ae4a7140b13a9
+msgid "Then, if you try and migrate to or beyond 0002_post in the forum app, it will first make sure accounts is migrated at least up to 0003_add_user_profile, and if not will migrate it for you."
+msgstr ""
+
+#: ../../dependencies.rst:31
+# 3e928bea41f5485fb10381c45bc59c74
+msgid "Dependencies also work in reverse; South knows not to undo that 0003_add_user_profile migration until it has undone the 0002_post migration."
+msgstr ""
+
+#: ../../dependencies.rst:34
+# 46510f7bd2934d578100541b1d9f6e80
+msgid "You can have multiple dependencies, and all sorts of wacky structures; there are, however, two rules:"
+msgstr ""
+
+#: ../../dependencies.rst:37
+# c67351a80b2f401c9fcb916ae64293d4
+msgid "No circular dependencies (two or more migrations depending on each other)"
+msgstr ""
+
+#: ../../dependencies.rst:38
+# 2c3999c7f28a4d3988e47cc56cc1cad0
+msgid "No upwards dependencies in the same app (so you can't make 0002_post in the forum app depend on 0003_room in the same app, either directly or through a dependency chain."
+msgstr ""
+
+#: ../../dependencies.rst:41
+# be29c0062cdc478b9ed3594b7c38784b
+msgid "Reverse Dependencies"
+msgstr ""
+
+#: ../../dependencies.rst:43
+# 7b80bb5bc0db4bf0adf33e13ed44e3fd
+msgid "South also supports \"reverse dependencies\" - a dependecy where you say your migration must be run before another, rather than vice-versa. This is useful if you're trying to run a migration before another in a separate, third-party (or unchangeable) code."
+msgstr ""
+
+#: ../../dependencies.rst:48
+# 95b436683f7f4631be2f01559ebcf8e8
+msgid "Declaring these is just like the other kind, except you use needed_by::"
+msgstr ""
+

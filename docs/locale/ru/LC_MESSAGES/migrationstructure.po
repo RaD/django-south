@@ -1,0 +1,105 @@
+# Russian translations for South package.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-04 23:35\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+# 36d01446cd754127a590b1e2746fbdcc
+#: ../../migrationstructure.rst:5
+msgid "Migration Structure"
+msgstr ""
+
+# 62f3a26248874052ae0bab4e35412dce
+#: ../../migrationstructure.rst:7
+msgid ""
+"Migrations are, at the most basic level, files inside your app's migrations/ "
+"directory."
+msgstr ""
+
+# f337441e0b5c4e1480f1358a1bdf7599
+#: ../../migrationstructure.rst:10
+msgid ""
+"When South loads migrations, it loads all the python files inside "
+"migrations/ in ASCII sort order (e.g. 1 is before 10 is before 2), and "
+"expects to find a class called Migration inside each one, with at least a "
+"``forwards()`` and ``backwards()`` method."
+msgstr ""
+
+# cc9a91f2b24d49cf9f061799752cf36f
+#: ../../migrationstructure.rst:15
+msgid ""
+"When South wants to apply a migration, it simply calls the ``forwards()`` "
+"method, and similarly when it wants to roll back a migration it calls "
+"``backwards()``. It's up to you what you do inside these methods; the usual "
+"thing is to do database changes, but you don't have to."
+msgstr ""
+
+# 02ecc58009cd4e7ab3bc9817c617bdc5
+#: ../../migrationstructure.rst:21
+msgid "Sort Order"
+msgstr ""
+
+# 26174aec864c48ed88e9546ce6d4372a
+#: ../../migrationstructure.rst:23
+msgid ""
+"Since migrations are loaded in ASCII sort order, they won't be applied in "
+"the correct order if you call them ``1_first, 2_second, ..., 10_tenth``. (10 "
+"sorts before 2)."
+msgstr ""
+
+# 9369b1c8eee64dd7b14fa402fb835884
+#: ../../migrationstructure.rst:27
+msgid ""
+"Rather than force a specific naming convention, we suggest that if you want "
+"to use numerical migrations in this fashion (as we suggest you do) that you "
+"prefix the numbers with zeroes like so: ``0001_first, 0002_second, "
+"0010_tenth``."
+msgstr ""
+
+# 5ce97aa5aae44bb092a6143a21f58317
+#: ../../migrationstructure.rst:31
+msgid "All of South's automatic creation code will follow this scheme."
+msgstr ""
+
+# 26bda6224b42411c8bb971bea5eb7f88
+#: ../../migrationstructure.rst:34
+msgid "Transactions"
+msgstr ""
+
+# deabcbf8673d4c59bf39b399ed056756
+#: ../../migrationstructure.rst:36
+msgid ""
+"Whenever ``forwards()`` or ``backwards()`` is called it is called inside a "
+"database transaction, which is committed if the method executes successfully "
+"or rolled back if it raises an error."
+msgstr ""
+
+# 1dd2165ff43f4331b541d6dbfa2eb7f9
+#: ../../migrationstructure.rst:40
+msgid ""
+"If you need to use two or more transactions inside a migration, either use "
+"two separate migrations (if you think it's appropriate), or have a snippet "
+"like this where you want a new transaction::"
+msgstr ""
+
+# fe8887dd2394486dbb658b7838030bf4
+#: ../../migrationstructure.rst:47
+msgid ""
+"Note that you must commit and start the next transaction if you are making "
+"both data and column changes. If you don't do this, you'll end up with your "
+"database hating you for asking it the impossible."
+msgstr ""

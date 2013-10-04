@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../installation.rst:5
+# 81a7e20090f94ebdb66e1a5bd9eb591b
+msgid "Installation"
+msgstr ""
+
+#: ../../installation.rst:7
+# 419453bfa3a544a4a8497abb81413eae
+msgid "South's current release is :ref:`0.8.2 <0-8-2-release-notes>`."
+msgstr ""
+
+#: ../../installation.rst:9
+# ff73a7510a7640d8be575c34bcd0d5db
+msgid "There are a few different ways to install South:"
+msgstr ""
+
+#: ../../installation.rst:11
+# cff0b243a6704529853bcd572919a51f
+msgid ":ref:`Using easy_install <installation-easy-install>` (or pip), which is recommended if you want stable releases."
+msgstr ""
+
+#: ../../installation.rst:12
+# 7f67df8f27014531ab0a2f657ccbe031
+msgid ":ref:`Using a Mercurial checkout <installation-mercurial>`, recommended if you want cutting-edge features."
+msgstr ""
+
+#: ../../installation.rst:13
+# 193afe4255834801a2ded09464d9f075
+msgid ":ref:`Using our downloadable archives <installation-archives>`, useful if you don't have easy_install or Mercurial."
+msgstr ""
+
+#: ../../installation.rst:15
+# e954607379914d6cb57e4727687a49f4
+msgid "Some Linux distributions are also starting to include South in their package repositories; if you're running unstable Debian you can ``apt-get install python-django-south``, and on new Fedoras you can use ``yum install Django-south``. Note that this may give you an older version - check the version before using the packages."
+msgstr ""
+
+#: ../../installation.rst:21
+# 7a6bc1eb5b87409982d2b744358be45d
+msgid "South <=0.7.3 should work with versions of Django from 0.97-pre through to 1.1. South >=0.7.4 should work with versions of Django from 1.2 and higher.  Please check the compatibility notes section in the release notes of the specific release you are using for further detail."
+msgstr ""
+
+#: ../../installation.rst:30
+# f8d9ac436c5548b5ae883622912042fc
+msgid "Using easy_install"
+msgstr ""
+
+#: ../../installation.rst:32
+# 96f2e75ce99c486f9e355813974d00de
+msgid "If you have easy_install available on your system, just type::"
+msgstr ""
+
+#: ../../installation.rst:36
+# 715350fa9bb4417b9874bf67bcf6d3a3
+msgid "If you've already got an old version of South, and want to upgrade, use::"
+msgstr ""
+
+#: ../../installation.rst:40
+# 4fe2def2445846d4afdd0ac93efcc4be
+msgid "That's all that's needed to install the package; you'll now want to :ref:`configure your Django installation <installation-configure>`."
+msgstr ""
+
+#: ../../installation.rst:47
+# 34ffd94b7d424ed29ae8a38bfc7aec29
+msgid "Using Mercurial"
+msgstr ""
+
+#: ../../installation.rst:49
+# e66d1b5ac78d4a38b0ccbdd275007e76
+msgid "You can install directly from our Mercurial repo, allowing you to recieve updates and bugfixes as soon as they're made. You'll need Mercurial installed on your system; if it's not already, you'll want to get it. The package name is ``mercurial`` on most Linux distributions; OSX and Windows users can download packages from http://mercurial.berkwood.com."
+msgstr ""
+
+#: ../../installation.rst:55
+# 5fb7aa5d5e7c4097837c41bc8aec18b6
+msgid "Make sure you're in a directory where you want the ``south`` directory to appear, and run::"
+msgstr ""
+
+#: ../../installation.rst:60
+# 17b8b78ec20a4693a2941dcf83a0bc8e
+msgid "To update an existing Mercurial checkout to the newest version, run::"
+msgstr ""
+
+#: ../../installation.rst:65
+# 3a25ef85683b4746a610ad77e842a8dd
+msgid "(Rather than running from tip, you can also use the ``stableish`` tag, which is manually set on reasonably stable trunk commits, or pick a version number tag.)"
+msgstr ""
+
+#: ../../installation.rst:68
+# e559ebc0a11349869ef76553b3eb22f8
+msgid "Once you have this directory, move onto :ref:`installation-from-directory`."
+msgstr ""
+
+#: ../../installation.rst:74
+# 8ab1b603946a46418deac452669264f3
+msgid "Using downloadable archives"
+msgstr ""
+
+#: ../../installation.rst:76
+# aab3f0d4ac3847c4a0bc9d5e6aa82e12
+msgid "If you're averse to using Mercurial, and don't have easy_install available, then you can install from one of our ``.tar.gz`` files."
+msgstr ""
+
+#: ../../installation.rst:79
+# d16013ee241a4afa9974f197d34b7c41
+msgid "First, download the archive of your choice from `our releases page <http://aeracode.org/releases/south>`_, and extract it to create a ``south`` folder. Then, proceed with our instructions for :ref:`installation-from-directory`."
+msgstr ""
+
+#: ../../installation.rst:89
+# ff3940246903453187c3be902743fd2c
+msgid "Installing from a directory"
+msgstr ""
+
+#: ../../installation.rst:91
+# 6983e66e689d46f98467b977856342e9
+msgid "If you've obtained a copy of South using either Mercurial or a downloadable archive, you'll need to install the copy you have system-wide. Try running::"
+msgstr ""
+
+#: ../../installation.rst:96
+# 6b8f6e8b389447cf9e0b5684a124c63e
+msgid "If that fails, you don't have ``setuptools`` or an equivalent installed; either install them, or run::"
+msgstr ""
+
+#: ../../installation.rst:101
+# f641191d679648e3ada1a033e50b059b
+msgid "Note that ``develop`` sets the installed version to run from the directory you just created, while ``install`` copies all the files to Python's ``site-packages`` folder, meaning that if you update your checkout you'll need to re-run ``install``."
+msgstr ""
+
+#: ../../installation.rst:106
+# b3be00c36a214f9cb2eee7ab0fd82710
+msgid "You could also install South locally for only one project, by either including with your project and modifying ``sys.path`` in your settings file, or (preferably) by using virtualenv, pip and a requirements.txt. A tutorial in how to use these is outside the scope of this documentation, but `there are tutorials elsewhere <http://www.saltycrane.com/blog/2009/05/notes-using-pip-and-virtualenv-django/>`_."
+msgstr ""
+
+#: ../../installation.rst:112
+# 284af5fd8a964fa09d40e3f6430e4fde
+msgid "Once you've done one of those, you'll want to :ref:`configure your Django installation <installation-configure>`."
+msgstr ""
+
+#: ../../installation.rst:119
+# f9b43e1a4a404fe9ba8b123aeee4063c
+msgid "Configuring your Django installation"
+msgstr ""
+
+#: ../../installation.rst:121
+# 27229fcc545a4c94ae82623191e126d4
+msgid "Now you've installed South system-wide, you'll need to configure Django to use it. Doing so is simple; just edit your ``settings.py`` and add ``'south'`` to the end of ``INSTALLED_APPS``."
+msgstr ""
+
+#: ../../installation.rst:125
+# 069feb73a4e74ff1a4b9f4c56e1a4543
+msgid "If Django doesn't seem to pick this up, check that you're not overriding ``INSTALLED_APPS`` elsewhere, and that you can run ``import south`` from inside ``./manage.py shell`` with no errors."
+msgstr ""
+
+#: ../../installation.rst:129
+# d705afd7c8544bf2a9b5091aea55d10e
+msgid "Once South is added in, you'll need to run ``./manage.py syncdb`` to make the South migration-tracking tables (South doesn't use migrations for its own models, for various reasons)."
+msgstr ""
+
+#: ../../installation.rst:133
+# e9246a5b0f9f4af7a6e57f11879c3d8a
+msgid "Now South is loaded into your project and ready to go, you'll probably want to take a look at our :ref:`tutorial`."
+msgstr ""
+

@@ -1,0 +1,50 @@
+# Russian translations for South package.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-04 23:35\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+# 7410ff6b4e3b43bb88bb40273ba93de9
+#: ../../index.rst:5
+msgid "South documentation"
+msgstr ""
+
+# 9c685c236942483cbc9f7d8e51f8db28
+#: ../../index.rst:7
+msgid ""
+"South is a tool to provide consistent, easy-to-use and database-agnostic "
+"migrations for Django applications."
+msgstr ""
+
+# eb340401381f4ea39fe95cde78c81498
+#: ../../index.rst:11
+msgid "Support"
+msgstr ""
+
+# 66e15170f7cf42999872d4d35244cdeb
+#: ../../index.rst:13
+msgid ""
+"For initial help with problems, see our `mailing list <http://groups.google."
+"com/group/south-users>`_, or `#django-south <irc://irc.freenode.net/django-"
+"south>`_ on `freenode <http://freenode.net/>`_. If you find a real bug, then "
+"`file a new ticket <http://south.aeracode.org/newticket>`_."
+msgstr ""
+
+# 93973d2338f44b35b9b6872d29f97ec3
+#: ../../index.rst:16
+msgid "Contents"
+msgstr ""

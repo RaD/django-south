@@ -1,0 +1,93 @@
+{% extends "djangodocs/layout.html" %}
+
+{% set script_files = ["/static/doc_comments/js/jquery-1.8.0.min.js", "/static/doc_comments/js/bootstrap.min.js", "/static/doc_comments/js/jquery.form.js", "/static/doc_comments/js/jquery.url.js", "/static/doc_comments/js/base.js"] + script_files %}
+{% set css_files = css_files + ["/static/doc_comments/css/bootstrap.min.css", "/static/doc_comments/css/base.css"] %}
+
+{% block extrahead %}
+  {{ super() }}
+  <style>
+    .highlight pre {
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-break: break-word;
+    }
+  </style>
+{% endblock %}
+
+{% block document %}
+  <div id="custom-doc" class="{% block bodyclass %}{{ 'yui-t6' if pagename != 'index' else '' }}{% endblock %}">
+    <div id="hd">
+      <h1><a href="{{ pathto('index') }}">{{ docstitle }}</a></h1>
+      <div id="global-nav">
+        <a title="Djbook.ru" href="http://djbook.ru">djbook.ru</a> {{ reldelim2 }}
+        <a title="Home page" href="{{ pathto('index') }}">Главная</a> {{ reldelim2 }}
+        <a title="Table of contents" href="{{ pathto('contents') }}">Содержание</a> {{ reldelim2 }}
+        <a title="Global index" href="{{ pathto('genindex') }}">Алфавитный указатель</a> {{ reldelim2 }}
+        <a title="Module index" href="{{ pathto('py-modindex') }}">Модули</a> {{ reldelim2 }}
+        <a title="Translation State" href="{{ pathto('statistic') }}">Состояние перевода</a> {{ reldelim2 }}
+        <a title="Translation State" href="{{ pathto('authors') }}">Контрибьюторы</a> {{ reldelim2 }}
+        <a title="Как помочь с переводом?" href="https://github.com/Alerion/django_documentation/wiki/%D0%9A%D0%B0%D0%BA-%D0%BF%D0%BE%D0%BC%D0%BE%D1%87%D1%8C-%D1%81-%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%BE%D0%BC%3F">
+          Как помочь с переводом?
+        </a> {{ reldelim2 }}
+        <a title="Django 1.4" href="/rel1.4/">Django 1.4</a>
+      </div>
+      <div class="nav">{{ secondnav() }}</div>
+    </div>
+
+    <div id="bd">
+      <div id="yui-main">
+        <div class="yui-b">
+          <div class="yui-g" id="{{ pagename|replace('/', '-') }}">
+            {% block body %}{% endblock %}
+          </div>
+        </div>
+      </div>
+      {% block sidebarwrapper %}
+        {% if pagename != 'index' %}
+          <div class="yui-b" id="sidebar">
+            {{ sidebar() }}
+            {%- if last_updated %}
+              <h3>Последнее обновление:</h3>
+              <p class="topless">{{ last_updated }}</p>
+            {%- endif %}
+          </div>
+        {% endif %}
+      {% endblock %}
+    </div>
+
+    <div id="ft">
+      <div class="nav">{{ secondnav() }}</div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+<footer style="width: width: 76.54em; min-width: 995px; max-width: 100em;">
+  Translated by &nbsp; Ruslan Popov @ gmail.com &nbsp; Dmitriy Kostochko @ gmail.com
+  and <a href="{{ pathto('authors') }}">other</a>.
+  <!--LiveInternet counter--><script type="text/javascript"><!--
+  document.write("<a href='http://www.liveinternet.ru/click' "+
+  "target=_blank><img src='//counter.yadro.ru/hit?t52.6;r"+
+  escape(document.referrer)+((typeof(screen)=="undefined")?"":
+  ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+  screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+  ";"+Math.random()+
+  "' alt='' title='LiveInternet: показано число просмотров и"+
+  " посетителей за 24 часа' "+
+  "border='0' width='88' height='31'><\/a>")
+  //--></script><!--/LiveInternet-->
+  <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3919032-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+</footer>
+{% endblock %}

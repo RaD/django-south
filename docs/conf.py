@@ -20,12 +20,15 @@ import sys, os
 
 # -- General configuration -----------------------------------------------------
 
+# If your documentation needs a minimal Sphinx version, state it here.
+needs_sphinx = '1.0'
+
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = []
+extensions = ["djangodocs", "sphinx.ext.intersphinx"]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+# templates_path = ['_templates']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -53,11 +56,14 @@ release = '0.8.2'
 # for a list of supported languages.
 #language = None
 
+# Location for .po/.mo translation files used when language is set
+locale_dirs = ['locale/']
+
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
 #today = ''
 # Else, today_fmt is used as the format for a strftime call.
-#today_fmt = '%B %d, %Y'
+today_fmt = '%B %d, %Y'
 
 # List of documents that shouldn't be included in the build.
 #unused_docs = []
@@ -70,28 +76,39 @@ exclude_trees = ['_build']
 #default_role = None
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
-#add_function_parentheses = True
+add_function_parentheses = True
 
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
-#add_module_names = True
+add_module_names = False
 
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
-#show_authors = False
+show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'trac'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
+# Links to Python's docs should reference the most recent version of the 2.x
+# branch, which is located at this URL.
+intersphinx_mapping = {
+    'python': ('http://docs.python.org/2.7', None),
+    'sphinx': ('http://sphinx.pocoo.org/', None),
+    'six': ('http://pythonhosted.org/six/', None),
+    'simplejson': ('http://simplejson.readthedocs.org/en/latest/', None),
+}
+
+# Python's docs don't change every week.
+intersphinx_cache_limit = 90 # days
 
 # -- Options for HTML output ---------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  Major themes that come with
 # Sphinx are currently 'default' and 'sphinxdoc'.
-html_theme = 'nature'
+html_theme = 'djangodocs'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -120,22 +137,25 @@ html_theme_path = ["_theme"]
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+#html_static_path = ['_static']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
-#html_last_updated_fmt = '%b %d, %Y'
+html_last_updated_fmt = '%b %d, %Y'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
-#html_use_smartypants = True
+html_use_smartypants = True
+
+# HTML translator class for the builder
+html_translator_class = "djangodocs.DjangoHTMLTranslator"
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
-#html_additional_pages = {}
+html_additional_pages = {}
 
 # If false, no module index is generated.
 #html_use_modindex = True
@@ -160,8 +180,14 @@ html_static_path = ['_static']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'Southdoc'
 
+modindex_common_prefix = ["south."]
 
 # -- Options for LaTeX output --------------------------------------------------
+
+latex_elements = {
+    'preamble': ('\\DeclareUnicodeCharacter{2264}{\\ensuremath{\\le}}'
+                 '\\DeclareUnicodeCharacter{2265}{\\ensuremath{\\ge}}')
+}
 
 # The paper size ('letter' or 'a4').
 #latex_paper_size = 'letter'
@@ -192,3 +218,7 @@ latex_documents = [
 
 # If false, no module index is generated.
 #latex_use_modindex = True
+
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "djbook")))
+from djbook_conf import *

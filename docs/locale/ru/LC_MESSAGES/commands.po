@@ -1,0 +1,471 @@
+# Russian translations for South package.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-04 23:35\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+# eaa416c51f16473fa7b05cb28cdf600d
+#: ../../commands.rst:5
+msgid "Command Reference"
+msgstr ""
+
+# 8397cb5f01494cf3a823565516b4125a
+#: ../../commands.rst:7
+msgid ""
+"South is mainly used via the console and its three important commands: "
+"migrate, schemamigration and datamigration. It also overrides a few parts of "
+"syncdb."
+msgstr ""
+
+# 274c64352db14dd09bc0ca4608e899a0
+#: ../../commands.rst:11
+msgid "migrate"
+msgstr ""
+
+# 44613edee5a74996ac41d38b55ce02c0
+#: ../../commands.rst:13
+msgid ""
+"The migrate command is used to control the migration of the system forwards "
+"or backwards through the series of migrations for any given app."
+msgstr ""
+
+# 2f4c234af9734a78b7b920fce65488a0
+#: ../../commands.rst:16
+msgid "The most common use is::"
+msgstr ""
+
+# 2cae3a82045647ea8c71e36fca34a89c
+#: ../../commands.rst:20
+msgid ""
+"This will migrate the app myapp forwards through all the migrations. If you "
+"want to migrate all the apps at once, run::"
+msgstr ""
+
+# 5c04b378e6bd44eeba1cdb3abe70653a
+#: ../../commands.rst:25
+msgid ""
+"This has the same effect as calling the first example for every app, and "
+"will deal with Dependencies properly."
+msgstr ""
+
+# cb88caf80eae4e1da5bc6a0680fff5c5
+#: ../../commands.rst:28
+msgid "You can also specify a specific migration to migrate to::"
+msgstr ""
+
+# 4a373e60909548f6ab3e7097db4a770e
+#: ../../commands.rst:32
+msgid ""
+"Note that, if the system has already migrated past the specified migration, "
+"it will roll back to it instead. If you want to migrate all the way back, "
+"specify the special migration name zero::"
+msgstr ""
+
+# 23599583f4dd4309826ca097df7f0615
+#: ../../commands.rst:38
+msgid "You can also just give prefixes of migrations, to save typing::"
+msgstr ""
+
+# b3b259e8c6c2418baf08077dd0d865bf
+#: ../../commands.rst:42
+msgid "But they must be unique::"
+msgstr ""
+
+# d79fb586f9324eee95046c69c3d55eb1
+# e6138efa4a494135aaadcf86150a817d
+# ababbff695f049daa84a0919e7d2359c
+# 9ae9dd4f41a54cf58e9b682d66268952
+# 872967cb82664b14ab55440f3f538e96
+#: ../../commands.rst:51 ../../commands.rst:176 ../../commands.rst:207
+#: ../../commands.rst:233 ../../commands.rst:252
+msgid "Options"
+msgstr ""
+
+# 282ba679b513420eb3d7709809eb4ea5
+#: ../../commands.rst:53
+msgid ""
+"``--all``: Used instead of an app name, allows you to migrate all "
+"applications to the same target. For example, ``./manage.py migrate --all --"
+"fake 0001`` if you are converting a lot of apps."
+msgstr ""
+
+# 48f4b2dde39645078cbecfba0db5d1e9
+#: ../../commands.rst:56
+msgid ""
+"``--list``: Shows what migrations are available, and puts a * next to ones "
+"which have been applied."
+msgstr ""
+
+# 5eaa1d27cc7d4e9a8a1a38bc2214c49b
+#: ../../commands.rst:58
+msgid ""
+"``--merge``: Runs any missed (out-of-order) migrations without rolling back "
+"to them."
+msgstr ""
+
+# 80ba80a6dd214979bfd81ff1db4be4ee
+#: ../../commands.rst:60
+msgid ""
+"``--no-initial-data``: Doesn't load in any initial data fixtures after a "
+"full upwards migration, if there are any."
+msgstr ""
+
+# 9bd3bd1e16284470bdb23c1861cd9083
+#: ../../commands.rst:62
+msgid ""
+"``--fake``: Records the migration sequence as having been applied, but "
+"doesn't actually run it. Useful for :ref:`converting-an-app`."
+msgstr ""
+
+# a6b231d8a65f4f5798bc560a84e14449
+#: ../../commands.rst:64
+msgid ""
+"``--db-dry-run``: Loads and runs the migration, but doesn't actually access "
+"the database (the SQL generated is thrown away at the last minute). The "
+"migration is also not recorded as being run; this is useful for sanity-"
+"testing migrations to check API calls are correct."
+msgstr ""
+
+# d8af12eee1eb42deb36b44a01eff5658
+#: ../../commands.rst:70
+msgid "Conflict Resolution"
+msgstr ""
+
+# 5cd9f410171c4cbc975d2c0188aa23d0
+#: ../../commands.rst:72
+msgid ""
+"South's migration system really comes into its own when you start getting "
+"conflicting migrations - that is, migrations that have been applied in the "
+"wrong sequence."
+msgstr ""
+
+# 12461ce48a95455c9d24777ec9ffba84
+#: ../../commands.rst:76
+msgid ""
+"One example is if Anne writes new migrations 0003_foo and 0004_bar, runs the "
+"migration up to 0004 to make sure her local copy is up-to-date, and then "
+"updates her code from (say) Subversion. In the meantime, her coworker Bob "
+"has written a migration 0003_baz, which gets pulled in."
+msgstr ""
+
+# 9497b37abb7140aeaf91b223eb72ea80
+#: ../../commands.rst:81
+msgid ""
+"Now, there's a problem. 0003_baz should have been applied before 0004_bar, "
+"but it hasn't been; in this situation, South will helpfully say something "
+"like::"
+msgstr ""
+
+# b00f139fd04a40788c0d6b0f6a698d16
+#: ../../commands.rst:97
+msgid ""
+"As you can see, you have two real options; ``--merge``, which will just "
+"apply the missing migration and continue, and the two commands which roll "
+"back to before the missing migration (using ``--skip`` to ignore the error "
+"we're dealing with) and then migrating properly, in order, from there to the "
+"end."
+msgstr ""
+
+# 090786c1c3984ca8a4b7074e68d22630
+#: ../../commands.rst:102
+msgid ""
+"Using ``--skip`` by itself will let you continue, but isn't much of a "
+"solution; South will still complain the next time you run a migrate without "
+"``--skip``."
+msgstr ""
+
+# 3341fb855ea34307bf9f26b630199b6f
+#: ../../commands.rst:105
+msgid ""
+"Sometimes, even worse things happen and South finds out that an applied "
+"migration has gone missing from the filesystem. In this scenario, it will "
+"politely tell you to go fix the problem yourself, although in more recent "
+"versions, you also have the option to tell South to wipe all records of the "
+"missing migrations being applied."
+msgstr ""
+
+# a7969e2f24694e82bb58c813605bb6be
+#: ../../commands.rst:112
+msgid "Initial Data and post_syncdb"
+msgstr ""
+
+# 560ffcfd29954bae93df261f2c4f13b6
+#: ../../commands.rst:114
+msgid ""
+"South will load initial_data files in the same way as syncdb, but it loads "
+"them at the end of every successful migration process, so ensure they are "
+"kept up-to-date, along with the rest of your fixtures (something to help "
+"ease the pain of migrating fixtures may appear shortly in South)."
+msgstr ""
+
+# 3d8797d94b0547888e7c41433beac235
+#: ../../commands.rst:119
+msgid ""
+"South also sends the post_syncdb signal when a model's table is first "
+"created (this functionality requires that you generated those migrations "
+"with startmigration). This behaviour is intended to mirror the behaviour of "
+"syncdb, although for sanity reasons you may want to consider moving any "
+"setup code connected to such a signal into a migration."
+msgstr ""
+
+# a1dfd827987843a994a0e34bfe9dc265
+#: ../../commands.rst:126
+msgid "schemamigration"
+msgstr ""
+
+# adee5f0de1e34df68d6ec7109e4ac344
+# adcfc7d7a1e54b15bda839da34228ab5
+#: ../../commands.rst:128 ../../commands.rst:195
+msgid "*(In South 0.6 and below, this is called startmigration)*"
+msgstr ""
+
+# cc75e78817cc4438be8a25755d10dea9
+#: ../../commands.rst:130
+msgid ""
+"While migrate is the real meat and bones of South, schemamigration is by "
+"comparison an entirely optional extra. It's a utility to help write some of "
+"your migrations (specifically, the ones which change the schema) for you; if "
+"you like, you can ignore it and write everything youself, in which case we "
+"wish you good luck, and happy typing."
+msgstr ""
+
+# 8bb7848444f843ea95c589c349771525
+#: ../../commands.rst:136
+msgid ""
+"However, if you have a sense of reason, you'll realise that having the large "
+"majority of your migrations written for you is undoubtedly a good thing."
+msgstr ""
+
+# 1c7af7c56fe64642b27769a03090ac4f
+#: ../../commands.rst:139
+msgid ""
+"The main use of schemamigration is when you've just finished your shiny new "
+"models.py and want to load up your database. In vanilla Django, you'd just "
+"run syncdb - however, with migrations, you'll need a migration to create the "
+"tables."
+msgstr ""
+
+# c0339ab7c75c4d5c8299f5d42eb2dc6b
+#: ../../commands.rst:143
+msgid "In this scenario, you just run::"
+msgstr ""
+
+# ce5d2136bce74d6db77b4e5ef63853be
+#: ../../commands.rst:147
+msgid ""
+"That will write one big migration to create all the tables for the models in "
+"your app; just run ``./manage.py migrate`` to get it in and you're done in "
+"only one more step than syncdb!"
+msgstr ""
+
+# 06c86f694db04ec19b0d6b534f0e3192
+#: ../../commands.rst:151
+msgid ""
+"Later on, you'll add models to your app, or change your fields. Each time "
+"you do this, run schemamigration with the --auto flag::"
+msgstr ""
+
+# 3c989f95c96c4260acd5f72b1a7baaec
+#: ../../commands.rst:156
+msgid ""
+"If you make further changes to your models, you can further refine the most "
+"recent migration::"
+msgstr ""
+
+# 1015871022ec4b0699469c559d5db141
+#: ../../commands.rst:161
+msgid "You can also manually specify changes::"
+msgstr ""
+
+# d8ae88d396e04ed18bd796393ef55a38
+#: ../../commands.rst:165
+msgid "See the tutorial for more."
+msgstr ""
+
+# 25ddf7faba9a4c2fa1a2714292e3d295
+#: ../../commands.rst:167
+msgid ""
+"Finally, if you're writing a schema migration that South can't automatically "
+"create for you (yet!) then you can just create a skeleton:"
+msgstr ""
+
+# 94886f55146946ceb3ff28aba7f65b2d
+#: ../../commands.rst:170
+msgid "./manage.py schemamigration myapp my_new_column_migration --empty"
+msgstr ""
+
+# fd7ec4fd6c6948d589e1828d08018457
+#: ../../commands.rst:172
+msgid ""
+"Note that if you're writing a data migration, you should use the :ref:"
+"`commands-datamigration` command instead."
+msgstr ""
+
+# 9bdf15476cf04e6ba89b719b538547e4
+#: ../../commands.rst:178
+msgid "Note that you can combine as many ``--add-X`` options as you like."
+msgstr ""
+
+# 8820e6f4ced149fc81ca9c8897d57f39
+#: ../../commands.rst:180
+msgid ""
+"``--add-model``: Generates a creation migration for the given modelname."
+msgstr ""
+
+# 5c51333040094277a193a5e9856c843d
+#: ../../commands.rst:181
+msgid "``--add-field``: Generates an add-column migration for modelname.field."
+msgstr ""
+
+# 78d78026af894995804b207b39840e29
+#: ../../commands.rst:182
+msgid "``--add-index``: Generates an add-index migration for modelname.field."
+msgstr ""
+
+# 0524e3abdaf3473f9dd9187d1165d9fc
+#: ../../commands.rst:183
+msgid ""
+"``--initial``: Like having --model for every model in your app. You should "
+"use this only for your first migration."
+msgstr ""
+
+# 77760172528f4905bba812af49f043f7
+#: ../../commands.rst:185
+msgid "``--auto``: Generates a migration with automatically-detected actions."
+msgstr ""
+
+# 97ce6ca801144741a22f20eca42cb28d
+#: ../../commands.rst:186
+msgid ""
+"``--update``: Update the most recent migration, instead of creating a new "
+"one."
+msgstr ""
+
+# 03616468aa6e421b8f5005c0465bbddc
+# bf2ffa7d73a94b6aa9812d8268ef24c0
+#: ../../commands.rst:188 ../../commands.rst:210
+msgid "``--stdout``: Writes the migration to stdout instead of a file."
+msgstr ""
+
+# 54730a26775f4c968fb3a4aa6fcf3a99
+#: ../../commands.rst:193
+msgid "datamigration"
+msgstr ""
+
+# 929d100ffe84424fa061b481bc167872
+#: ../../commands.rst:197
+msgid ""
+"When you want to create a data migration, use this command to create a blank "
+"template to write your migration with::"
+msgstr ""
+
+# 0e85f5d25334492b97ba5f69709937ec
+#: ../../commands.rst:202
+msgid "You can also freeze in additional apps if you want::"
+msgstr ""
+
+# dfc3ff9fcaf3465ab1ffa7503344d039
+#: ../../commands.rst:209
+msgid "``--freeze``: Use appname to additional models into the app."
+msgstr ""
+
+# 941d5792c2624492b303e9cb64a24c2b
+#: ../../commands.rst:214
+msgid "graphmigrations"
+msgstr ""
+
+# 08ff6a70184d413bb2649672734748bf
+#: ../../commands.rst:216
+msgid "*(New in South 0.7)*"
+msgstr ""
+
+# 048b41f6d99b4b049ff0539e49c571f6
+#: ../../commands.rst:218
+msgid ""
+"Run this command to generate a graphviz .dot file for your migrations; you "
+"can then use this to generate a graph of your migrations' dependencies."
+msgstr ""
+
+# 5fd7e1765e9c4ef3abf83ae2a642ce16
+#: ../../commands.rst:221
+msgid "Typical usage::"
+msgstr ""
+
+# 6d164acf246d4fa7972316ef2d18fff9
+#: ../../commands.rst:225
+msgid ""
+"This command can be particularly helpful to examine complex dependency sets "
+"between lots of different apps [#]_."
+msgstr ""
+
+# 8cc4629082d241f5b54e07f0944dfd0f
+#: ../../commands.rst:228
+msgid ""
+"This command was written and used for the first time while helping the debug "
+"the rather complex set of dependencies in django-cms; it's `quite a sight to "
+"behold <http://ubuntuone.com/2tPRhmQS6FlpKtziSwYxfu>`_."
+msgstr ""
+
+# 3bbdda9d8bcb4d3f98d3d9b787178794
+#: ../../commands.rst:235
+msgid "This command has no options."
+msgstr ""
+
+# 0f5d808c5ecf4a10b52d6cb750d20b4d
+#: ../../commands.rst:239
+msgid "syncdb"
+msgstr ""
+
+# 9ad66ced670649b1a4800b57da3db7e9
+#: ../../commands.rst:241
+msgid ""
+"South overrides the Django syncdb command; as well as changing the output to "
+"show apps delineated by their migration status, it also makes syncdb only "
+"work on a subset of the apps - those without migrations."
+msgstr ""
+
+# d18dc6f910c8435f925056fbb2dbf39a
+#: ../../commands.rst:245
+msgid ""
+"If you want to run syncdb on all of the apps, then use ``--all``, but be "
+"warned; this will put your database schema and migrations out of sync. If "
+"you do this, you *might* be able to fix it with::"
+msgstr ""
+
+# 8be108a911d14967ab68329c358812a0
+#: ../../commands.rst:254
+msgid "``--all``: Makes syncdb operate on all apps, not just unmigrated ones."
+msgstr ""
+
+# 3e144b39252640969f3b478c9a600d47
+#: ../../commands.rst:258
+msgid "convert_to_south"
+msgstr ""
+
+# c78f75d7fd4f42369c8f5b8b07e2ea06
+#: ../../commands.rst:260
+msgid ""
+"An alias command that both creates an initial migration for an app and then "
+"fake-applies it. Takes one argument, the app label of the app to convert::"
+msgstr ""
+
+# 344791c5572546bda04d6eec227fc326
+#: ../../commands.rst:265
+msgid ""
+"There's more documentation on how to use this in the :ref:`converting-an-"
+"app` section."
+msgstr ""

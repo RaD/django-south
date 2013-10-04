@@ -1,0 +1,733 @@
+# Russian translations for South package.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-04 23:35\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+# a3e0d32d5c2b49bebcc7f5910f6fb45f
+#: ../../databaseapi.rst:5
+msgid "Database API"
+msgstr ""
+
+# 453e792b3e5a46488e6f5bf2a222ce6f
+#: ../../databaseapi.rst:7
+msgid ""
+"South ships with a full database-agnostic API for performing schema changes "
+"on databases, much like Django's ORM provides data manipulation support."
+msgstr ""
+
+# 75209acbe0d04d5b91df550f0268fce4
+#: ../../databaseapi.rst:10
+msgid "Currently, South supports:"
+msgstr ""
+
+# 364d2a9866cd4fd2ae5104eac165d0df
+#: ../../databaseapi.rst:12
+msgid "PostgreSQL"
+msgstr ""
+
+# 4243bb5453f549cb98db6c207c3ea3c2
+#: ../../databaseapi.rst:13
+msgid "MySQL"
+msgstr ""
+
+# 18a413414c954deea6dabc7c50a44269
+#: ../../databaseapi.rst:14
+msgid "SQLite"
+msgstr ""
+
+# a422353b290d44d68377e2bf36ba3164
+#: ../../databaseapi.rst:15
+msgid "Microsoft SQL Server (beta support)"
+msgstr ""
+
+# fbd5df34dcc840c4b35c4da02aaca183
+#: ../../databaseapi.rst:16
+msgid "Oracle (alpha support)"
+msgstr ""
+
+# a3237b6a047244ef88a5bd8ae5e1504b
+#: ../../databaseapi.rst:22
+msgid "Accessing The API"
+msgstr ""
+
+# 189cfb9952db42e384fbd4cf10ef64e5
+#: ../../databaseapi.rst:24
+msgid ""
+"South automatically exposes the correct set of database API operations as "
+"``south.db.db``; it detects which database backend you're using from your "
+"Django settings file. It's usually imported using::"
+msgstr ""
+
+# 0de0d7eae0504a18a6498bf20aba9025
+#: ../../databaseapi.rst:30
+msgid ""
+"If you're using multiple database support (Django 1.2 and higher), there's a "
+"corresponding ``south.db.dbs`` dictionary which contains a "
+"DatabaseOperations object (the object which has the methods defined above) "
+"for each database alias in your configuration file::"
+msgstr ""
+
+# c70ec3de0ffa4f1f940ebb10bf89a742
+#: ../../databaseapi.rst:38
+msgid ""
+"You can tell which backend you're talking to inside of a migration by "
+"examining ``db.backend_name`` - it will be one of ``postgres``, ``mysql``, "
+"``sqlite3``, ``pyodbc`` or ``oracle``."
+msgstr ""
+
+# a2100833032647e790931e3041d0a003
+#: ../../databaseapi.rst:44
+msgid "Database-Specific Issues"
+msgstr ""
+
+# 27b80abd524046acb94f66bc2258e200
+#: ../../databaseapi.rst:46
+msgid ""
+"South provides a large amount of features, and not all features are "
+"supported by all database backends."
+msgstr ""
+
+# 8d84d98de5c747a191a28ef68c3547b2
+#: ../../databaseapi.rst:49
+msgid ""
+"PostgreSQL supports all of the South features; if you're unsure which "
+"database engine to pick, it's the one we recommend for migrating on."
+msgstr ""
+
+# 406cd24ec5154bb2bb8fa08fe66f51f0
+#: ../../databaseapi.rst:52
+msgid ""
+"MySQL doesn't have transaction support for schema modification, meaning that "
+"if a migration fails to apply, the database is left in an inconsistent "
+"state, and you'll probably have to manually fix it. South will try and "
+"sanity-check migrations in a dry-run phase, and give you hints of what to do "
+"when it fails, however."
+msgstr ""
+
+# e905fbbf2ac34d019cb85ad64cbf3340
+#: ../../databaseapi.rst:58
+msgid ""
+"SQLite doesn't natively support much schema altering at all, but South has "
+"workarounds to allow deletion/altering of columns. Unique indexes are still "
+"unsupported, however; South will silently ignore any such commands."
+msgstr ""
+
+# 471c4d98f2124860ac8c4674103d6a2f
+#: ../../databaseapi.rst:62
+msgid ""
+"SQL Server has been supported for a while, and works in theory, but the "
+"implementation itself may have bugs, as it's a contributed module and isn't "
+"under primary development. Patches and bug reports are welcome."
+msgstr ""
+
+# 69c66b1239c44eb7a924a45f46fadce1
+#: ../../databaseapi.rst:66
+msgid ""
+"Oracle is a new module as of the 0.7 release, and so is very much alpha. The "
+"most common operations work, but others may be missing completely; we "
+"welcome bug reports and patches against it (as with all other modules)."
+msgstr ""
+
+# 99150d5b82224ec4b971e9d0e1d44a0c
+#: ../../databaseapi.rst:72
+msgid "Methods"
+msgstr ""
+
+# 9388a6f54b134b1c985bba205ff253cd
+#: ../../databaseapi.rst:74
+msgid ""
+"These are how you perform changes on the database. See :ref:`accessing-the-"
+"api` to see how to get access to the ``db`` object."
+msgstr ""
+
+# 59703496d8644036ac62a252752db24e
+#: ../../databaseapi.rst:84
+msgid "db.add_column"
+msgstr ""
+
+# 6a57a5ac6188405297a861e03af9218e
+#: ../../databaseapi.rst:90
+msgid ""
+"Adds a column called ``field_name`` to the table ``table_name``, of the type "
+"specified by the field instance field."
+msgstr ""
+
+# 21a0e3ca9ec549c88bc627b1a54937f3
+#: ../../databaseapi.rst:93
+msgid ""
+"If ``keep_default`` is True, then any default value specified on the field "
+"will be added to the database schema for that column permanently. If not, "
+"then the default is only used when adding the column, and then dropped "
+"afterwards."
+msgstr ""
+
+# 2f1f57b6f6b54ae191282dc8f263938b
+#: ../../databaseapi.rst:97
+msgid ""
+"Note that the default value for fields given here is only ever used when "
+"adding the column to a non-empty table; the default used by the ORM in your "
+"application is the one specified on the field in your models.py file, as "
+"Django handles adding default values before the query hits the database."
+msgstr ""
+
+# 71c40f7efa034d1da564601c388462b6
+#: ../../databaseapi.rst:102
+msgid ""
+"The only case where having the default stored in the database as well would "
+"make a difference would be where you are interacting with the database from "
+"somewhere else, or Django doesn't know about the added column at all."
+msgstr ""
+
+# 065954791d8d441980f965f687aa82c3
+#: ../../databaseapi.rst:106
+msgid ""
+"Also, note that the name you give for the column is the **field name**, not "
+"the column name - if the field you pass in is a ForeignKey, for example, the "
+"real column name will have _id on the end."
+msgstr ""
+
+# 9d2979d2bbcd43c6b111c2fab6258124
+# 23d40c96466a4748a743eb188ad4515a
+# 420a0a3e8fbf4363b424a446fe43656c
+# 40f08f14b5b843b88c6a9423e8c97829
+# 98932652496b40249497977d912876a4
+# cb230c23a4734789bc78f7452bf07374
+# dd2e8c25eb924f2c831d13d46c6f7f38
+# d67fa4c56fcf4eafb1f5bd3aafef6130
+# d0c40c2cc5e14424a709ed89e9cb49a2
+# cfcd56c0f95d461894923a7ab9be60dc
+# 2c8196c223c54b92bc526d81003f024e
+# ae790536347346608de69c1d14e6ab9f
+# af5f4e56ea924ec1adc70c758b7bc76e
+# c89caab2b82240259513b0d31f9d3d89
+# f8a37b2f76df4de4a1d7386946ddcfa7
+# 97ea3faf13d945fa8003daaeb6ffdf0a
+# 035242e0bc1a43edb95983efec7a9774
+# df9b654e0ab44e108c0920631a38579e
+#: ../../databaseapi.rst:111 ../../databaseapi.rst:147
+#: ../../databaseapi.rst:179 ../../databaseapi.rst:217
+#: ../../databaseapi.rst:241 ../../databaseapi.rst:273
+#: ../../databaseapi.rst:307 ../../databaseapi.rst:325
+#: ../../databaseapi.rst:348 ../../databaseapi.rst:372
+#: ../../databaseapi.rst:391 ../../databaseapi.rst:411
+#: ../../databaseapi.rst:434 ../../databaseapi.rst:466
+#: ../../databaseapi.rst:495 ../../databaseapi.rst:514
+#: ../../databaseapi.rst:536 ../../databaseapi.rst:577
+msgid "Examples"
+msgstr ""
+
+# 4be9a4f37a5c47faa10aab085ad76d83
+#: ../../databaseapi.rst:113
+msgid ""
+"A normal column addition (the column is nullable, so all existing rows will "
+"have it set to NULL)::"
+msgstr ""
+
+# 08bb8b8be7a7428da7fa28c95f974066
+#: ../../databaseapi.rst:118
+msgid ""
+"Providing a default value instead, so all current rows will get this value "
+"for 'height'::"
+msgstr ""
+
+# 74ece94532504fc680f27e7553c65eea
+#: ../../databaseapi.rst:123
+msgid "Same as above, but the default is not left in the database schema::"
+msgstr ""
+
+# 5f0fe845e0384b1d84835d89beff069a
+#: ../../databaseapi.rst:130
+msgid "db.alter_column"
+msgstr ""
+
+# ecf84347d1424766b273fc6f0851708d
+#: ../../databaseapi.rst:136
+msgid ""
+"Alters the column ``column_name`` on the table ``table_name`` to match "
+"``field``. Note that this cannot alter all field attributes; for example, if "
+"you want to make a field ``unique=True``, you should instead use ``db."
+"create_unique``, and if you want to make it a primary key, you should look "
+"into ``db.drop_primary_key`` and ``db.create_primary_key``."
+msgstr ""
+
+# 48689272a4bf4f2da1ea22d930f64def
+#: ../../databaseapi.rst:142
+msgid ""
+"If explicit_name is false, ForeignKey? fields will have _id appended to the "
+"end of the given column name - this lets you address fields as they are "
+"represented in the model itself, rather than as the column name."
+msgstr ""
+
+# 5e71d8ec52d247f88ee735e7e0d6bb84
+#: ../../databaseapi.rst:149
+msgid "A simple change of the length of a VARCHAR column::"
+msgstr ""
+
+# a49109ad94994983b5c786d158feebcf
+#: ../../databaseapi.rst:154
+msgid "We can also change it to a compatible field type::"
+msgstr ""
+
+# 686c16c768e6417db151d7136a8aa8b5
+#: ../../databaseapi.rst:158
+msgid ""
+"If we have a ForeignKey? named 'user', we can address it without the "
+"implicit '_id' on the end::"
+msgstr ""
+
+# a127a4ad7f134314a2c5249f4f31387e
+#: ../../databaseapi.rst:162
+msgid "Or you can specify the same operation with an explicit name::"
+msgstr ""
+
+# 6fac86a69f5447848f3639850b20aca6
+#: ../../databaseapi.rst:169
+msgid "db.clear_table"
+msgstr ""
+
+# 2bc76b8b08154c95b8cf232d1a2cb59d
+#: ../../databaseapi.rst:175
+msgid ""
+"Deletes all rows from the table (truncation). Never used by South's "
+"autogenerators, but can prove useful if you're writing data migrations."
+msgstr ""
+
+# 0e37861a1f854c10b861c619bf11232a
+#: ../../databaseapi.rst:181
+msgid "Clear all cached geocode results, as the schema is changing::"
+msgstr ""
+
+# 789a91fadcb548b3a71f184fc01bec55
+#: ../../databaseapi.rst:189
+msgid "db.commit_transaction"
+msgstr ""
+
+# 15a56d0958104cc1947f0cf00190a139
+#: ../../databaseapi.rst:195
+msgid "Commits the transaction started at a ``db.start_transaction`` call."
+msgstr ""
+
+# 16bd04a11bdd41489bbc3cec9f99f857
+#: ../../databaseapi.rst:200
+msgid "db.create_index"
+msgstr ""
+
+# 2926cfaa8c2b478ea09986042bee1c3c
+#: ../../databaseapi.rst:206
+msgid ""
+"Creates an index on the list of columns ``column_names`` on the table "
+"``table_name``."
+msgstr ""
+
+# 757e961c51dd4183804312c393cabded
+#: ../../databaseapi.rst:209
+msgid ""
+"By default, the index is simply for speed; if you would like a unique index, "
+"then specify ``unique=True``, although you're better off using ``db."
+"create_unique`` for that."
+msgstr ""
+
+# ac7a1c732cda498c9b743283d2eb23a7
+#: ../../databaseapi.rst:213
+msgid ""
+"``db_tablespace`` is an Oracle-specific option, and it's likely you won't "
+"need to use it."
+msgstr ""
+
+# dbfde0a1f6a34608bc2e278ecdf2ec66
+#: ../../databaseapi.rst:219
+msgid "Creating an index on the 'name' column::"
+msgstr ""
+
+# 7b6ed99a67584948b3b494212feb8851
+#: ../../databaseapi.rst:223
+msgid ""
+"Creating a unique index on the combination of 'name' and 'age' columns::"
+msgstr ""
+
+# 8a6be472f7cf4bddbba1f5d70074c4bd
+#: ../../databaseapi.rst:230
+msgid "db.create_primary_key"
+msgstr ""
+
+# de3562bc7d7e473b8a21ed589c606ef1
+#: ../../databaseapi.rst:236
+msgid ""
+"Creates a primary key spanning the given ``columns`` for the table. "
+"Remember, you can only have one primary key per table; use ``db."
+"delete_primary_key`` first if you already have one."
+msgstr ""
+
+# 980e13a4a7aa4fa09ac8cbc56ef357a4
+# 186b140907794d13bd81273b2dfcd87a
+#: ../../databaseapi.rst:243 ../../databaseapi.rst:393
+msgid "Swapping from the ``id`` to ``uuid`` as a primary key::"
+msgstr ""
+
+# aaabeab614c24168b438be442c60380d
+#: ../../databaseapi.rst:248
+msgid ""
+"Adding a new composite primary key on \"first name\" and \"last name\"::"
+msgstr ""
+
+# 0fcc952845d54d6bbee61873616d59cc
+#: ../../databaseapi.rst:255
+msgid "db.create_table"
+msgstr ""
+
+# 96d9399ff6c9435cb20458e89b6747af
+#: ../../databaseapi.rst:262
+msgid ""
+"This call creates a table called *table_name* in the database with the "
+"schema specified by *fields*, which is a tuple of ``(field_name, "
+"field_instance)`` tuples."
+msgstr ""
+
+# 9d94265e5ca44303a167ed41d26272a0
+#: ../../databaseapi.rst:266
+msgid ""
+"Note that this call will not automatically add an id column; you are "
+"responsible for doing that."
+msgstr ""
+
+# d794290f540d4e999bac7a4f3f7f975e
+#: ../../databaseapi.rst:269
+msgid ""
+"We recommend you create calls to this function using ``schemamigration``, "
+"either in ``--auto`` mode, or by using ``--add-model``."
+msgstr ""
+
+# 606b0f2cb54649479bb3cec0cb910f74
+#: ../../databaseapi.rst:275
+msgid "A simple table, with one field, name, and the default id column::"
+msgstr ""
+
+# 9769eb098c1f49f0bf961344d884a316
+#: ../../databaseapi.rst:282
+msgid "A more complex table, which uses the ORM Freezer for its foreign keys::"
+msgstr ""
+
+# c5bf9966d3c941119b98dee85756317a
+#: ../../databaseapi.rst:297
+msgid "db.create_unique"
+msgstr ""
+
+# c92a97d48a7743e5a77596a0826573c5
+#: ../../databaseapi.rst:303
+msgid ""
+"Creates a unique index or constraint on the list of columns ``columns`` on "
+"the table ``table_name``."
+msgstr ""
+
+# 939cd5cef3e140528273ae44af76bcf3
+#: ../../databaseapi.rst:309
+msgid ""
+"Declare the pair of fields ``first_name`` and ``last_name`` to be unique::"
+msgstr ""
+
+# 574cb6af30c4485c85c4d9aed3cd576a
+#: ../../databaseapi.rst:316
+msgid "db.delete_column"
+msgstr ""
+
+# 6cb2d636145a4493b82af34c4e331f08
+#: ../../databaseapi.rst:322
+msgid "Deletes the column ``column_name`` from the table ``table_name``."
+msgstr ""
+
+# ab905235cf99405ca376de432fc9f05f
+#: ../../databaseapi.rst:327
+msgid "Delete a column from a table::"
+msgstr ""
+
+# 54947ecddabd4dbd825a9f5f01fa52be
+#: ../../databaseapi.rst:334
+msgid "db.delete_index"
+msgstr ""
+
+# 48fa4cbd3c2b45dc8163ec6e46170861
+#: ../../databaseapi.rst:340
+msgid ""
+"Deletes an index created by db.create_index or one of the other South "
+"functions. Pass the column_names in exactly the same order as the other call "
+"to ensure this works; we use a hashing algorithm to make sure you can delete "
+"migrations by only specifying column names."
+msgstr ""
+
+# 56f97fd88eb040098772bfd86a2a56c0
+#: ../../databaseapi.rst:345
+msgid "db_tablespace is an Oracle-specific option."
+msgstr ""
+
+# 585cc8cf49e44aeead6e8accc94d6794
+#: ../../databaseapi.rst:350
+msgid "Deleting an index on 'name'::"
+msgstr ""
+
+# 6b587f7e91a546278ff70cd69a3c0a98
+#: ../../databaseapi.rst:354
+msgid ""
+"Deleting the unique index on the combination of 'name' and 'age' columns "
+"(from the db.create_index examples)::"
+msgstr ""
+
+# dab0d31037374727b994b3c7bd1cdda0
+#: ../../databaseapi.rst:362
+msgid "db.delete_foreign_key"
+msgstr ""
+
+# 45816d33bae941e0815c8714f1eab466
+#: ../../databaseapi.rst:368
+msgid ""
+"Drops any foreign key constraints on the given column, if the database "
+"backend supported them in the first place."
+msgstr ""
+
+# 9d2f54e9f1e44f528c1749c52decc6e7
+#: ../../databaseapi.rst:374
+msgid "Remove the foreign key constraint from user_id:"
+msgstr ""
+
+# a56463e9b2f340c5a7cad0591b269c08
+#: ../../databaseapi.rst:376
+msgid "db.delete_foreign_key('core_people', 'user_id')"
+msgstr ""
+
+# 4c13e2ba0a1c4c89b5b07e21f81cbbb0
+#: ../../databaseapi.rst:381
+msgid "db.delete_primary_key"
+msgstr ""
+
+# 81a4e9d8854a430cadb946104347f356
+#: ../../databaseapi.rst:387
+msgid ""
+"Deletes the current primary key constraint on the table. Does not remove the "
+"columns the primary key was using."
+msgstr ""
+
+# 753980206ce44a4b8f8fbaedd5d5e451
+#: ../../databaseapi.rst:401
+msgid "db.delete_table"
+msgstr ""
+
+# 6df8ebeaedc84534804461768c797279
+#: ../../databaseapi.rst:407
+msgid ""
+"Deletes (drops) the named table from the database. If cascade is True, drops "
+"any related constraints as well."
+msgstr ""
+
+# 946142d9bb7e40a6a27b6ef4b05a98a0
+#: ../../databaseapi.rst:413
+msgid "Usual call::"
+msgstr ""
+
+# 1f97d2a993f047bd99d5cc4e4ab46286
+#: ../../databaseapi.rst:417
+msgid "Not cascading (beware, may fail)::"
+msgstr ""
+
+# e0b1e47ff5af404eb8ac329cd60ea82d
+#: ../../databaseapi.rst:424
+msgid "db.delete_unique"
+msgstr ""
+
+# cdd7c4bdc61b4f40ae0e938514c0940f
+#: ../../databaseapi.rst:430
+msgid ""
+"Deletes a unique index or constraint on the list of columns ``columns`` on "
+"the table ``table_name``. The constraint/index. must already exist."
+msgstr ""
+
+# 4b52ee8b2c5d4799a02fe5bae2ec25b1
+#: ../../databaseapi.rst:436
+msgid ""
+"Declare the pair of fields ``first_name`` and ``last_name`` to no longer be "
+"unique::"
+msgstr ""
+
+# f47951582bb746d98a77a03bfad3b288
+#: ../../databaseapi.rst:444
+msgid "db.execute"
+msgstr ""
+
+# d8c78193f3ce49d8a195e9b15bbf6864
+#: ../../databaseapi.rst:450
+msgid ""
+"Executes the **single** raw SQL statement ``sql`` on the database; "
+"optionally use params to replace the %s instances in sql (this is the "
+"recommended way of doing parameters, as it escapes them correctly for all "
+"databases)."
+msgstr ""
+
+# 5f2f844dbfea44c59986878dcac6d533
+#: ../../databaseapi.rst:454
+msgid ""
+"If you want to execute a series of SQL statements instead, use ``db."
+"execute_many``."
+msgstr ""
+
+# 416a34f4e78243c6bf08abbb44b3b011
+#: ../../databaseapi.rst:457
+msgid ""
+"Note that you should avoid using raw SQL wherever possible, as it will break "
+"the database abstraction in many cases. If you want to handle data, consider "
+"using the ORM Freezer, and remember that many operations such as creating "
+"indexes and changing primary keys have functions in the DB layer."
+msgstr ""
+
+# 9679dc48ab3f4e4597d04156e9a4d1cd
+#: ../../databaseapi.rst:462
+msgid ""
+"If there's a common operation you'd like to see added to the DB abstraction "
+"layer in South, consider asking on the mailing list or creating a ticket."
+msgstr ""
+
+# 4b0b340f14be4ac994318dd7424ca070
+#: ../../databaseapi.rst:468
+msgid "VACUUMing a table::"
+msgstr ""
+
+# 188c866f9253448a9ef46d7a9ccd38e4
+#: ../../databaseapi.rst:472
+msgid ""
+"Updating values (this sort of task should really be done using the frozen "
+"ORM)::"
+msgstr ""
+
+# 9e4ffbd46d3748ec8e54eafc3dc5949d
+#: ../../databaseapi.rst:479
+msgid "db.execute_many"
+msgstr ""
+
+# 1379bd00349e4b23baddd1ca74c9e643
+#: ../../databaseapi.rst:485
+msgid ""
+"Executes the given multi-statement SQL string ``sql``. The two parameters "
+"are the regular expressions for splitting up statements (``regex``) and "
+"removing comments (``comment_regex``). We recommend you leave these at their "
+"default values, as they work on almost all SQL files."
+msgstr ""
+
+# 5aa4320cdc344c739848d9c1b4bcffea
+#: ../../databaseapi.rst:490
+msgid ""
+"If you only want to execute a single SQL statement, consider using ``db."
+"execute``, as it offers parameter escaping, and the regexes sometimes get "
+"the splitting wrong."
+msgstr ""
+
+# a6bf21e60ec94a468229cc6e719d382d
+#: ../../databaseapi.rst:497
+msgid "Run the PostGIS initialisation file::"
+msgstr ""
+
+# 7aadddf8ddcf46e99bad757999f79012
+#: ../../databaseapi.rst:504
+msgid "db.rename_column"
+msgstr ""
+
+# f38cd5ee52cf43c080273366c7f51cb5
+#: ../../databaseapi.rst:510
+msgid ""
+"Renames the column ``column_name`` in table ``table_name`` to "
+"``new_column_name``."
+msgstr ""
+
+# cea75e65b024400ca39fb3aa5531d1e7
+# a92176d79d584d879e506c81406b9786
+#: ../../databaseapi.rst:516 ../../databaseapi.rst:538
+msgid "Simple rename::"
+msgstr ""
+
+# 8c969b87374b4c8d8415db273febfb93
+#: ../../databaseapi.rst:523
+msgid "db.rename_table"
+msgstr ""
+
+# 40df6fd6932e4555b6db314f0e896cbc
+#: ../../databaseapi.rst:529
+msgid "Renames the table table_name to the new name new_table_name."
+msgstr ""
+
+# c0b2e4ad5c5144c49a63b2b0664cfa1c
+#: ../../databaseapi.rst:531
+msgid ""
+"This won't affect what tables your models are looking for, of course; this "
+"is useful, for example, if you've renamed a model (and don't want to specify "
+"the old table name in Meta)."
+msgstr ""
+
+# a4f055d8c955490083fb48d8979c59a1
+#: ../../databaseapi.rst:545
+msgid "db.rollback_transaction"
+msgstr ""
+
+# 1276981af6ca4a038b6617df01f5022d
+#: ../../databaseapi.rst:551
+msgid "Rolls back the transaction started at a ``db.start_transaction`` call."
+msgstr ""
+
+# 0f8c3a4c39804e4d8e57b75d9cce1241
+#: ../../databaseapi.rst:556
+msgid "db.send_create_signal"
+msgstr ""
+
+# 8e38f07f225840c8a18472b644e61af0
+#: ../../databaseapi.rst:562
+msgid ""
+"Sends the post_syncdb signal for the given models ``model_names`` in the app "
+"``app_label``."
+msgstr ""
+
+# 765e0b485f2044ab9d9937c22b80fa1f
+#: ../../databaseapi.rst:565
+msgid ""
+"This signal is used by various bits of django internals - such as "
+"contenttypes - to hook new models into themselves, so you should really call "
+"it after the relevant ``db.create_table`` call. ``startmigration`` will add "
+"this automatically for you."
+msgstr ""
+
+# a19f2bb8d34e46e9a11b6a8cb7e9881e
+#: ../../databaseapi.rst:570
+msgid ""
+"Note that the signals are not sent until the end of the whole migration "
+"sequence, so your handlers will not get called until all migrations are "
+"done. This is so that your handlers can deal with the most recent version of "
+"the model's schema, rather than the one in the migration where the signal is "
+"originally sent."
+msgstr ""
+
+# 2044ee594b8f46abb87faa74b402f123
+#: ../../databaseapi.rst:579
+msgid ""
+"Sending a signal for the 'Profile' and 'Planet' models in my app 'core'::"
+msgstr ""
+
+# 57e00b27cd88420492508298f98df6d8
+#: ../../databaseapi.rst:586
+msgid "db.start_transaction"
+msgstr ""
+
+# aacb7d1d39bf46d4b2646d70ce5bf454
+#: ../../databaseapi.rst:592
+msgid ""
+"Wraps the following code (until it meets a ``db.rollback_transaction`` or "
+"``db.commit_transaction`` call) in a transaction."
+msgstr ""

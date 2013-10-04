@@ -1,0 +1,81 @@
+# Russian translations for South package.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-04 23:35\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+# 056f3ae6021247f9b2126ad42d84ebd2
+#: ../../fixtures.rst:2
+msgid "Fixtures"
+msgstr ""
+
+# c54a6d3441794746ba45f315a28f09fd
+#: ../../fixtures.rst:4
+msgid "A few things change when you're using fixtures with South."
+msgstr ""
+
+# 99120b4f75c1475b9c3248e0c3f3ff30
+#: ../../fixtures.rst:7
+msgid "initial_data"
+msgstr ""
+
+# 800e2d3dbc9248f09020db5d3623d464
+#: ../../fixtures.rst:9
+msgid ""
+"Much like syncdb, South will load the initial_data fixture when an app has "
+"been successfully migrated to the latest migration for an app. Note that the "
+"data in the fixture will not be available before then; South only applies it "
+"at the end, as it may not match the current database schema."
+msgstr ""
+
+# cb655f02842b44619e082d97daa22c3e
+#: ../../fixtures.rst:15
+msgid "Fixtures from migrations"
+msgstr ""
+
+# 08065e86e6134c6fbdd8855d22a84a52
+#: ../../fixtures.rst:17
+msgid ""
+"If you need to load a fixture as part of your database setup - say, you have "
+"a migration that depends on it being around - the best thing to do is to "
+"write a new migration to load the fixture in. That way, the fixture will "
+"always be loaded at the correct time."
+msgstr ""
+
+# 8d849df42be74e0b90812a02e8e84390
+#: ../../fixtures.rst:22
+msgid "To make such a migration, first make a blank migration::"
+msgstr ""
+
+# 0c92939f0b4a44ebbae1951e49a1c310
+#: ../../fixtures.rst:26
+msgid ""
+"Then, open the new migration file, and restructure your forwards() method so "
+"it looks like this::"
+msgstr ""
+
+# fa2a16d5075c4bb7affde4e2bdfeba21
+#: ../../fixtures.rst:33
+msgid ""
+"(you'll have to leave backwards() empty, as there's not much you can do to "
+"reverse this)."
+msgstr ""
+
+# b168d934e917462189006c6ffef9c1b4
+#: ../../fixtures.rst:36
+msgid "Then, when this migration is run, it will load the given fixture."
+msgstr ""

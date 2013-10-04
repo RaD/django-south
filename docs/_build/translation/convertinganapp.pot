@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../convertinganapp.rst:5
+# ec80ab3f705e470ca9c4d9f2c4d6ac1b
+msgid "Converting An App"
+msgstr ""
+
+#: ../../convertinganapp.rst:7
+# 7d0c9c9f4d8d40cc9fecf361e2b51619
+msgid "Converting an app to use South is very easy:"
+msgstr ""
+
+#: ../../convertinganapp.rst:9
+# 1aaf11b1f2354319b67b13299652e34b
+msgid "Edit your settings.py and put 'south' into `INSTALLED_APPS` (assuming you've installed it to the right place)"
+msgstr ""
+
+#: ../../convertinganapp.rst:12
+# 622b4929a71248e482555853054907e5
+msgid "Run ``./manage.py syncdb`` to load the South table into the database. Note that syncdb looks different now - South modifies it."
+msgstr ""
+
+#: ../../convertinganapp.rst:15
+# 045413480d524468b3c67bafec1cd886
+msgid "Run ``./manage.py convert_to_south myapp`` - South will automatically make and pretend to apply your first migration."
+msgstr ""
+
+#: ../../convertinganapp.rst:18
+# 07d7557f6bb544419931d5219c1b2820
+msgid "Note that you'll need to convert before you make any changes; South detects changes by comparing against the frozen state of the last migration, so it cannot detect changes from before you converted to using South."
+msgstr ""
+
+#: ../../convertinganapp.rst:23
+# 7a61750edce64b628c44bb228347c9c1
+msgid "Converting other installations and servers"
+msgstr ""
+
+#: ../../convertinganapp.rst:25
+# 3330db71867646b9a7b7e6aa0df6fa56
+msgid "The convert_to_south command only works entirely on the first machine you run it on. Once you've committed the initial migrations it made into your VCS, you'll have to run ``./manage.py migrate myapp 0001 --fake`` on every machine that has a copy of the codebase (make sure they were up-to-date with models and schema first)."
+msgstr ""
+
+#: ../../convertinganapp.rst:31
+# 0e2f78cf040846bd95d7111c3d9a0126
+msgid "(For the interested, this is required because the initial migration that convert_to_south makes will try and create all the existing tables; instead, you tell South that it's already applied using --fake, so the next migrations apply correctly.)"
+msgstr ""
+
+#: ../../convertinganapp.rst:36
+# c2419133a4544c549a2da844404c6f40
+msgid "Remember that new installations of the codebase after this don't need these steps; you need only do a syncdb then a normal migrate."
+msgstr ""
+

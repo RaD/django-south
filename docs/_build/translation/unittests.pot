@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../unittests.rst:2
+# cb8e5724689b4f03a00c56773c691014
+msgid "Unit Test Integration"
+msgstr ""
+
+#: ../../unittests.rst:4
+# 558935a924234f8ea7cf7a1bd7751901
+msgid "By default, South's syncdb command will also apply migrations if it's run in non-interactive mode, which includes when you're running tests - it will run every migration every time you run your tests."
+msgstr ""
+
+#: ../../unittests.rst:8
+# c08258c33a374a1f81d4b33413cc1ce8
+msgid "If you want the test runner to use syncdb instead of migrate - for example, if your migrations are taking way too long to apply - simply set ``SOUTH_TESTS_MIGRATE = False`` in settings.py."
+msgstr ""
+
+#: ../../unittests.rst:13
+# 9f1fd29688ab4a598c07ea0a10c1f90d
+msgid "South's own unit tests"
+msgstr ""
+
+#: ../../unittests.rst:15
+# 34efe0a41d6843608a19f171c488b70c
+msgid "South has its own set of unit tests, however, these will not be run by default when you run ``./manage.py test``. This is mainly because the test suite is meant to be run in isolation (the test framework continually changes ``INSTALLED_APPS`` and fiddles with the ORM as it runs, among other things), and can cause compatability problems with other applications."
+msgstr ""
+
+#: ../../unittests.rst:21
+# 0c1609e26dba475d8b9677a793d1bd91
+msgid "You can run South's test suite by setting ``SKIP_SOUTH_TESTS = False`` in settings.py, then running ``./manage.py test south``."
+msgstr ""
+

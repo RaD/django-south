@@ -1,0 +1,64 @@
+# Russian translations for South package.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-04 23:35\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+# af429240801a42d7a38dc877b613465f
+#: ../../whataremigrations.rst:5
+msgid "What are migrations?"
+msgstr ""
+
+# 2dfd06ddc2e5433b866a0dd19fe86080
+#: ../../whataremigrations.rst:7
+msgid ""
+"For the uninitiated, migrations (also known as 'schema evolution' or "
+"'mutations') are a way of changing your database schema from one version "
+"into another. Django by itself can only do this by adding new models, but "
+"nearly all projects will find themselves changing other aspects of models - "
+"be it adding a new field to a model, or changing a database column to have "
+"null=True."
+msgstr ""
+
+# 6e2a26a80c084bb38790a8ed82893cf1
+#: ../../whataremigrations.rst:13
+msgid ""
+"South, and other solutions, provide a way of getting round this by giving "
+"you the tools to easily and predictably upgrade your database schema. You "
+"write migrations, which tell South how to upgrade from one version to the "
+"next, and by stringing these migrations together you can move forwards (or "
+"backwards) through the history of your database schema."
+msgstr ""
+
+# 0dbee62d49914150843c523a903153d5
+#: ../../whataremigrations.rst:19
+msgid ""
+"In South, the migrations also form the way of creating your database "
+"initially - the first migration simply migrates from an empty schema to your "
+"first tables. This way, running through all the migrations brings your "
+"database up-to-date with the most current version of the app, and if you "
+"already have an older version, you simply need to run through the ones that "
+"appeared since last time."
+msgstr ""
+
+# 1ee313eb7a514857b63b80d3eda53a60
+#: ../../whataremigrations.rst:25
+msgid ""
+"Running through the :ref:`tutorial <tutorial-part-1>` will give you a good "
+"idea of how migrations work and how they're useful to you, with some solid "
+"examples."
+msgstr ""

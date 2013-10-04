@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../ormfreezing.rst:5
+# de90a4e393a74683a68f0a5776cb7774
+msgid "ORM Freezing"
+msgstr ""
+
+#: ../../ormfreezing.rst:7
+# e556d5ba2360450986c447cecd24ede7
+msgid "South freezes the state of the ORM and models whenever you do a migration, meaning that when your migrations run in the future, they see the models and fields they're expecting (the ones that were around when they were created), rather than the current set (which could be months or even years newer)."
+msgstr ""
+
+#: ../../ormfreezing.rst:12
+# fcca414903454c0d82ade41ccbcf1a35
+msgid "This is accomplished by serialising the models into a large dictionary called ``models`` at the bottom of every migration. It's easy to see; it's the large chunk of dense code at the bottom."
+msgstr ""
+
+#: ../../ormfreezing.rst:17
+# 450553c6aa6349fba9c041dc86409ae2
+msgid "Rationale behind the serialisation"
+msgstr ""
+
+#: ../../ormfreezing.rst:19
+# 830a98408c1949799bc4ae0feb89dd44
+msgid "South doesn't freeze every aspect of a model; for example, it doesn't preserve new managers, or custom model methods, as these would require serialising the python code that runs those method (and the code that depends on, and so forth)."
+msgstr ""
+
+#: ../../ormfreezing.rst:24
+# 963b3e93ffcd420c96259f1e56b3270c
+msgid "If you want custom methods in your migration, you'll have to copy the code in, including any imports it relies on to work. Remember, however, for every import that you add, you're promising to keep that import valid for the life for the migration."
+msgstr ""
+
+#: ../../ormfreezing.rst:29
+# b54a7d4814734321a4cbac937d33b2bb
+msgid "We also use a human-readable format that's easy to change; since South relies on the frozen models not only for reacreating the ORM but also for detecting changes, it's really useful to be able to edit them now and again (and also serves as a valuable debugging tool if you attach failing migrations to a ticket)."
+msgstr ""
+
+#: ../../ormfreezing.rst:36
+# 006308b5e93640b4b08eff753b9adbfe
+msgid "Serialisation format"
+msgstr ""
+
+#: ../../ormfreezing.rst:38
+# 418e81f1df7342fd95e837c1ce5a5ce6
+msgid "``models`` is a dict of ``{'appname.modelname': fields}``, and ``fields`` is a dict of ``{'fieldname': (fieldclass, positional_args, kwd_args)}``. ``'Meta'`` is also a valid entry in fields, in which case the value should be a dict of its attributes."
+msgstr ""
+
+#: ../../ormfreezing.rst:43
+# f694c9d9fff44c7c8647686286cc7b38
+msgid "Make note that the entries in positional_args and kwd_args are **strings passed into eval**; thus, a string would be ``'\"hello\"'``. We strongly recommend you use schemamigration/datamigration to freeze things."
+msgstr ""
+
+#: ../../ormfreezing.rst:48
+# 67d2242f823f46a5a81bab98779b1d70
+msgid "Accessing the ORM"
+msgstr ""
+
+#: ../../ormfreezing.rst:50
+# 71ab0a5b38a6486bb495c65888e1e799
+msgid "From inside a migration, you can access models from the frozen ORM in two ways. If the model you're accessing is part of the same app, you can simply call::"
+msgstr ""
+
+#: ../../ormfreezing.rst:55
+# ec701c7ebb7a40969a09ac83b5f9063a
+msgid "Otherwise, you'll need to specify the app name as well, using::"
+msgstr ""
+
+#: ../../ormfreezing.rst:59
+# 4d8d03eba59d4e4f9f1de278b3b7736e
+msgid "For example, if you wanted to get a user with ID 1, you could use::"
+msgstr ""
+
+#: ../../ormfreezing.rst:63
+# aacca8fd37d24cc08e4b348f42e41650
+msgid "Note that you can only access models that have been frozen; South automatically includes anything that could be reaches via foreign keys or many-to-many relationships, but if you want to add other models in, simply pass ``--freeze appname`` to the ``./manage.py datamigration`` command."
+msgstr ""
+
+#: ../../ormfreezing.rst:68
+# 17604f0517cb4c46b8770567c97230f0
+msgid "Also note that the ``backwards()`` method gets the ORM as frozen by the previous migration except for migrations that define ``symmetrical = True`` (new in South 1.0)"
+msgstr ""
+
+#: ../../ormfreezing.rst:72
+# e55db3ac578d4438bb4770f3ec220a75
+msgid "Frozen Meta Attributes"
+msgstr ""
+
+#: ../../ormfreezing.rst:74
+# 4734cf2380a146cdbe14e7780279f031
+msgid "As well as freezing fields (for which South has a whole slew of rules on what to freeze - see :ref:`extending-introspection`), it also freezes certain meta attributes of a model (the ones which we think will have an impact on the table schema or your frozen ORM use)."
+msgstr ""
+
+#: ../../ormfreezing.rst:79
+# 9517a1a997434c608b985fe3fe7baf89
+msgid "Currently, South freezes::"
+msgstr ""
+
+#: ../../ormfreezing.rst:87
+# 310eb00c7d164e89ab7a7eecdfcb070b
+msgid "If there's something else you think should be frozen in the Meta, but which isn't, file a bug and we'll look into it."
+msgstr ""
+

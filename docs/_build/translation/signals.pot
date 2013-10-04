@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../signals.rst:5
+# 5b9740a8d7f140778d7f8cac91cbeb64
+msgid "Signals"
+msgstr ""
+
+#: ../../signals.rst:7
+# 80fe76c25b254f0d91f5401e464eb72e
+msgid "South offers its own signals, if you want to write code which executes before or after migrations. They're available from ``south.signals``."
+msgstr ""
+
+#: ../../signals.rst:12
+# cf862fdb44ae420598943268cea45b9b
+msgid "pre_migrate"
+msgstr ""
+
+#: ../../signals.rst:14
+# 40ab07f65d054436b5dd63fd5b764ffe
+msgid "Sent just before South starts running migrations for an app."
+msgstr ""
+
+#: ../../signals.rst:30
+#: ../../signals.rst:52
+#: ../../signals.rst:79
+# ac987a185315482cba44dcddca66ffd8
+# 92dd4c1c48754ce1ae368ae1214aea17
+# c7281e916e664d829efd3baa21f5f565
+msgid "Provides the following arguments,"
+msgstr ""
+
+#: ../../signals.rst:18
+#: ../../signals.rst:40
+#: ../../signals.rst:63
+# 44e2308b26b44439bc4c021b3dbc0103
+# e341e0e3723f4f6799b13f6afdc5c7a5
+# e4ac640947774a0880a75889a15947be
+msgid "``app``"
+msgstr ""
+
+#: ../../signals.rst:18
+#: ../../signals.rst:40
+#: ../../signals.rst:63
+# 6c69d66d4515459fb423bca61c993767
+# 6db3e5712950483daf9514b7e61cc78b
+# 0dfb18dd5af94e12bd692127ff7bf8f5
+msgid "a string containing the app's label."
+msgstr ""
+
+#: ../../signals.rst:22
+#: ../../signals.rst:44
+#: ../../signals.rst:73
+# 3575e88c45b5462db51bc74b22aa8e26
+# a7b74afed77e49b7aa69eee8f6ee37c6
+# a141a53726d84e8cacf9a20c899f12f4
+msgid "``verbosity``"
+msgstr ""
+
+#: ../../signals.rst:21
+#: ../../signals.rst:43
+#: ../../signals.rst:72
+# ab1769e41d614d2780e21255319b2d7b
+# 2decca2a887145f89a5dd7a7cf42472c
+# ba2a2195882641c7953ab6ca9565491c
+msgid "Indicates how much information manage.py is printing on screen. See the --verbosity flag for details. Functions which listen for pre_migrate should adjust what they output to the screen based on the value of this argument."
+msgstr ""
+
+#: ../../signals.rst:26
+#: ../../signals.rst:48
+#: ../../signals.rst:77
+# eaaadfdda4f74c8a9602a7620b2e894a
+# 724c94078d2241588cf1314cda043986
+# e385a97b58974d2ca322d6a340c7abbe
+msgid "``interactive``"
+msgstr ""
+
+#: ../../signals.rst:25
+#: ../../signals.rst:47
+#: ../../signals.rst:76
+# 7cc62737a8f7446fb44c67fc695605cd
+# d56c31b222b1446a85c4f61d911e9aae
+# 2c3b021b2364471a9c2052c750dacec1
+msgid "If interactive is True, it’s safe to prompt the user to input things on the command line. If interactive is False, functions which listen for this signal should not try to prompt for anything."
+msgstr ""
+
+#: ../../signals.rst:30
+#: ../../signals.rst:52
+#: ../../signals.rst:79
+# 032dc084912541b299f5327e29085b55
+# acbd0868b500490fa5290060d4841335
+# 2c3b6efc3be44a669400c09424ba496f
+msgid "``db``"
+msgstr ""
+
+#: ../../signals.rst:29
+#: ../../signals.rst:51
+#: ../../signals.rst:80
+# 2bd0c7929af24d858c26a3768a94fd3d
+# 57968e8a9537489a843db1d2475d62ef
+# 843ccd638184438bb7ac3c4734c0db5f
+msgid "The alias of database on which a command will operate."
+msgstr ""
+
+#: ../../signals.rst:33
+# 44f6f03847e94a66804d130b887cfe38
+msgid "post_migrate"
+msgstr ""
+
+#: ../../signals.rst:35
+# 34e5fdaa7f8d4697ac2f00e06389bd5a
+msgid "Sent just after South successfully finishes running migrations for an app. Note that if the migrations fail in the middle of executing, this will not get called."
+msgstr ""
+
+#: ../../signals.rst:55
+# ace4158403c247839b52becf4a77b629
+msgid "ran_migration"
+msgstr ""
+
+#: ../../signals.rst:57
+# 8c9018ce5f1a4253aed911fc48b28250
+msgid "Sent just after South successfully runs a single migration file; can easily be sent multiple times in one run of South, possibly hundreds of times if you have hundreds of migrations, and are doing a fresh install."
+msgstr ""
+
+#: ../../signals.rst:66
+# 3188fe328f4c4698bf3048d98bcf7e9f
+msgid "``migration``"
+msgstr ""
+
+#: ../../signals.rst:66
+# 3f5aff4095c742399d8e89d23cd9b460
+msgid "a Migration object,"
+msgstr ""
+
+#: ../../signals.rst:69
+# 9f857693ef284fbd84fb82eac6419346
+msgid "``method``"
+msgstr ""
+
+#: ../../signals.rst:69
+# f0d96eb83e60437398be245e322460e9
+msgid "Either ``\"forwards\"`` or ``\"backwards\"``."
+msgstr ""
+

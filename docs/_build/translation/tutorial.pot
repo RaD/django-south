@@ -1,0 +1,758 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../tutorial/index.rst:5
+# 584ec5b49961430c846cca789fa264cd
+msgid "Tutorial"
+msgstr ""
+
+#: ../../tutorial/index.rst:7
+# 027383539bac4817869ccd24593dc7e1
+msgid "This is South's new tutorial, designed to give a reasonably comprehensive grounding in all of the basic features of South. We recommend you work through from the beginning if you're new, or dip in if you already know about some of the features."
+msgstr ""
+
+#: ../../tutorial/index.rst:12
+# ce33b89212c44a9fb71c733dd9ca47e3
+msgid "Advanced features have their own extensive documentation, as well; the :ref:`main page <index>` gives you an overview of all the topics."
+msgstr ""
+
+#: ../../tutorial/part1.rst:5
+# 16f8335056134107a4f752f199c99f2a
+msgid "Part 1: The Basics"
+msgstr ""
+
+#: ../../tutorial/part1.rst:7
+# 3d98cc90827944e9be0b739bf4c6c4a1
+msgid "Welcome to the South tutorial; here, we'll try and cover all the basic usage of South, as well as giving you some general hints about what else to do."
+msgstr ""
+
+#: ../../tutorial/part1.rst:10
+# 90e8106f07be474aaa233f8f61b4052e
+msgid "If you've never heard of the idea of a migrations library, then please read :ref:`what-are-migrations` first; that will help you get a better understanding of what both South (and others, such as django-evolution) are trying to achieve."
+msgstr ""
+
+#: ../../tutorial/part1.rst:14
+# 2052c32a2b154ad0acf7e0ca43027e9d
+msgid "This tutorial assumes you have South installed correctly; if not, see the :ref:`installation instructions <installation>`."
+msgstr ""
+
+#: ../../tutorial/part1.rst:18
+# c83f2a9a40ce4245a1e9d29b521c284f
+msgid "Starting off"
+msgstr ""
+
+#: ../../tutorial/part1.rst:20
+# 4112a09facee43f48da225214dd345a3
+msgid "In this tutorial, we'll follow the process of using migrations on a brand new app. Don't worry about converting your existing apps; we'll cover that in the next part."
+msgstr ""
+
+#: ../../tutorial/part1.rst:24
+# 0c2dfb9b6bb64424bf40a440333e5915
+msgid "The first thing to note is that South is per-application; migrations are stored along with the app's code [#]_. If an app doesn't have any migrations defined, South will ignore it, and it will behave as normal (that is, using syncdb)."
+msgstr ""
+
+#: ../../tutorial/part1.rst:28
+# bbee3e7c154e4be981b84a713630f0ec
+msgid "You can also :ref:`store them elsewhere <setting-south-migration-modules>` if you like."
+msgstr ""
+
+#: ../../tutorial/part1.rst:30
+# 316d11295eb541249124940f518e3733
+msgid "So, find a project to work in (or make a new one, and set it up with a database and other settings), and let's create our new app::"
+msgstr ""
+
+#: ../../tutorial/part1.rst:35
+# a655b226becd4ce99c6a1db073ef9b53
+msgid "As usual, this should make a new directory ``southtut/``. First, add it to ``INSTALLED_APPS``, then open up the newly-created ``southtut/models.py``, and create a new model::"
+msgstr ""
+
+#: ../../tutorial/part1.rst:45
+# f9bd95fb565845c1be5eef5899f8a31f
+msgid "It's quite simple, but it'll do. Now, instead of running ``syncdb`` to create a table for the model in our database, we'll create a migration for it."
+msgstr ""
+
+#: ../../tutorial/part1.rst:49
+# f42758d1189e4faface0ebdec8533770
+msgid "The First Migration"
+msgstr ""
+
+#: ../../tutorial/part1.rst:51
+# 6a8cc1bc343b4b589041812c50048dcb
+msgid "South has several ways of creating migrations; some are automatic, some are manual. As a basic user, you'll probably use the two automatic ways - ``--auto`` and ``--initial``."
+msgstr ""
+
+#: ../../tutorial/part1.rst:55
+# 91762b7666c4456bb4d3781f9f589b10
+msgid "``--auto`` looks at the previous migration, works out what's changed, and creates a migration which applies the differences - for example, if you add a field to a model, ``--auto`` will notice this, and make a migration which creates a new column for that field on its model's table."
+msgstr ""
+
+#: ../../tutorial/part1.rst:60
+# 1f4dcb3f8ed343e288b7f947e2d40c9b
+msgid "However, you'll notice that ``--auto`` needs a previous migration - our new app doesn't have one. Instead, in this case, we need to use ``--initial``, which will create tables and indexes for all of the models in the app; it's what you use first, much like ``syncdb``, and ``--auto`` is then used afterwards for each change."
+msgstr ""
+
+#: ../../tutorial/part1.rst:66
+# bf0e5f72cf1645d18763329c6d38d5bd
+msgid "So, let's create our first migration::"
+msgstr ""
+
+#: ../../tutorial/part1.rst:74
+# 1388c56f018a4694a6dcfb47e8376968
+msgid "(If this fails complaining that ``south_migrationhistory`` does not exist, you forgot to run syncdb :ref:`after you installed South <installation-configure>`.)"
+msgstr ""
+
+#: ../../tutorial/part1.rst:77
+# e5a6568a1aa24ed7affa0b660e86f7db
+msgid "As you can see, that's created a migrations directory for us, and made a new migration inside it. All we need to do now is apply our new migration::"
+msgstr ""
+
+#: ../../tutorial/part1.rst:86
+# b6d64887b26940a0a1076a1918d6547c
+msgid "With that, South has created the new table for our model; check if you like, and try adding a few Knights using ``./manage.py shell``."
+msgstr ""
+
+#: ../../tutorial/part1.rst:91
+# af302c91bbe04b95aad52bb6b9b26f1a
+msgid "Changing the model"
+msgstr ""
+
+#: ../../tutorial/part1.rst:93
+# 94980b0207fc48388f0253b49337d429
+msgid "So far, we've done nothing that ``syncdb`` couldn't accomplish; time to change that (or rather, our model). Let's add another field to our model::"
+msgstr ""
+
+#: ../../tutorial/part1.rst:103
+# 5761f607ce1b467f9c8a6d05546c0d18
+msgid "Now, if we weren't using migrations, making this new column appear on our ``southtut_knight`` table would be annoying at best. However, with South, we need only do two, quick steps: make a migration for the change, then apply it."
+msgstr ""
+
+#: ../../tutorial/part1.rst:107
+# 3f0034a57849449591b2b4961234815f
+msgid "First, make the new migration, using the --auto feature::"
+msgstr ""
+
+#: ../../tutorial/part1.rst:113
+# ca3739edb3e84e11a6b2772f3308f6cc
+msgid "*(Notice that South has automatically picked a name for this migration; you can instead give migrations custom names by providing it as another argument)*"
+msgstr ""
+
+#: ../../tutorial/part1.rst:116
+# a4bd62519b244df1aaff07bbad7b6d32
+msgid "Now, apply it::"
+msgstr ""
+
+#: ../../tutorial/part1.rst:124
+# e248045ca9f2499fa5f438d5940b8b70
+msgid "With that, our new column is created; again, go and check, you'll be able to add Knights who can dance whenever they're able."
+msgstr ""
+
+#: ../../tutorial/part1.rst:128
+# f9f4412864c549f0b5df0c5e311738d4
+msgid "Converting existing apps"
+msgstr ""
+
+#: ../../tutorial/part1.rst:130
+# d7c34138e99147a3a3914a8da2a5a55a
+msgid "Sometimes, especially when introducting South into a project, you will want to use it for existing apps - ones for which the tables have already been created."
+msgstr ""
+
+#: ../../tutorial/part1.rst:133
+# 27595c620b154b5da15f3fdd0512c30e
+msgid "This is different from adding migrations to an all-new app, and you should see the :ref:`converting-an-app` page for more information on how to do it."
+msgstr ""
+
+#: ../../tutorial/part1.rst:136
+# c9dc3c19fe434b25ba63d59ffe11d8c0
+msgid "Once you're happy with this basic usage of South, move on to :ref:`tutorial-part-2`."
+msgstr ""
+
+#: ../../tutorial/part2.rst:5
+# 2a7337ce614542c3bef1821714945fca
+msgid "Part 2: Advanced Changes"
+msgstr ""
+
+#: ../../tutorial/part2.rst:7
+# d0bbf0b5637947bc934245d699a333be
+msgid "Now you've done a simple change to the model, let's look at some of the more advanced changes you can do with South."
+msgstr ""
+
+#: ../../tutorial/part2.rst:13
+# 8f4df328fb62470fb27cb91982152bfa
+msgid "Defaults"
+msgstr ""
+
+#: ../../tutorial/part2.rst:15
+# 8c2ea3f72b964353b3ced56da7e0cdf3
+msgid "Firstly, let's deal with more tricky column types. In the previous part, we added a ``BooleanField`` to the table - this is easy for a database to handle, as it has a default value (of ``False``) specified, so that's the value that gets used for the column in all of the existing rows."
+msgstr ""
+
+#: ../../tutorial/part2.rst:20
+# a74b4a774a424f28a89b7c9df12f7e64
+msgid "However, some columns don't have a default defined. If the column is nullable - that is, ``null=True`` - then the existing rows will have NULL in the new column. Otherwise, if you've given no default, but the column is ``NOT NULL`` (i.e. ``null=False``, the default), there's no value the database can put in the new column, and so you won't be able to reliably add the column [#]_."
+msgstr ""
+
+#: ../../tutorial/part2.rst:26
+# fb6d164269a048938471ac0a4741b972
+msgid "Some database backends will let you add the column anyway if the table is empty, while some will refuse outright in this scenario."
+msgstr ""
+
+#: ../../tutorial/part2.rst:29
+# c1b9587d1a03419b9f051ccc6632996e
+msgid "If South detects such a situation, it will pop up and ask you what to do; let's make it do so."
+msgstr ""
+
+#: ../../tutorial/part2.rst:32
+# 6d59e3d8f70b4baab0f3744aa56a5a65
+msgid "First, change your model to add a new field that has no default, but is also not nullable::"
+msgstr ""
+
+#: ../../tutorial/part2.rst:43
+# b181e2492aca42d9a0faec24d270e1d2
+msgid "Now, let's try and get South to automatically generate a migration for that::"
+msgstr ""
+
+#: ../../tutorial/part2.rst:53
+# 7305b18a3c07499cb7100c5c3e1706d0
+msgid "South presents you with two options; if you select choice one, the command will quit without doing anything, and you should edit your ``models.py`` and add a default to the new field."
+msgstr ""
+
+#: ../../tutorial/part2.rst:57
+# 8c0c52723dc04abeb517ce956e56bfe2
+msgid "If you select choice two, you'll get a Python prompt, where you should enter the default value you want to use for this migration. The default you enter will only ever be used for the currently-existing rows - this is a good option if you don't want the field on your model to have a default value."
+msgstr ""
+
+#: ../../tutorial/part2.rst:62
+# 823dc452e07b4c2eae7dbe0340014561
+msgid "We'll select choice two, and use ``0`` as our default (it is an IntegerField, after all)::"
+msgstr ""
+
+#: ../../tutorial/part2.rst:72
+# 401d6263478f464b845772c83458bdce
+msgid "If you look at the generated migration, you'll see that there's a default specified for the new field, so your database won't cry. Finish off by running the migration::"
+msgstr ""
+
+#: ../../tutorial/part2.rst:84
+# d12288ee9e304373bcb6601dc55df099
+msgid "Uniques"
+msgstr ""
+
+#: ../../tutorial/part2.rst:86
+# d35e0f390d62434c993df0b75c7fb437
+msgid "As well as detecting new fields (and also ones you've removed), South also detects most changes to fields, including changing their ``unique`` attributes."
+msgstr ""
+
+#: ../../tutorial/part2.rst:89
+# f5369ae64a47494a995f97b60e19bb13
+msgid "First, let's make our Knights have unique names::"
+msgstr ""
+
+#: ../../tutorial/part2.rst:99
+# 0a2152ec48a0484a8a86884e63805868
+msgid "Run the automatic migration creator::"
+msgstr ""
+
+#: ../../tutorial/part2.rst:105
+# de7505e3b24a48db94449ce505820834
+msgid "As you can see, it's detected the change in ``unique``; you can now apply it::"
+msgstr ""
+
+#: ../../tutorial/part2.rst:113
+# b2e06bcc4f5742589a73635d061b441b
+msgid "South also detects changes to ``unique_together`` in your model's ``Meta`` in the same way."
+msgstr ""
+
+#: ../../tutorial/part2.rst:118
+# dd5e1689541f4d5f8a0867bdbb1c1a86
+msgid "ManyToMany fields"
+msgstr ""
+
+#: ../../tutorial/part2.rst:120
+# 453c5dd39bab427d8b8deca3d540d086
+msgid "South should automatically detect ManyToMany fields; when you add the field, South will create the table the ManyToMany represents, and when you remove the field, the table will be deleted."
+msgstr ""
+
+#: ../../tutorial/part2.rst:124
+# 31d88f7c5a8f4aa296bc5718314a8e0f
+msgid "The one exception to this is when you have a 'through model' (i.e. you're using the ``through=`` option) - since the table for the model is already created when the model is detected, South does nothing with these types of ManyToMany fields."
+msgstr ""
+
+#: ../../tutorial/part2.rst:129
+# dd6104b09b2e4c2a9740e32ddc6a74c7
+msgid "Custom fields"
+msgstr ""
+
+#: ../../tutorial/part2.rst:131
+# 31896c008822472ea74a3dde144340c2
+msgid "If you've looked closely at the migration files, you'll see that South stores field definitions by storing their class, and the arguments that need to be passed to the field's constructor."
+msgstr ""
+
+#: ../../tutorial/part2.rst:135
+# 8bebb99119ed497da6bfa1129479e82d
+msgid "Since Python offers no way to get the arguments used in a class' constructor directly, South uses something called the *model introspector* to work out what arguments fields were passed. This knows what variables the arguments are stored into on the field, and using this knowledge, can reconstruct the arguments directly."
+msgstr ""
+
+#: ../../tutorial/part2.rst:141
+# e1e9ed3b496d4fe785f2e54fd1e0ef90
+msgid "Because custom fields (either those written by you, or included with third-party apps) are all different, South can't work out how to get their arguments without extra help, so if you try to add, change or remove custom fields, South will bail out and say that you need to give it rules for your custom fields; this topic is covered in detail in :ref:`custom-fields`."
+msgstr ""
+
+#: ../../tutorial/part2.rst:148
+# 864d7552315248e48b0ac2691bd22256
+msgid "More?"
+msgstr ""
+
+#: ../../tutorial/part2.rst:150
+# 90e35c7cfc8c4ac6b176d5e87dd0eb2f
+msgid "South supports most operations you'll do on your models day-to-day; if you're interested, there's a :ref:`full list of what the autodetector supports <autodetector-supported-actions>`."
+msgstr ""
+
+#: ../../tutorial/part2.rst:154
+# 18132b3210804652b8bd18ddb1adc418
+msgid "You'll probably want to read :ref:`tutorial-part-3` next."
+msgstr ""
+
+#: ../../tutorial/part3.rst:5
+# 6287fe4b27eb4240a97d6e5a81b22bcf
+msgid "Part 3: Advanced Commands and Data Migrations"
+msgstr ""
+
+#: ../../tutorial/part3.rst:8
+# e976a64603d54a929fca40bcdede4571
+msgid "Iteratively working on a migration"
+msgstr ""
+
+#: ../../tutorial/part3.rst:10
+# d598395f050849b6803e7f195f879734
+msgid "Sometimes, you'll find that you've made model changes that need to be further refined. Say you define this model::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:17
+# cf2067e2032447f6b79748f77100601f
+msgid "and you've created and applied this migration::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:22
+# 5650012c5fca49cc8b637faa5fd61a81
+msgid "You then notice two things: One, ``name`` should really be a ``CharField``, not a ``TextField``; and ``facebook_page__id`` contains double underscores where there should be a single one. You can fix these issues in your model, and then run::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:36
+# a53cb6854569441fbfe33b49f5ee7507
+msgid "What happened here is that South removed the most recent migration, which created the model, but included the mistakes that were made, and replaced it with a new migration that includes the latest corrections made to the model."
+msgstr ""
+
+#: ../../tutorial/part3.rst:40
+# b8cf0e875593477ba1154def84e96e0b
+msgid "It also noticed that the migration had already been applied, and automatically rolled it back for you. You can now apply the latest version of the migration to create the correct version of the model::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:46
+# 82cc6d3b83d54cf1aae5ed3a098897cf
+msgid "You may repeat this process as often as required to iron out any issues and come up with the final database changes required; which you can then publish, neatly packed into a single migration."
+msgstr ""
+
+#: ../../tutorial/part3.rst:52
+# 4f100efd03e447b2afe2d69f229fa511
+msgid "Listing current migrations"
+msgstr ""
+
+#: ../../tutorial/part3.rst:54
+# 31f847679d1348ef87d4df5fa3ff5dc5
+msgid "It can be very useful to know what migrations you currently have applied, and which ones are available. For this reason, there's ``./manage.py migrate --list``."
+msgstr ""
+
+#: ../../tutorial/part3.rst:57
+# 2e2978bbc71c4a1891aa714987f277fb
+msgid "Run against our project from before, we get::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:67
+# 2370c2a5b4a943158ead15ca1bd8b308
+msgid "The output has an asterisk ``(*)`` next to a migration name if it has been applied, and an empty space ``( )`` if not [#]_."
+msgstr ""
+
+#: ../../tutorial/part3.rst:70
+# 2a73297aec5348509731c17b337a89f9
+msgid "If you have a lot of apps or migrations, you can also specify an app name to show just the migrations from that app."
+msgstr ""
+
+#: ../../tutorial/part3.rst:73
+# 9ea8532965124281a513bbde80be631f
+msgid "An interesting side effect of this is that you can run the command ``./manage.py migrate --list |grep -v \"*\"`` to see which migrations are unapplied, and need running."
+msgstr ""
+
+#: ../../tutorial/part3.rst:78
+# 92cd4491d73e4375ade73a882a743f10
+msgid "Data migrations"
+msgstr ""
+
+#: ../../tutorial/part3.rst:80
+# 5a38f4332b40427f90987430c46ebe20
+msgid "The previous parts have only covered *schema migrations* - migrations which change the layout of your columns and indexes. There's also another kind of migration, the so-called *data migration*."
+msgstr ""
+
+#: ../../tutorial/part3.rst:84
+# 484d2181d95b4cd2b115b20be7386194
+msgid "Data migrations are used to change the data stored in your database to match a new schema, or feature. For example, if you've been storing passwords in plain text [#]_, and you're moving to salted and hashed passwords, you might have these three steps (where each step corresponds to a migration):"
+msgstr ""
+
+#: ../../tutorial/part3.rst:89
+# 1368f8a26de04b5daf4f38e2039e422b
+msgid "Create two new columns, ``password_salt`` and ``password_hash`` (a schema migration)."
+msgstr ""
+
+#: ../../tutorial/part3.rst:91
+# c46cd12385b04211aba03392c37947df
+msgid "Using the contents of the old ``password`` column, calculate salts and hashes for each user (a data migration)"
+msgstr ""
+
+#: ../../tutorial/part3.rst:93
+# 099547069d344dd59f84365ac3cddaf0
+msgid "Remove the old ``password`` column (a schema migration)."
+msgstr ""
+
+#: ../../tutorial/part3.rst:95
+# f21f82fc93dd447190f13990b663564d
+msgid "If you're actually storing passwords in plaintext, please convert. Now."
+msgstr ""
+
+#: ../../tutorial/part3.rst:97
+# c4a975b9cd444484aea4bda8c8b5166c
+msgid "The first and last migrations you already know how to do; make the relevant changes in the models.py file, and run ``./manage.py schemamigration --auto myapp``. Remember that you need to add the two columns separately to deleting the old column, as otherwise the old column won't be around for us to get data out of, and you'll have lost all your users' passwords [#]_."
+msgstr ""
+
+#: ../../tutorial/part3.rst:103
+# 2716fc72024a446d8b857e89f140e01a
+msgid "Always, always, backup your database before doing any kind of potentially destructive migration. One time, it *will* go wrong."
+msgstr ""
+
+#: ../../tutorial/part3.rst:106
+# 3daacd9ababa463b8b4d5b4b40efee8b
+msgid "Let's follow a real example. Make a new app, and call it ``southtut2``. Add it to ``INSTALLED_APPS``, and then give it this model::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:117
+# 43189ea4c0124d6b9c06aec44499fcab
+msgid "Make an initial migration for it, apply it, and then add a record::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:140
+# fb416d29f65f40e7a3b23dc1921737b9
+msgid "As you can see, the password is clearly visible, which isn't good. Let's move to password hashing, while keeping everyone's password valid. Firstly, modify the model so it looks like this::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:158
+# 7351d9dac01a4dd3a874d7034ce844d5
+msgid "Make a schema migration that will create our two new columns (notice that they've both been added as ``null=True``; once they have data, we'll alter them to be ``null=False``)::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:167
+# 3a628a73510d4449860d6ca605f5fcdb
+msgid "Now, the second migration is more interesting. Firstly, we need to create a skeleton data migration (unlike schema migrations, South can't write these for you)::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:174
+# 6481b3ab61ba40dca72e823775e3a3d8
+msgid "If you open up the file, you'll see that South has made the shell of a migration; the models definitions are there, the forwards() and backwards() functions are there, but there's no code in either. We'll write some code to port the passwords over in the forwards function::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:186
+# bd644c013d78426896bfa4df3653e821
+msgid "Notice that we use ``orm.User`` to access the User model - this gives us the version of User from when this migration was created, so if we want to run the migration in future, it won't get a completely different, new, User model."
+msgstr ""
+
+#: ../../tutorial/part3.rst:190
+# 83a3e4de437b4862826255e1ad0e3fb4
+msgid "If you want to access models from other apps in your data migration, use a syntax like ``orm['contenttypes.ContentType']``. Models will be available if you can somehow get to them via ForeignKey or ManyToMany traversal from your app's models; if you want to freeze other models, simply pass ``--freeze appname`` on the ``datamigration`` command line."
+msgstr ""
+
+#: ../../tutorial/part3.rst:196
+# ff29a483cb454848a56c7fb712375c9b
+msgid "We should also raise an error in the ``backwards()`` method, since this process is by its very nature irreversible::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:202
+# afe5d273f4a2440a92abae8d73b9b351
+msgid "That looks good. Finally, remove the ``password`` field from your model, and run ``schemamigration`` one last time to make a migration to remove that field::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:218
+# e9e925fbcbd341b0b9b10215cbb37ebd
+msgid "Notice that South is asking for a default value for ``password``; if you were to reverse this migration, it tries to re-add the ``password`` column, and thus needs either a default value or for the field to be ``null=True``. Here, I've fed it the empty string, as that's a reasonable default in this case."
+msgstr ""
+
+#: ../../tutorial/part3.rst:223
+# d49d7db4640b4972909b6bed1661d930
+msgid "Finally, let's apply all three migrations::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:233
+# 418fd7f6728c4d4288f93949b467afa2
+msgid "Looks good - we've added the new columns, migrated the passwords over, and then deleted the old column. Let's check our data was preserved::"
+msgstr ""
+
+#: ../../tutorial/part3.rst:245
+# a671b175324d45eab53b916973e308c3
+msgid "That looks like a successful data migration!"
+msgstr ""
+
+#: ../../tutorial/part3.rst:247
+# 2839ee457e3440beaa24de95e9cc8f91
+msgid "You can do a lot more with this inside a data migration; any model can be available to you. The only caveat is that you won't have access to any custom methods or managers on your models, as they're not preserved as part of the freezing process (there's no way to do this generally); you'll have to copy any code you want into the migration itself. Feel free to make them methods on the ``Migration`` class; South ignores everything apart from ``forwards`` and ``backwards``."
+msgstr ""
+
+#: ../../tutorial/part4.rst:5
+# cebaffbac9884df088fbf5b8807c3b9c
+msgid "Part 4: Custom Fields"
+msgstr ""
+
+#: ../../tutorial/part4.rst:7
+# e7d44a649cab4756bf3a226a6fab05cf
+msgid "South 0.7 introduced a reasonably radical change from previous versions. Before, if you had a custom field, South would attempt to use magic [#]_ to determine how to freeze that field, so it could be recreated in a migration."
+msgstr ""
+
+#: ../../tutorial/part4.rst:11
+# 50af4a489ae84f24b7f8ee2892f527f9
+msgid "And not very nice magic, either; a combination of regexes and the python ``parser`` module."
+msgstr ""
+
+#: ../../tutorial/part4.rst:14
+# b40d13158b204141ba49b6a1b4f10b93
+msgid "While this worked surprisingly well for most people, in a small percentage of cases it would get it completely wrong - even worse, you wouldn't know it was wrong until things changed a few weeks later. In the interests of both sanity and having less magic, you must now tell South how to freeze your custom fields."
+msgstr ""
+
+#: ../../tutorial/part4.rst:19
+# 0f90be7a39144d2bbc778a5f44b3a12e
+msgid "Don't worry, it's pretty easy, and you only have to do it once per field."
+msgstr ""
+
+#: ../../tutorial/part4.rst:22
+# 5af6be43ee6647ceb184daf23d49dc86
+msgid "Our Field"
+msgstr ""
+
+#: ../../tutorial/part4.rst:24
+# ed54983ca1d647809561d2596f327706
+msgid "In this example, we'll be using a custom field which stores a list of tags in the database. We'll just store them in a TEXT column, with some delimiter separating the values (by default, we'll use ``|``, but they can pass in something else as a keyword argument)."
+msgstr ""
+
+#: ../../tutorial/part4.rst:29
+# 089079e10a2147cf9964f99978c0c641
+msgid "Here's the field class; in my code, I put this in ``appname/fields.py`` (for more on writing custom fields, see the `Django docs <http://docs.djangoproject.com/en/dev/howto/custom-model-fields/>`_)::"
+msgstr ""
+
+#: ../../tutorial/part4.rst:56
+# e616dccb7968467bb700e9e8dfbc3743
+msgid "To tell South about a custom field, you need to tell it two things; that this particular class is OK to use, and how to reconstruct the keyword arguments from a Field instance."
+msgstr ""
+
+#: ../../tutorial/part4.rst:61
+# fc8435466c074cd3964157fa23e4eeaa
+msgid "Keyword Arguments"
+msgstr ""
+
+#: ../../tutorial/part4.rst:63
+# dbee0e556841433f87e4ed86322de97d
+msgid "South freezes fields by storing their class name and module (so it can get the field class itself) and the keyword arguments you used for that particular instance (for example, ``CharField(max_length=50)`` is a different database type to ``CharField(max_length=150)``)."
+msgstr ""
+
+#: ../../tutorial/part4.rst:68
+# 11c6cb9a48f64d90bf58cfa8cd0c0aa4
+msgid "Since Python doesn't store the keyword arguments a class was passed, South has to reconstruct them using the field instance. For example, we know that ``CharField``'s ``max_length`` attribute is stored as ``self.max_length``, while ``ForeignKeys`` store their ``to`` attribute (the model they point to - also the first positional argument) as ``self.rel.to``."
+msgstr ""
+
+#: ../../tutorial/part4.rst:74
+# cd72155ca4464362a471cf285ba6e683
+msgid "South knows all these rules for the core Django fields, but you need to tell it about your own ones. The good news is that South will trace the inheritance tree of your field class and add on rules from parent classes it knows about - thus, you only need tell South about extra keyword arguments you've added, not every possible argument the field could have."
+msgstr ""
+
+#: ../../tutorial/part4.rst:80
+# 0cb08fa809a54785935cf56b370a69ad
+msgid "In our example, we've only specified one extra keyword: ``delimiter``. Here's the code we'd add for South to work with our new field; I'll explain it in a minute::"
+msgstr ""
+
+#: ../../tutorial/part4.rst:95
+# fdece89f254741e4b91624504e1d2fac
+msgid "As you can see, to tell South about your new fields, you need to call the ``south.modelsinspector.add_introspection_rules`` function. You should put this code next to the definition of your field; the last thing you want is for the field to get imported, but for this code to not run."
+msgstr ""
+
+#: ../../tutorial/part4.rst:100
+# d5ab40d34c47421ba21c285a8b35093a
+msgid "``add_introspection_rules`` takes two arguments; a list of rules, and a list of regular expressions. The regular expressions are used by South to see if a field is allowed to be introspected; just having a rule that matches it isn't enough, as rule inheritance means that any custom field class will have at least some rules on it (as they will inherit from ``Field``, if not something more specific like ``CharField``), and some custom fields can get by with only those inherited rules (more on that shortly)."
+msgstr ""
+
+#: ../../tutorial/part4.rst:108
+# 9590c0a5971e48448f9d9ed0f9d3829b
+msgid "The first argument is the list of rules. Each rule is a tuple (or list) with three items:"
+msgstr ""
+
+#: ../../tutorial/part4.rst:111
+# 5ee1aeb5ccde43c79430608d17020885
+msgid "A list of classes these rules apply to. You'll almost certainly have just ``[MyField]`` here."
+msgstr ""
+
+#: ../../tutorial/part4.rst:113
+# 03bfd2b23f1844f08efd87f35401cddc
+msgid "Positional argument specification. This should always be left blank, as an empty list - ``[]``."
+msgstr ""
+
+#: ../../tutorial/part4.rst:115
+# beb9e95f4885499ba82ebed8d6231ab9
+msgid "Keyword argument specification. This is a dictionary, with the key being the name of the keyword argument, and the value being a tuple or list of ``(attribute_name, options)``."
+msgstr ""
+
+#: ../../tutorial/part4.rst:119
+# c16259151ecc46d79742bf2652f87fcd
+msgid "The attribute name says where the value of the keyword can be found - in our case, it's ``'delimiter'``, as we stored our keyword in ``self.delimiter``. (If this was the ``ForeignKey`` rule, we'd put ``'rel.to'`` here)"
+msgstr ""
+
+#: ../../tutorial/part4.rst:123
+# 875f8b27277a43199c1145d748c4017b
+msgid "``options`` is a dictionary. You can safely leave it blank, but to make things nicer, we can use it to specify the default value of this keyword - if the value South finds matches this, it will leave out this keyword from the frozen definition. This helps keep the frozen definitions shorter and more readable."
+msgstr ""
+
+#: ../../tutorial/part4.rst:129
+# 5b47e8dab05f40f69b021148876255d3
+msgid "Simple Inheritance"
+msgstr ""
+
+#: ../../tutorial/part4.rst:131
+# c5e3a1b7fbce4cce82672df1f0561fdb
+msgid "If your field inherits directly from another Django field - say ``CharField`` - and doesn't add any new keyword arguments, there's no need to have any rules in your ``add_introspection_rules``; you can just tell South that the field is alright as it is::"
+msgstr ""
+
+#: ../../tutorial/part4.rst:149
+# 6fa2a8ef004142779d0024011dc82965
+msgid "More Information"
+msgstr ""
+
+#: ../../tutorial/part4.rst:151
+# 79806da72e06460eaf5d6e8d1a5ca332
+msgid "There's more documentation on this subject, and on all the possible options, in the :ref:`extending-introspection` section."
+msgstr ""
+
+#: ../../tutorial/part5.rst:5
+# 758a888d1bb24d61b9b2e696726193bc
+msgid "Part 5: Teams and Workflow"
+msgstr ""
+
+#: ../../tutorial/part5.rst:7
+# 3e9b82e0179e48a9b2eaabaf4280c4bc
+msgid "Migrations are all about improving the workflow for the developers and database administrators of projects, and we think it's very important that it doesn't add too much overhead to your daily coding, while at the same time reducing headaches caused by the inevitable changes in schema every project has."
+msgstr ""
+
+#: ../../tutorial/part5.rst:12
+# ac0cb1173d0947eead2d686c821c7653
+msgid "Firstly, note that migrations aren't a magic bullet. If you've suddenly decided you're going to rearchitect your entire database schema, it might well be easier to not write migrations and just start again, especially if you have no production sites using the code (if you do, you might find custom serialisation/unserialisation to be a better way of saving your data)."
+msgstr ""
+
+#: ../../tutorial/part5.rst:18
+# 624801523e8548a7a99505b87bbdedaa
+msgid "With that in mind, migrations are really something you should be using the rest of the time. Hopefully, the previous parts of the tutorial have got you familiar with what can easily be achieved with them; we've tried to cover a good percentage of use cases, and if you think something should be included, don't hesitate to ask for it."
+msgstr ""
+
+#: ../../tutorial/part5.rst:26
+# 8b542fcc83eb413ebcfdbc51b2ac9644
+msgid "Developer Workflow"
+msgstr ""
+
+#: ../../tutorial/part5.rst:28
+# eadac79bfcf94c66820896da10a363e6
+msgid "As a developer, you should be doing things in this order:"
+msgstr ""
+
+#: ../../tutorial/part5.rst:30
+# e76d1135a5c1479cbf24bcafb1911d6b
+msgid "Make the change to your models.py file (and affected code, such as post_syncdb signal hooks)"
+msgstr ""
+
+#: ../../tutorial/part5.rst:32
+# dc1b7c441230462d83d754769c3ac2f5
+msgid "Make the migration"
+msgstr ""
+
+#: ../../tutorial/part5.rst:33
+# cb4b36df895d4fc8a6373177cae857b2
+msgid "Rinse, repeat."
+msgstr ""
+
+#: ../../tutorial/part5.rst:35
+# 28004a3781a7408e8c06128d040e2033
+msgid "Don't try to make migrations before you make the changes; this will both invalidate the frozen model data on the migration and make startmigration --auto think nothing has changed. If you're making a large change, and want to split it over several migrations, do each schema change to models.py separately, then make the migration, and then make the next small change."
+msgstr ""
+
+#: ../../tutorial/part5.rst:41
+# 47009470cb1743fbba498aa74eae692e
+msgid "Note that the ``./manage.py schemamigration`` command has an ``--update`` mode that allows you to further iteratively refine your migration as such changes become necessary while working on your code. It is preferable to distribute a single migration for each atomic code change (a particular bug fixed, a new feature), then half a dozen migrations that could be merged into one. Remember that the purpose of migrations is to replay database changes on multiple machines; a separate migration is not required for changes that have only been applied locally."
+msgstr ""
+
+#: ../../tutorial/part5.rst:52
+# 40e8971a87354a63b0dfa8a954715ea3
+msgid "Team Workflow"
+msgstr ""
+
+#: ../../tutorial/part5.rst:54
+# f7a6d650cdc04eb4b41f21c20dec4f85
+msgid "While migrations for an individual developer are useful, teams are perhaps the real reason they exist. It's very likely more than one member of your team will be making database changes, and migrations allow the other developers to apply their schema changes effortlessly and reproducibly."
+msgstr ""
+
+#: ../../tutorial/part5.rst:59
+# ecd55339710649d3b0b722c6d5d1b3fc
+msgid "You should keep all of your migrations in a VCS (for obvious reasons), and encourage developers to run ``./manage.py migrate`` if they see a new migration come in when they do an update or pull."
+msgstr ""
+
+#: ../../tutorial/part5.rst:63
+# e8717a32f83f461e9e9298220ac3c61b
+msgid "The issue with teams and migrations occurs when more than one person makes a migration in the same timeslot, and they both get committed without the other having been applied. This is analogous to two people editing the same file in a VCS at the same time, and like a VCS, South has ways of resolving the problem."
+msgstr ""
+
+#: ../../tutorial/part5.rst:68
+# cfd552e856b24360a68b4ec189297d13
+msgid "If this happens, the first thing to note is that South will detect the problem, and issue a message like this::"
+msgstr ""
+
+#: ../../tutorial/part5.rst:75
+# 023dace2e2be4fdfb6eb789325857687
+msgid "If you re-run migrate with ``--merge``, South will simply apply the migrations that were missing out-of-order. This usually works, as teams are working on separate models; if it doesn't, you'll need to look at the actual migration changes and resolve them manually, as it's likely they'll conflict."
+msgstr ""
+
+#: ../../tutorial/part5.rst:80
+# fab33d76ed414374a85bdbd9d34f9bb3
+msgid "The second thing to note is that, when you pull in someone else's model changes complete with their own migration, you'll need to make a new empty migration that has the changes from both branches of development frozen in (if you've used mercurial, this is equivalent to a merge commit). To do so, simply run::"
+msgstr ""
+
+#: ../../tutorial/part5.rst:87
+# e91c3c7ed62f4563a9718a796619b9a5
+msgid "*(Note that merge_models is just a migration name; change it for whatever you like)*"
+msgstr ""
+
+#: ../../tutorial/part5.rst:90
+# db0207e65c784b90a3968bee5fc3e5ad
+msgid "The important message here is that *South is no substitute for team coordination* - in fact, most of the features are there purely to warn you that you haven't coordinated, and the simple merging on offer is only there for the easy cases. Make sure your team know who is working on what, so they don't write migrations that affect the same parts of the DB at the same time."
+msgstr ""
+
+#: ../../tutorial/part5.rst:98
+# 4c4323e96e5c4e64a1ff98648d17155e
+msgid "Complex Application Sets"
+msgstr ""
+
+#: ../../tutorial/part5.rst:100
+# 818d3c071df54dcfbe052ef7bc95b33a
+msgid "It's often the case that, with Django projects, there is a set of apps which references each others' models.py files. This is, at its truest form, a dependency, and to ensure your migrations for such sets of applications apply sanely (i.e. the migrations that create the tables in one app happen before the migration that adds ForeignKeys to them in another app), South has a :ref:`Dependencies <dependencies>` feature. Once you've added dependencies to your migrations, South will ensure all prerequisites of a migration are applied before applying the migration itself."
+msgstr ""
+

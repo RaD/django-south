@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010, Andrew Godwin
+# This file is distributed under the same license as the South package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: South 0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../autodetector.rst:5
+# 36d644f3ca4143a888dfd38fb0a224d1
+msgid "The Autodetector"
+msgstr ""
+
+#: ../../autodetector.rst:7
+# 8f0d07fb1b4748da818e0472b66e79e5
+msgid "The autodetector is the part of South you'll probably be using the most, as well as being the feature that people seem to like the most."
+msgstr ""
+
+#: ../../autodetector.rst:10
+# 9e7f8139265b443c941ebe86ebf10671
+msgid "The general use of the autodetector is covered in :ref:`tutorial-part-1`; this is more of a reference of what it's capable of."
+msgstr ""
+
+#: ../../autodetector.rst:13
+# f2657abab79d48909337ba0298ba4b25
+msgid "When the autodetector runs, it compares your current models with those frozen in your most recent migration on the app, and if it finds any changes, yields one or more Actions to the South migration-file-writer."
+msgstr ""
+
+#: ../../autodetector.rst:20
+# be5d2c08b1054aa9b7c9c3e76a7cca7f
+msgid "Supported Actions"
+msgstr ""
+
+#: ../../autodetector.rst:23
+# 92ffde4e93e8420ea0265b7b30200034
+msgid "Model creation and deletion"
+msgstr ""
+
+#: ../../autodetector.rst:25
+# 265f254752734c48a32aef1903af1f1c
+msgid "South will happily detect the creation and deletion of models; this is the oldest and most well-worn feature of the autodetector, and so has very few caveats."
+msgstr ""
+
+#: ../../autodetector.rst:29
+# a66b2a263e7e44529e8e744b1d233fc1
+msgid "One thing to note is that, while South calls the post_syncdb hook on your models (much like ``syncdb`` does), it calls it when it initially creates the table, not at the end of the migration, so your hook might well get called when the model doesn't have its full table."
+msgstr ""
+
+#: ../../autodetector.rst:34
+# 3e7d1c612063495d954fa8864976737a
+msgid "Consider moving your hook code into its own data migration, or use one of our own :ref:`signals`."
+msgstr ""
+
+#: ../../autodetector.rst:39
+# afe95f4c1820417b87cd611f639c52f7
+msgid "Field addition and removal"
+msgstr ""
+
+#: ../../autodetector.rst:41
+# a2f813420a734338865e573394bd0d75
+msgid "South detects addition and removal of fields fine, and should correctly create indexes and constraints for new fields."
+msgstr ""
+
+#: ../../autodetector.rst:44
+# d27674a46e004354ad74f52b17718e11
+msgid "Note that when you add or remove a field, you need a default specified; there's more explanation on this in the :ref:`tutorial-part-2-defaults` part of the tutorial."
+msgstr ""
+
+#: ../../autodetector.rst:50
+# 5f0500541d4f4c4b9914f3a34b85fa6d
+msgid "Field changes"
+msgstr ""
+
+#: ../../autodetector.rst:52
+# e83f6eb605da4dce80300810b565445c
+msgid "South will detect if you change a field, and should correctly change the field type, with one exception:"
+msgstr ""
+
+#: ../../autodetector.rst:55
+# 62500cf107614116be19352370fb7a64
+msgid "If you alter to a field with a CHECK constraint (e.g. ``PositiveIntegerField``) the constraint won't be added to the column (it is removed if you alter away, however). This will be fixed in a future release."
+msgstr ""
+
+#: ../../autodetector.rst:61
+# 7377254f7e6d4968a14790ee760b0477
+msgid "ManyToMany addition and removal"
+msgstr ""
+
+#: ../../autodetector.rst:63
+# 7fa9291a8c5d41ab8b817a60bd9e17c2
+msgid "ManyToMany fields are detected on addition and removal; when you add the field, South will create the table the ManyToMany represents, and when you remove the field, the table will be deleted."
+msgstr ""
+
+#: ../../autodetector.rst:67
+# 8ed91d43a128465a92bfc3e635d35346
+msgid "The one exception to this is when you have a 'through model' (i.e. you're using the ``through=`` option) - since the table for the model is already created when the model is detected, South does nothing with these types of ManyToMany fields."
+msgstr ""
+
+#: ../../autodetector.rst:73
+# cbcd67319dc24440ae654574253b6217
+msgid "Unique changes"
+msgstr ""
+
+#: ../../autodetector.rst:75
+# 4c6cd50df966440f80ad25877fb106c6
+msgid "If you change the ``unique=`` attribute on a field, or the ``unique_together`` in a model's Meta, South will detect and change the constraints on the database accordingly (except on SQLite, where we don't yet have the code to edit UNIQUE constraints)."
+msgstr ""
+
+#: ../../autodetector.rst:82
+# 5abe1fc9ed164fb0a1f0a243daeb3ecf
+msgid "Multicolumn index changes"
+msgstr ""
+
+#: ../../autodetector.rst:84
+# 5f840cc97e1843dcaf8211fc3025618f
+msgid "Django 1.5 introduced ``index_together`` in a model's Meta, allowing you to specify multicolumn indexes. South will detect and change the indexes on the database accordingly."
+msgstr ""
+
