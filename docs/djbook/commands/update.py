@@ -25,7 +25,6 @@ class Command(GithubCommandMixin, BaseCommand):
         return parser
 
     def take_action(self, parsed_args):
-        import pdb; pdb.set_trace()
         repo = self.get_repo('RaD/django-south')
         tag = self.get_tag(repo, parsed_args.tag)
 
