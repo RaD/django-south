@@ -1,14 +1,14 @@
 # Russian translations for South package.
 # Copyright (C) 2010, Andrew Godwin
 # This file is distributed under the same license as the South package.
-# Automatically generated, 2013.
+# Automatically generated <>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: South 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-04 23:35\n"
-"PO-Revision-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-05 12:12+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 # def65d3a99964f3ea341b9a9552a391a
 #: ../../dependencies.rst:5
 msgid "Dependencies"
-msgstr ""
+msgstr "Зависимости"
 
 # b003f9cb5930468f9e18932d4b673b37
 #: ../../dependencies.rst:7
@@ -31,6 +31,10 @@ msgid ""
 "between apps and working out what order migrations would need to be applied "
 "in for each app is just painful."
 msgstr ""
+"Миграции для приложений хороши во всём, но когда вы начинаете работу над "
+"действительно большим проектом, который содержит множество приложений, то вы "
+"начинаете создавать связи между этими приложениями и управление порядком "
+"применения миграций для каждого приложения становится важной задачей."
 
 # 07cb0436c7be444f8d47d748e0c76817
 #: ../../dependencies.rst:12
@@ -40,6 +44,11 @@ msgid ""
 "run a certain migration first; for example, if my app \"forum\" depends on "
 "the \"accounts\" app having created its user profile table, we can do::"
 msgstr ""
+"К счастью у нас тоже есть такие задачи, поэтому South обладает системой "
+"разрешения зависимостей. В миграции вы можете указать, что она требует "
+"применения определённой миграции из другого приложения. Например, если моё "
+"приложение \"forum\" зависит от таблицы профиля, которую создаёт приложение "
+"\"accounts\", то мы можем сделать следующее::"
 
 # 74b56c760afb48b28e2ae4a7140b13a9
 #: ../../dependencies.rst:27
@@ -48,6 +57,9 @@ msgid ""
 "will first make sure accounts is migrated at least up to "
 "0003_add_user_profile, and if not will migrate it for you."
 msgstr ""
+"Затем, если вы попытаетесь применить миграцию 0002_post из приложения "
+"форума, South обеспечит выполнение миграций приложения \"accounts\" как "
+"минимум до 0003_add_user_profile, а затем накатит указанную миграцию."
 
 # 3e928bea41f5485fb10381c45bc59c74
 #: ../../dependencies.rst:31
@@ -55,6 +67,8 @@ msgid ""
 "Dependencies also work in reverse; South knows not to undo that "
 "0003_add_user_profile migration until it has undone the 0002_post migration."
 msgstr ""
+"Зависимости также работают и в обратную сторону. South запрещает откатывать "
+"миграцию 0003_add_user_profile, пока не будет откачена миграция 0002_post."
 
 # 46510f7bd2934d578100541b1d9f6e80
 #: ../../dependencies.rst:34
@@ -62,12 +76,16 @@ msgid ""
 "You can have multiple dependencies, and all sorts of wacky structures; there "
 "are, however, two rules:"
 msgstr ""
+"Вы можете указывать несколько зависимостей, какие только придут в голову, но "
+"следует помнить два правила:"
 
 # c67351a80b2f401c9fcb916ae64293d4
 #: ../../dependencies.rst:37
 msgid ""
 "No circular dependencies (two or more migrations depending on each other)"
 msgstr ""
+"Никаких циклических зависимостей. Это когда две или более миграции зависят "
+"друг от друга."
 
 # 2c3999c7f28a4d3988e47cc56cc1cad0
 #: ../../dependencies.rst:38
@@ -76,11 +94,14 @@ msgid ""
 "forum app depend on 0003_room in the same app, either directly or through a "
 "dependency chain."
 msgstr ""
+"Никаких зависимостей от будущего. То есть нельзя миграцию 0002_post для "
+"приложения форума сделать зависимой от миграции 0000_room того же "
+"приложения, неважно, напрямую или через цепочку миграций."
 
 # be29c0062cdc478b9ed3594b7c38784b
 #: ../../dependencies.rst:41
 msgid "Reverse Dependencies"
-msgstr ""
+msgstr "Обратные зависимости"
 
 # 7b80bb5bc0db4bf0adf33e13ed44e3fd
 #: ../../dependencies.rst:43
@@ -90,8 +111,12 @@ msgid ""
 "useful if you're trying to run a migration before another in a separate, "
 "third-party (or unchangeable) code."
 msgstr ""
+"South также поддерживает \"обратные зависимости\". Это такой тип "
+"зависимостей, когда вы указываете, что миграция должны быть запущена перед "
+"другой, а не наоборот. Это полезно в случае, когда вы пытаетесь запустить "
+"свою миграцию перед другой, определённой во внешнем (или неизменяемом) коде."
 
 # 95b436683f7f4631be2f01559ebcf8e8
 #: ../../dependencies.rst:48
 msgid "Declaring these is just like the other kind, except you use needed_by::"
-msgstr ""
+msgstr "Синтаксис похож на предыдущий, просто вы используете needed_by::"
