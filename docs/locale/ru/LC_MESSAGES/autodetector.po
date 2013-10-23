@@ -1,14 +1,14 @@
 # Russian translations for South package.
 # Copyright (C) 2010, Andrew Godwin
 # This file is distributed under the same license as the South package.
-# Automatically generated, 2013.
+# Automatically generated <>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: South 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-04 23:35\n"
-"PO-Revision-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-24 02:14+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 # 36d644f3ca4143a888dfd38fb0a224d1
 #: ../../autodetector.rst:5
 msgid "The Autodetector"
-msgstr ""
+msgstr "Автоопределение"
 
 # 8f0d07fb1b4748da818e0472b66e79e5
 #: ../../autodetector.rst:7
@@ -29,6 +29,8 @@ msgid ""
 "The autodetector is the part of South you'll probably be using the most, as "
 "well as being the feature that people seem to like the most."
 msgstr ""
+"Модуль автоопределения является частью South, которую вы возможно "
+"используете чаще всего и которую пользователи особенно обожают."
 
 # 9e7f8139265b443c941ebe86ebf10671
 #: ../../autodetector.rst:10
@@ -36,6 +38,8 @@ msgid ""
 "The general use of the autodetector is covered in :ref:`tutorial-part-1`; "
 "this is more of a reference of what it's capable of."
 msgstr ""
+"Стандартное использование модуля автоопределения описано в :ref:`tutorial-"
+"part-1`. Здесь мы рассмотрим его возможности подробнее."
 
 # f2657abab79d48909337ba0298ba4b25
 #: ../../autodetector.rst:13
@@ -44,16 +48,20 @@ msgid ""
 "frozen in your most recent migration on the app, and if it finds any "
 "changes, yields one or more Actions to the South migration-file-writer."
 msgstr ""
+"При запуске модуля автоопределения он сравнивает ваши текущие модели с "
+"замороженным состоянием базы данных из последней миграции в приложении. Если "
+"модуль находит какое-либо различие между ними, он генерирует одно или "
+"несколько действий для модуля записи миграции."
 
 # be5d2c08b1054aa9b7c9c3e76a7cca7f
 #: ../../autodetector.rst:20
 msgid "Supported Actions"
-msgstr ""
+msgstr "Поддерживаемые действия"
 
 # 92ffde4e93e8420ea0265b7b30200034
 #: ../../autodetector.rst:23
 msgid "Model creation and deletion"
-msgstr ""
+msgstr "Создание и удаление модели"
 
 # 265f254752734c48a32aef1903af1f1c
 #: ../../autodetector.rst:25
@@ -62,6 +70,8 @@ msgid ""
 "oldest and most well-worn feature of the autodetector, and so has very few "
 "caveats."
 msgstr ""
+"South успешно определяет создание и удаление моделей. Это старейший "
+"функционал модуля автоопределения и у него мало недостатков."
 
 # a66b2a263e7e44529e8e744b1d233fc1
 #: ../../autodetector.rst:29
@@ -71,6 +81,11 @@ msgid ""
 "the table, not at the end of the migration, so your hook might well get "
 "called when the model doesn't have its full table."
 msgstr ""
+"Следует отметить, что хотя South вызывает обработчик post_syncdb для ваших "
+"моделей (аналогично тому, как это делает ``syncdb``), обработчик вызывается "
+"при самом создании таблицы, а не в конце миграции. Таким образом, ваш "
+"обработчик может быть вызван в момент, когда для модели ещё не создана и не "
+"заполнена соответствующая таблица."
 
 # 3e7d1c612063495d954fa8864976737a
 #: ../../autodetector.rst:34
@@ -78,11 +93,13 @@ msgid ""
 "Consider moving your hook code into its own data migration, or use one of "
 "our own :ref:`signals`."
 msgstr ""
+"Рассмотрите возможность переноса кода вашего обработчика в соответствующую "
+"миграцию данныз или воспользуйтесь одним из :ref:`signals`."
 
 # afe95f4c1820417b87cd611f639c52f7
 #: ../../autodetector.rst:39
 msgid "Field addition and removal"
-msgstr ""
+msgstr "Добавление и удаление поля"
 
 # a2f813420a734338865e573394bd0d75
 #: ../../autodetector.rst:41
@@ -90,6 +107,8 @@ msgid ""
 "South detects addition and removal of fields fine, and should correctly "
 "create indexes and constraints for new fields."
 msgstr ""
+"South отлично распознаёт добавление и удаление полей и должен корректно "
+"создавать индексы и ограничения целостности для новых полей."
 
 # d27674a46e004354ad74f52b17718e11
 #: ../../autodetector.rst:44
@@ -98,11 +117,14 @@ msgid ""
 "there's more explanation on this in the :ref:`tutorial-part-2-defaults` part "
 "of the tutorial."
 msgstr ""
+"Следует отметить, что при создании или удалении поля вам потребуется указать "
+"значение по-умолчанию. Более подробно этот момент описан в разделе :ref:"
+"`tutorial-part-2-defaults` учебника."
 
 # 5f0500541d4f4c4b9914f3a34b85fa6d
 #: ../../autodetector.rst:50
 msgid "Field changes"
-msgstr ""
+msgstr "Изменения поля"
 
 # e83f6eb605da4dce80300810b565445c
 #: ../../autodetector.rst:52
@@ -110,6 +132,8 @@ msgid ""
 "South will detect if you change a field, and should correctly change the "
 "field type, with one exception:"
 msgstr ""
+"South распознаёт изменение поля и должен корректно изменять его тип, но с "
+"одним исключением:"
 
 # 62500cf107614116be19352370fb7a64
 #: ../../autodetector.rst:55
@@ -118,11 +142,15 @@ msgid ""
 "``PositiveIntegerField``) the constraint won't be added to the column (it is "
 "removed if you alter away, however). This will be fixed in a future release."
 msgstr ""
+"Если вы изменяете поле с ограничением целостности CHECK (например, "
+"``PositiveIntegerField``), то соответствующее ограничение целостности не "
+"будет добавлено на поле (но оно удалится в обратном случае). Это поведение "
+"планируется исправить в следующем релизе."
 
 # 7377254f7e6d4968a14790ee760b0477
 #: ../../autodetector.rst:61
 msgid "ManyToMany addition and removal"
-msgstr ""
+msgstr "Добавление и удаление связи многие-ко-многим"
 
 # 7fa9291a8c5d41ab8b817a60bd9e17c2
 #: ../../autodetector.rst:63
@@ -131,6 +159,9 @@ msgid ""
 "field, South will create the table the ManyToMany represents, and when you "
 "remove the field, the table will be deleted."
 msgstr ""
+"Поля многие-ко-многим определяются при добавлении и удалении. При добавлении "
+"такого поля South создаёт соответствующую таблицу для связей, а при удалении "
+"поля эта таблица удаляется."
 
 # 8ed91d43a128465a92bfc3e635d35346
 #: ../../autodetector.rst:67
@@ -140,11 +171,14 @@ msgid ""
 "created when the model is detected, South does nothing with these types of "
 "ManyToMany fields."
 msgstr ""
+"Есть одно исключение -- если поле имеет атрибут ``through``, то есть таблица "
+"для модели была создана ранее, то South не трогает эту таблицу при "
+"добавлении и удалении соответствующего поля."
 
 # cbcd67319dc24440ae654574253b6217
 #: ../../autodetector.rst:73
 msgid "Unique changes"
-msgstr ""
+msgstr "Изменения уникальности"
 
 # 4c6cd50df966440f80ad25877fb106c6
 #: ../../autodetector.rst:75
@@ -154,11 +188,15 @@ msgid ""
 "constraints on the database accordingly (except on SQLite, where we don't "
 "yet have the code to edit UNIQUE constraints)."
 msgstr ""
+"Если вы изменили атрибут ``unique`` поля или атрибут ``unique_toghether`` "
+"класса Meta, South распознает это и изменит ограничения целостности в базе "
+"данных соответственно (в случае SQLite такого не произойдёт, так как "
+"соответствующий код ещё не написан)."
 
 # 5abe1fc9ed164fb0a1f0a243daeb3ecf
 #: ../../autodetector.rst:82
 msgid "Multicolumn index changes"
-msgstr ""
+msgstr "Изменения индекса из нескольких полей"
 
 # 5f840cc97e1843dcaf8211fc3025618f
 #: ../../autodetector.rst:84
@@ -167,3 +205,6 @@ msgid ""
 "specify multicolumn indexes. South will detect and change the indexes on the "
 "database accordingly."
 msgstr ""
+"Django 1.5 поддерживает атрибут ``index_together`` класса Meta в моделях, "
+"позволяя вам определять индекс из нескольких полей. South распознаёт такой "
+"индекс и выполняет в базе данных соответствующие изменения."
