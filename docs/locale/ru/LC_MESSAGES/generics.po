@@ -1,14 +1,14 @@
 # Russian translations for South package.
 # Copyright (C) 2010, Andrew Godwin
 # This file is distributed under the same license as the South package.
-# Automatically generated, 2013.
+# Automatically generated <>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: South 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-04 23:35\n"
-"PO-Revision-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-22 17:04+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 # 15932cff26ec4dd3824f0ce21ec69ac7
 #: ../../generics.rst:2
 msgid "Generic Relations"
-msgstr ""
+msgstr "Базовые связи"
 
 # 2166298958ad4f728367c61a1a25b4c5
 #: ../../generics.rst:4
@@ -31,6 +31,11 @@ msgid ""
 "it back onto a model, add the import for generic at the top of the migration "
 "and then in the body of forwards() put::"
 msgstr ""
+"Поля базовых связей будут заморожены, но, к сожалению, это не относится к "
+"GenericForeignKey (обратитесь к :ref:`orm-freezing`, чтобы узнать, почему "
+"так происходит). Чтобы добавить их обратно в модель, пропишите "
+"соответствующий импорт в начало миграции и затем в тело метода forwards() "
+"поместите::"
 
 # ada62d86cbb94385937af62ee0fe6aa5
 #: ../../generics.rst:12
@@ -39,6 +44,9 @@ msgid ""
 "can pass the optional content_type and id field names into the constructor "
 "as usual."
 msgstr ""
+"Этот код добавит GenericForeignKey в модель в виде model.object_link. Вы "
+"можете передать в конструктор необязательные имена для полей content_type и "
+"id."
 
 # 012f652595334ef2bdc9c68fe59c8c73
 #: ../../generics.rst:16
@@ -47,3 +55,7 @@ msgid ""
 "['contenttypes.ContentType'], and don't import it directly, otherwise "
 "comparisons may fail."
 msgstr ""
+"Также, будьте аккуратны при использовании ContentType. Следует "
+"удостовериться, что используете orm['contenttypes.ContentType'], а не "
+"импортируете модели напрямую. В противном случае, сравнения могут работать "
+"неверно."
