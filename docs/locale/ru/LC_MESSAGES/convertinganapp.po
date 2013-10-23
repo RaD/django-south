@@ -1,14 +1,14 @@
 # Russian translations for South package.
 # Copyright (C) 2010, Andrew Godwin
 # This file is distributed under the same license as the South package.
-# Automatically generated, 2013.
+# Automatically generated <>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: South 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-04 23:35\n"
-"PO-Revision-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-23 00:25+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
@@ -21,12 +21,12 @@ msgstr ""
 # ec80ab3f705e470ca9c4d9f2c4d6ac1b
 #: ../../convertinganapp.rst:5
 msgid "Converting An App"
-msgstr ""
+msgstr "Адаптация приложения"
 
 # 7d0c9c9f4d8d40cc9fecf361e2b51619
 #: ../../convertinganapp.rst:7
 msgid "Converting an app to use South is very easy:"
-msgstr ""
+msgstr "Адаптировать приложение для  использования South несложно:"
 
 # 1aaf11b1f2354319b67b13299652e34b
 #: ../../convertinganapp.rst:9
@@ -34,6 +34,8 @@ msgid ""
 "Edit your settings.py and put 'south' into `INSTALLED_APPS` (assuming you've "
 "installed it to the right place)"
 msgstr ""
+"Отредактируйте ваш settings.py и укажите `south` в `INSTALLED_APPS` (мы "
+"предполагаем, что вы установили south туда, куда нужно)"
 
 # 622b4929a71248e482555853054907e5
 #: ../../convertinganapp.rst:12
@@ -41,6 +43,9 @@ msgid ""
 "Run ``./manage.py syncdb`` to load the South table into the database. Note "
 "that syncdb looks different now - South modifies it."
 msgstr ""
+"Запустите ``./manage.py syncdb`` для того, чтобы загрузить таблицу South в "
+"базу данных. Обратите внимание, что теперь syncdb не такой как раньше - "
+"South его изменил."
 
 # 045413480d524468b3c67bafec1cd886
 #: ../../convertinganapp.rst:15
@@ -48,6 +53,8 @@ msgid ""
 "Run ``./manage.py convert_to_south myapp`` - South will automatically make "
 "and pretend to apply your first migration."
 msgstr ""
+"Запустите ``./manage.py convert_to_south myapp`` - South автоматически "
+"подготовит и выполнит первую миграцию."
 
 # 07d7557f6bb544419931d5219c1b2820
 #: ../../convertinganapp.rst:18
@@ -56,11 +63,15 @@ msgid ""
 "changes by comparing against the frozen state of the last migration, so it "
 "cannot detect changes from before you converted to using South."
 msgstr ""
+"Следует отметить, что Вы должны адаптировать приложение до того, как вы "
+"сделаете изменения; South обнаруживает изменения по сравнению с замороженным "
+"состоянием последней миграции, так что он не сможет обнаружить изменения, "
+"сделанные до адаптирования к South."
 
 # 7a61750edce64b628c44bb228347c9c1
 #: ../../convertinganapp.rst:23
 msgid "Converting other installations and servers"
-msgstr ""
+msgstr "Адаптирование других установок и серверов"
 
 # 3330db71867646b9a7b7e6aa0df6fa56
 #: ../../convertinganapp.rst:25
@@ -71,6 +82,11 @@ msgid ""
 "machine that has a copy of the codebase (make sure they were up-to-date with "
 "models and schema first)."
 msgstr ""
+"Команда convert_to_south работает целиком на первой машине, на которой Вы "
+"его запустите. После того, как вы подтвердите начальную миграцию, которую он "
+"сделал, в системе управления версиями, вы должны запустить ``./manage.py "
+"migrate myapp 0001 --fake`` на всех машинах, которые содержат копию кода "
+"(сначала убедитесь, что они имеют обновлённый код и схему)."
 
 # 0e2f78cf040846bd95d7111c3d9a0126
 #: ../../convertinganapp.rst:31
@@ -80,6 +96,10 @@ msgid ""
 "you tell South that it's already applied using --fake, so the next "
 "migrations apply correctly.)"
 msgstr ""
+"(Для тех, кому интересно, это нужно поскольку начальная миграция, которую "
+"делает convert_to_south, проверит и создаст все существующие таблицы; вместо "
+"этого вы с помощью --fake указываете South, что это уже сделано, так что "
+"следующие миграции будут применены корректно)."
 
 # c2419133a4544c549a2da844404c6f40
 #: ../../convertinganapp.rst:36
@@ -87,3 +107,5 @@ msgid ""
 "Remember that new installations of the codebase after this don't need these "
 "steps; you need only do a syncdb then a normal migrate."
 msgstr ""
+"Помните, что новые установки кода после этого не потребуют этих шагов, Вам "
+"нужно будет лишь сделать syncdb а, затем, провести нормальную миграцию."
