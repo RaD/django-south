@@ -1,14 +1,14 @@
 # Russian translations for South package.
 # Copyright (C) 2010, Andrew Godwin
 # This file is distributed under the same license as the South package.
-# Automatically generated, 2013.
+# Automatically generated <>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: South 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-04 23:35\n"
-"PO-Revision-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-24 01:56+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 # 9adb25d820164911a842f482817370bd
 #: ../../about.rst:4
 msgid "About South"
-msgstr ""
+msgstr "О South"
 
 # 8c767759dc264f7f9944837967595329
 #: ../../about.rst:6
@@ -30,6 +30,10 @@ msgid ""
 "provide a simple, stable and database-independent migration layer to prevent "
 "all the hassle schema changes over time bring to your Django applications."
 msgstr ""
+"South добавляет миграции в приложения Django. Его главная цель заключается в "
+"предоставление миграций (простых, стабильных и независящих от типа "
+"используемой базы данных), которые упрощают задачи изменения схемы базы "
+"данных для ваших приложений."
 
 # 4e55a3c7a0134448a1094b87b3647ef8
 #: ../../about.rst:10
@@ -40,6 +44,11 @@ msgid ""
 "can easily write your own migrations by hand, or even use the database "
 "altering API directly."
 msgstr ""
+"Мы постарались сделать South простым в использовании и интуитивно понятным "
+"насколько это было возможно, автоматизировав большинство задач по изменению "
+"схемы базы данных. В тоже время мы предоставляет мощный набор инструментов "
+"для больших или сложных проектов. Вы спокойно можете писать свои миграции "
+"вручную или даже использовать API управления базой данных напрямую."
 
 # 62e334dcf4f04fa9adee787960537ed1
 #: ../../about.rst:15
@@ -48,16 +57,20 @@ msgid ""
 "altering world, it has slowly risen in popularity and is now widely regarded "
 "as the most popular schema migration tool for Django."
 msgstr ""
+"Несмотря на то, что South начал своё существование как относительно "
+"неизвестное приложение в мире инструментов управления схемой базы данных в "
+"Django, он постепенно стал популярным и в настоящее время является основным "
+"инструментом миграции схемы для Django."
 
 # a34c689694ff494dbe4f5833b3ce530b
 #: ../../about.rst:20
 msgid "Key features"
-msgstr ""
+msgstr "Ключевые особенности"
 
 # 731ddd12ef9c4b3eb4351fdd685f201d
 #: ../../about.rst:22
 msgid "South has a few key features:"
-msgstr ""
+msgstr "South обладает несколькими ключевыми особенностями:"
 
 # 49edad62dea24cb480497d3a88ac5102
 #: ../../about.rst:24
@@ -65,6 +78,8 @@ msgid ""
 "Automatic migration creation: South can see what's changed in your models.py "
 "file and automatically write migrations that match your changes."
 msgstr ""
+"Автоматическое создание миграций: South может найти изменения в вашем файле "
+"models.py и автоматически создать миграции для этих изменений."
 
 # 1982bbf230f14312a65f5a1301409d35
 #: ../../about.rst:26
@@ -72,6 +87,8 @@ msgid ""
 "Database independence: As far as possible, South is completely database-"
 "agnostic, supporting five different database backends."
 msgstr ""
+"Независимость от типа базы данных: Насколько это возможно, South отвязан от "
+"базы данных, поддерживая пять различных бэкэндов баз данных."
 
 # 1923e2532c8b446b8daed1404ee80d93
 #: ../../about.rst:28
@@ -80,6 +97,9 @@ msgid ""
 "you to use migrations for some of your apps and leave the rest to carry on "
 "using syncdb."
 msgstr ""
+"Поддержка приложений: South знает и соответствует концепции приложений "
+"Django, позволяя вам использовать миграции для некоторых ваших приложений, "
+"оставляя остальные заботы утилите syncdb."
 
 # 0f15b83d433143eeacc173fa811cdad2
 #: ../../about.rst:31
@@ -87,11 +107,13 @@ msgid ""
 "VCS-proof: South will notice if someone else commits migrations to the same "
 "app as you and they conflict."
 msgstr ""
+"Контроль версий: South уведомит о ситуации, если кто-то закоммитил миграции "
+"в то же приложение, что и вы, вызвав конфликт миграций."
 
 # 461d28267f5d4f1b91648cf66325279d
 #: ../../about.rst:35
 msgid "A brief history"
-msgstr ""
+msgstr "Историческая справка"
 
 # c6a68f2c875646c48fed1597e1e38fbd
 #: ../../about.rst:37
@@ -101,6 +123,10 @@ msgid ""
 "needed. It was open-sourced shortly thereafter, and quickly gained steam "
 "after the Schema Evolution panel at DjangoCon 2008."
 msgstr ""
+"South был разработан в `Torchbox <http://www.torchbox.com>`_ в 2008 году, во "
+"времена когда не существовало решений в этой сфере. Его исходний код вскоре "
+"стал открытым и быстро получил поддержку на стенде Schema Evolution на "
+"DjangoCon 2008."
 
 # 31ad92c873b943aa83cf5ff03f5f0af4
 #: ../../about.rst:42
@@ -111,3 +137,8 @@ msgid ""
 "Django itself, such an integration has not yet been made, mostly due to the "
 "relative immaturity of database migration solutions."
 msgstr ""
+"В 2009 году он стал самым популярным среди аналогичных инструментов и, "
+"кажется, с тех пор стал более продвинутым. Несмотря на участившиеся запросы "
+"о включении South или его аналога в код Django, эта интеграция не была "
+"осуществлена в основном из-за относительной незрелости решений в сфере "
+"миграции баз данных."
