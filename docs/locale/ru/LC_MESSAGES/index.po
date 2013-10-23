@@ -1,14 +1,14 @@
 # Russian translations for South package.
 # Copyright (C) 2010, Andrew Godwin
 # This file is distributed under the same license as the South package.
-# Automatically generated, 2013.
+# Automatically generated <>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: South 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-04 23:35\n"
-"PO-Revision-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-22 16:59+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 # 7410ff6b4e3b43bb88bb40273ba93de9
 #: ../../index.rst:5
 msgid "South documentation"
-msgstr ""
+msgstr "Документация по South"
 
 # 9c685c236942483cbc9f7d8e51f8db28
 #: ../../index.rst:7
@@ -29,11 +29,13 @@ msgid ""
 "South is a tool to provide consistent, easy-to-use and database-agnostic "
 "migrations for Django applications."
 msgstr ""
+"South является средством организации простых в использовании, целостных "
+"миграций баз данных для приложений Django."
 
 # eb340401381f4ea39fe95cde78c81498
 #: ../../index.rst:11
 msgid "Support"
-msgstr ""
+msgstr "Поддержка"
 
 # 66e15170f7cf42999872d4d35244cdeb
 #: ../../index.rst:13
@@ -43,8 +45,13 @@ msgid ""
 "south>`_ on `freenode <http://freenode.net/>`_. If you find a real bug, then "
 "`file a new ticket <http://south.aeracode.org/newticket>`_."
 msgstr ""
+"Для первой помощи с проблемами используйте наш `список рассылки <http://"
+"groups.google.com/group/south-users>`_ или канал `#django-south <irc://irc."
+"freenode.net/django-south>`_ на сервере `freenode <http://freenode.net/>`_. "
+"Если вы обнаружите настоящую ошибку, то `создайте сообщение об ошибке "
+"<http://south.aeracode.org/newticket>`_."
 
 # 93973d2338f44b35b9b6872d29f97ec3
 #: ../../index.rst:16
 msgid "Contents"
-msgstr ""
+msgstr "Содержимое"
