@@ -2,7 +2,7 @@
 # Copyright (C) 2010, Andrew Godwin
 # This file is distributed under the same license as the South package.
 # Automatically generated, 2013.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: South 0.8\n"
@@ -15,13 +15,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 # cb8e5724689b4f03a00c56773c691014
 #: ../../unittests.rst:2
 msgid "Unit Test Integration"
-msgstr ""
+msgstr "Интеграция с юнит тестами"
 
 # 558935a924234f8ea7cf7a1bd7751901
 #: ../../unittests.rst:4
@@ -30,6 +30,10 @@ msgid ""
 "non-interactive mode, which includes when you're running tests - it will run "
 "every migration every time you run your tests."
 msgstr ""
+"По-умолчанию, команда syncdb, дополненная South, будет также применять "
+"миграции, если она была вызвана в неинтерактивном режиме. Такое происходит "
+"при выполнении тестов и получается, что для каждого теста будут выполнятся "
+"все миграции."
 
 # c08258c33a374a1f81d4b33413cc1ce8
 #: ../../unittests.rst:8
@@ -38,11 +42,15 @@ msgid ""
 "if your migrations are taking way too long to apply - simply set "
 "``SOUTH_TESTS_MIGRATE = False`` in settings.py."
 msgstr ""
+"Если требуется, чтобы процесс тестирования использовал стандартную команду "
+"syncdb вместо версии с миграцией (например, из-за того, что ваши миграции "
+"выполняются значительное время), то просто определите ``SOUTH_TESTS_MIGRATE ="
+" False`` в конфигурации проекта."
 
 # 9f1fd29688ab4a598c07ea0a10c1f90d
 #: ../../unittests.rst:13
 msgid "South's own unit tests"
-msgstr ""
+msgstr "Юнити тесты South"
 
 # 34efe0a41d6843608a19f171c488b70c
 #: ../../unittests.rst:15
@@ -53,6 +61,11 @@ msgid ""
 "changes ``INSTALLED_APPS`` and fiddles with the ORM as it runs, among other "
 "things), and can cause compatability problems with other applications."
 msgstr ""
+"South поставляется с собственным набором юнит тестов, однако они не будут "
+"применяться при запуске ``./manage.py test``. Так происходит из-за того, что "
+"данный набор тестов должен выполнятся изолировано (среди прочего фреймворк "
+"тестирования постоянно изменяет параметр ``INSTALLED_APPS`` и играет с ORM), "
+"иначе могут быть проблемы совместимости с другими приложениями."
 
 # 0c1609e26dba475d8b9677a793d1bd91
 #: ../../unittests.rst:21
@@ -60,3 +73,5 @@ msgid ""
 "You can run South's test suite by setting ``SKIP_SOUTH_TESTS = False`` in "
 "settings.py, then running ``./manage.py test south``."
 msgstr ""
+"Вы можете запустить тесты South, установив параметр ``SKIP_SOUTH_TESTS = "
+"False`` в конфигурации проекта и затем выполнив ``./manage.py test south``."
