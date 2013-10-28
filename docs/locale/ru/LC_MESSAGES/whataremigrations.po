@@ -2,7 +2,7 @@
 # Copyright (C) 2010, Andrew Godwin
 # This file is distributed under the same license as the South package.
 # Automatically generated, 2013.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: South 0.8\n"
@@ -15,13 +15,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 # af429240801a42d7a38dc877b613465f
 #: ../../whataremigrations.rst:5
 msgid "What are migrations?"
-msgstr ""
+msgstr "Что такое миграции?"
 
 # 2dfd06ddc2e5433b866a0dd19fe86080
 #: ../../whataremigrations.rst:7
@@ -33,6 +33,11 @@ msgid ""
 "be it adding a new field to a model, or changing a database column to have "
 "null=True."
 msgstr ""
+"Миграции, также известные как «эволюции схемы» или «мутации», являются "
+"способом изменения схемы вашей базы данных от одной версии к другой. Сама "
+"Django может делать подобное только при добавлении новой модели, но "
+"практически всё проекты нуждаются в изменениях других параметров моделей, от "
+"изменения полей таблицы до разрешения null=True."
 
 # 6e2a26a80c084bb38790a8ed82893cf1
 #: ../../whataremigrations.rst:13
@@ -43,6 +48,12 @@ msgid ""
 "next, and by stringing these migrations together you can move forwards (or "
 "backwards) through the history of your database schema."
 msgstr ""
+"South, и другие решения, позволяет решить эту задачу, представляя "
+"инструменты для простого и предсказуемого изменения схемы вашей базы данных. "
+"Вы пишете миграции, которые указывают South какие именно изменения следует "
+"сделать для изменения схемы от одной версии к другой. Объединив эти "
+"миграции, вы можете перемещаться по истории изменений схемы вашей базы "
+"данных в обоих направлениях."
 
 # 0dbee62d49914150843c523a903153d5
 #: ../../whataremigrations.rst:19
@@ -54,6 +65,10 @@ msgid ""
 "already have an older version, you simply need to run through the ones that "
 "appeared since last time."
 msgstr ""
+"В South, миграции также обеспечивают первичное создание вашей базы данных. "
+"Первая миграция просто описывает переход от пустой схемы к заполненной. "
+"Таким образом, запуская всё миграции, вы приводите вашу базу данных в "
+"актуальное состояние."
 
 # 1ee313eb7a514857b63b80d3eda53a60
 #: ../../whataremigrations.rst:25
@@ -62,3 +77,6 @@ msgid ""
 "idea of how migrations work and how they're useful to you, with some solid "
 "examples."
 msgstr ""
+"Чтение :ref:`tutorial <tutorial-part-1>` представит вам понимание того, как "
+"работают миграции и чем они могут вам быть полезны, включая некоторое "
+"количество примеров."
