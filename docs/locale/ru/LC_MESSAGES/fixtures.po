@@ -2,7 +2,7 @@
 # Copyright (C) 2010, Andrew Godwin
 # This file is distributed under the same license as the South package.
 # Automatically generated, 2013.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: South 0.8\n"
@@ -15,23 +15,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 # 056f3ae6021247f9b2126ad42d84ebd2
 #: ../../fixtures.rst:2
 msgid "Fixtures"
-msgstr ""
+msgstr "Фикстуры"
 
 # c54a6d3441794746ba45f315a28f09fd
 #: ../../fixtures.rst:4
 msgid "A few things change when you're using fixtures with South."
 msgstr ""
+"Но всё немного меняется когда вы начинаете использовать фиксируя в South."
 
 # 99120b4f75c1475b9c3248e0c3f3ff30
 #: ../../fixtures.rst:7
 msgid "initial_data"
-msgstr ""
+msgstr "initial_data"
 
 # 800e2d3dbc9248f09020db5d3623d464
 #: ../../fixtures.rst:9
@@ -41,11 +42,15 @@ msgid ""
 "data in the fixture will not be available before then; South only applies it "
 "at the end, as it may not match the current database schema."
 msgstr ""
+"Аналогично syncdb, South загружает initial_data фикстуры после успешной "
+"миграции приложения. Следует отметить, данные в фиксирует доступны только в "
+"конце миграции, так как они могут не соответствовать текущей схеме базы "
+"данных."
 
 # cb655f02842b44619e082d97daa22c3e
 #: ../../fixtures.rst:15
 msgid "Fixtures from migrations"
-msgstr ""
+msgstr "Фиксируя из миграций"
 
 # 08065e86e6134c6fbdd8855d22a84a52
 #: ../../fixtures.rst:17
@@ -55,11 +60,15 @@ msgid ""
 "write a new migration to load the fixture in. That way, the fixture will "
 "always be loaded at the correct time."
 msgstr ""
+"Если вам требуется загрузить фикстуру как часть процесса настройки вашей "
+"базы данных, скажем, у вас есть миграция, которая зависит от этих данных, то "
+"лучше всего будет сделать миграцию для загрузки фикстуры. В этом случае, "
+"данные будут загружены в базу данных в нужный момент времени."
 
 # 8d849df42be74e0b90812a02e8e84390
 #: ../../fixtures.rst:22
 msgid "To make such a migration, first make a blank migration::"
-msgstr ""
+msgstr "Чтобы создать такую миграцию сначала сделайте пустую миграцию::"
 
 # 0c92939f0b4a44ebbae1951e49a1c310
 #: ../../fixtures.rst:26
@@ -67,6 +76,8 @@ msgid ""
 "Then, open the new migration file, and restructure your forwards() method so "
 "it looks like this::"
 msgstr ""
+"Затем, откройте файл созданной миграции и внесите в метод forwards() "
+"следующие изменения::"
 
 # fa2a16d5075c4bb7affde4e2bdfeba21
 #: ../../fixtures.rst:33
@@ -74,8 +85,11 @@ msgid ""
 "(you'll have to leave backwards() empty, as there's not much you can do to "
 "reverse this)."
 msgstr ""
+"(оставьте метод backwards () пустым, так как нечего здесь откатывать)."
 
 # b168d934e917462189006c6ffef9c1b4
 #: ../../fixtures.rst:36
 msgid "Then, when this migration is run, it will load the given fixture."
 msgstr ""
+"В итоге, когда миграция будет запущена, она выполнит загрузку указанной "
+"фикстуры."
