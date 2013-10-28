@@ -1,14 +1,14 @@
 # Russian translations for South package.
 # Copyright (C) 2010, Andrew Godwin
 # This file is distributed under the same license as the South package.
-# Automatically generated, 2013.
+# Automatically generated <>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: South 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-04 23:35\n"
-"PO-Revision-Date: 2013-10-04 23:35\n"
+"PO-Revision-Date: 2013-10-23 01:30+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
@@ -21,12 +21,12 @@ msgstr ""
 # 4864bf0c19464cb9a6551cbb481de479
 #: ../../customfields.rst:5
 msgid "Custom Fields"
-msgstr ""
+msgstr "Пользовательские поля"
 
 # f786bdc9aea142f7bbc5bd9a23780ac4
 #: ../../customfields.rst:8
 msgid "The Problem"
-msgstr ""
+msgstr "Задача"
 
 # 0f66a8437e8049fd9d12bb1099ad4f1a
 #: ../../customfields.rst:10
@@ -35,6 +35,9 @@ msgid ""
 "that need to be passed to the field's constructor, so it can recreate the "
 "field instance simply by calling the class with the stored arguments."
 msgstr ""
+"South сохраняет определения полей, записывая их класс и аргументы, которые "
+"следует передать в конструктор поля. Таким образом, он может воссоздать "
+"экземпляр поля простым вызовом класса, передав в него сохранённые аргументы."
 
 # 925ad07e8d1e48a3aa0e1bd2b1a62876
 #: ../../customfields.rst:14
@@ -45,6 +48,11 @@ msgid ""
 "arguments are stored into on the field, and using this knowledge, can "
 "reconstruct the arguments directly."
 msgstr ""
+"Однако, так как Python не предоставляет прямого метода для получения "
+"аргументов, используемых в конструкторе класса, South использует механизм "
+"*интроспекции модели* для получения этих аргументов. Механизм знает какие "
+"переменные были использованы в качестве аргументов для конкретного поля и, "
+"используя эту информацию, может воссоздать эти аргументы."
 
 # ecde2d71caa14c1a9d2db5a5371a6140
 #: ../../customfields.rst:20
@@ -56,6 +64,12 @@ msgid ""
 "South-aware, or which South ships with a rules module for, such as django-"
 "tagging)."
 msgstr ""
+"Но это не работает в случае пользовательских полей. South ничего не знает о "
+"них и не может предположить, какие переменные используются для каких "
+"аргументов или просто какие аргументы нужны. South знает только правила для "
+"стандартных поле Django и тех сторонних приложений, которые позаботились об "
+"этом или для которых у South есть соответствующие правила, например, для "
+"django-tagging."
 
 # ddc64e50cb834b8da91ae925d5f9d07c
 #: ../../customfields.rst:26
@@ -66,11 +80,17 @@ msgid ""
 "it inherits directly from a core field and doesn't override anything; "
 "there's no way for South to reliably tell that it does so."
 msgstr ""
+"'Пользовательские поля' в данном контексте ссылаются на любое поле, которое "
+"не определено в ядре Django. GeoDjango поля являются частью ядра, но поля "
+"сторонних приложений являются 'пользовательскими'. Следует отметить, что "
+"поле считается пользовательским, даже если оно было напрямую унаследовано от "
+"стандартного поля без всяких изменений, просто South не может точно "
+"определить, что делает поле."
 
 # 0447c37076b3441eb312820e58ab8799
 #: ../../customfields.rst:34
 msgid "The Solution"
-msgstr ""
+msgstr "Решение"
 
 # f6c3483e53af41fda5d5f864b162ed7a
 #: ../../customfields.rst:36
@@ -80,6 +100,10 @@ msgid ""
 "options) you'll probably want to :ref:`extend South's introspection rules "
 "<extending-introspection>`."
 msgstr ""
+"Существует два способа указать South на то, как можно работать с "
+"пользовательским полем. Если оно аналогично другим полям (в том, что оно "
+"имеет тип и несколько параметров), то возможно вы пожелаете :ref:`расширить "
+"правила интроспекции <extending-introspection>`."
 
 # 1d2ca0c124cc4eee89495674a467e5ec
 #: ../../customfields.rst:41
@@ -89,16 +113,21 @@ msgid ""
 "find it easier to :ref:`add a south_field_triple method <south-field-"
 "triple>`."
 msgstr ""
+"Однако, если оно particularly odd - т.е. поле принимает поля в качестве "
+"аргументов или динамически изменяется на основе других факторов -- возможно "
+"вам будет проще :ref:`добавить метод south_field_triple <south-field-"
+"triple>`."
 
 # fcf3067a3abb4b07949f811c9a980872
 #: ../../customfields.rst:49
 msgid "Extending Introspection"
-msgstr ""
+msgstr "Расширение интроспекции"
 
 # a944758d3afb4732a86e4ad966e32cfb
 #: ../../customfields.rst:51
 msgid "(Note: This is also featured in the tutorial in :ref:`tutorial-part-4`)"
 msgstr ""
+"(Обратите внимание: Это также описано в учебнике в :ref:`tutorial-part-4`)"
 
 # be9579ffe5d94b3bbf03cc767234b099
 #: ../../customfields.rst:53
@@ -107,6 +136,9 @@ msgid ""
 "rules; South works out what class a field is, and then runs all rules which "
 "have been defined for either that class or a parent class of it."
 msgstr ""
+"South выполняет большую часть интроспекции полей, используя набор простых "
+"правил. South выясняет класс поля и затем выполняет все правила, которые "
+"определены для этого класса или его предка."
 
 # 8fd98995e6b14864a6369ca7a0f2b950
 #: ../../customfields.rst:57
@@ -116,6 +148,10 @@ msgid ""
 "options (such as ``max_length``) are defined on the specific fields they "
 "apply to (in this case, ``CharField``)."
 msgstr ""
+"Таким образом, все базовые опции (такие как, ``null=``) определяются для "
+"класса ``Field`` (от которого унаследованы все остальные поля), в то время "
+"как специфичные опции (такие как ``max_length``) определяются для полей, "
+"которым они нужны (в данном случае речь идёт о поле ``CharField``)."
 
 # 706eabf9ffce41c7b6adaa35252a552f
 #: ../../customfields.rst:62
@@ -126,6 +162,11 @@ msgid ""
 "inherit all those from its parents. In this case, a call like this should "
 "work::"
 msgstr ""
+"Если ваше пользовательское поле унаследовано от базового поля Django или от "
+"другого поля, для которого существуют правила интроспекции, и поле не "
+"добавляет новых атрибутов, то возможно вам не потребуется добавлять правила "
+"для него, так как они будут унаследованы от предков. В этом случае, подобный "
+"вызов должен работать::"
 
 # f73eccb607524026906fb8cb0145664b
 #: ../../customfields.rst:70
@@ -135,6 +176,10 @@ msgid ""
 "without any new rules specified only have the options of their parents, "
 "which is wrong some of the time."
 msgstr ""
+"Следует отметить, что вы всегда должны определять поле как допустимое, даже "
+"если оно не определяет новых правил для себя. В противном случае South будет "
+"предполагать, что все поля без новых правил, обладают только опциями "
+"предков, что не всегда будет правдой."
 
 # c2b933c29fac40a5ae3b9a8583455b2e
 #: ../../customfields.rst:75
@@ -144,11 +189,15 @@ msgid ""
 "not adding any), and secondly, adding its field name to the list of patterns "
 "South knows are safe to introspect."
 msgstr ""
+"Следовательно, есть две стадии добавления поддержки для вашего "
+"пользовательского поля в South. Первая, добавить несколько правил для новых "
+"аргументов (или не добавлять). Вторая, добавить имя поля в список шаблонов, "
+"которые South может использовать для интроспекции."
 
 # d83ba4c53ae94aa2885349b4c4a683d4
 #: ../../customfields.rst:81
 msgid "Rules"
-msgstr ""
+msgstr "Правила"
 
 # a59aff00d0a346c2b754b6fc1efbc050
 #: ../../customfields.rst:83
@@ -157,6 +206,8 @@ msgid ""
 "pass South a (possibly empty) list of them. They consist of a tuple, "
 "containing:"
 msgstr ""
+"Правила определяют базовую логику интроспектора. Требуется передать их "
+"список (возможно пустой) в South. Они содержат кортеж, содержащий::"
 
 # 3c906ba9b3f749d789471a886c57cc1b
 #: ../../customfields.rst:86
@@ -164,6 +215,9 @@ msgid ""
 "A tuple or list of one or more classes to which the rules apply (remember, "
 "the rules apply to the specified classes and all subclasses of them)."
 msgstr ""
+"Кортеж или список из одного или нескольких классов, к которым должны "
+"применяться правила (помните, что правила применяются к указанным классам и "
+"ко всем их наследникам)."
 
 # 7a498d2effc345d7aae534e3142f6a3f
 #: ../../customfields.rst:89
